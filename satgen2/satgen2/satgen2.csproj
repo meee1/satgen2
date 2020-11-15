@@ -52,43 +52,43 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Almanacs\2020-11-13.xml">
+    <None Update="2020-11-13.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Almanacs\2020-318.alm">
+    <None Update="2020-318.alm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Almanacs\2020-319.alm">
+    <None Update="2020-319.alm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Almanacs\BDS_20140912.alm">
+    <None Update="BDS_20140912.alm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Almanacs\BDS_20140912_FakeAllSats.alm">
+    <None Update="BDS_20140912_FakeAllSats.alm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Almanacs\BDS_20150610.alm">
+    <None Update="BDS_20150610.alm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Almanacs\BDS_20170822.alm">
+    <None Update="BDS_20170822.alm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Almanacs\BDS_20190326.alm">
+    <None Update="BDS_20190326.alm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Almanacs\BDS_20201114.alm">
+    <None Update="BDS_20201114.alm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Almanacs\MCCJ_201112.agl">
+    <None Update="MCCJ_201112.agl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Almanacs\MCCJ_201114.agl">
+    <None Update="MCCJ_201114.agl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Almanacs\NAV_2020-03-01.alm">
+    <None Update="NAV_2020-03-01.alm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Almanacs\NAV_2020-306.alm">
+    <None Update="NAV_2020-306.alm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Geoids\egm84-15.pgm">

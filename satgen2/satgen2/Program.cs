@@ -268,17 +268,17 @@ public static string ToCodeName(SignalType signalType)
                 (config.SignalTypes, trajectory, interval, output,
                     readOnlyList, config.Mask, config.Attenuation).ToJSON());
 
-        var simulation = Simulation.Create(new SimulationParams(config.SignalTypes, trajectory, in interval, output,
+            var simulation = Simulation.Create(new SimulationParams(config.SignalTypes, trajectory, in interval, output,
                 readOnlyList, config.Mask, config.Attenuation));
 
             simulation.Start();
             var progress = 0.0;
-            simulation.ProgressChanged += (o, e) => { progress = e.Progress;};
+            simulation.ProgressChanged += (o, e) => { progress = e.Progress; };
 
             while (simulation.SimulationState != SimulationState.Finished)
             {
                 Thread.Sleep(1000);
-                Console.WriteLine("{0}  {1}  ",progress, simulation.SimulationState);
+                Console.WriteLine("{0}  {1}  ", progress, simulation.SimulationState);
             }
         }
 
@@ -644,7 +644,7 @@ public static string ToCodeName(SignalType signalType)
     {
         public static string ToJSON(this object msg)
         {
-            return JsonConvert.SerializeObject(msg);
+            return JsonConvert.SerializeObject(msg, Formatting.Indented);
         }
     }
 }
