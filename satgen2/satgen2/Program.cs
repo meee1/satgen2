@@ -266,7 +266,7 @@ public static string ToCodeName(SignalType signalType)
 
             Console.WriteLine(
                 (config.SignalTypes, trajectory, interval, output,
-                    readOnlyList, config.Mask, config.Attenuation).ToJSON());
+                    /*readOnlyList*/ 0, config.Mask, config.Attenuation).ToJSON());
 
             var simulation = Simulation.Create(new SimulationParams(config.SignalTypes, trajectory, in interval, output,
                 readOnlyList, config.Mask, config.Attenuation));
