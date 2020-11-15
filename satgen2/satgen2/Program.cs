@@ -272,7 +272,7 @@ public static string ToCodeName(SignalType signalType)
             while (simulation.SimulationState != SimulationState.Finished)
             {
                 Thread.Sleep(1000);
-                Console.WriteLine("{0}  ",progress);
+                Console.WriteLine("{0}  {1}  ",progress, simulation.SimulationState);
             }
         }
 
