@@ -181,6 +181,20 @@ public static string ToCodeName(SignalType signalType)
                     Thread.Sleep(5000);
                 }
             });
+
+            {
+				//Environment.NewLine
+
+                var original = typeof(System.Environment).GetMethod("get_NewLine",
+                    BindingFlags.Public | BindingFlags.Static);
+                Console.WriteLine(original);
+
+                var postfix =
+                    typeof(Program).GetMethod("newline", BindingFlags.Static | BindingFlags.NonPublic);
+                Console.WriteLine(postfix);
+
+                harmony.Patch(original, new HarmonyMethod(postfix));
+            }
             Thread.Sleep(1000);
             runoutside(args);
             return;
@@ -240,7 +254,9 @@ public static string ToCodeName(SignalType signalType)
 
             Console.WriteLine(config.ToJSON());
 
-			using (NmeaFile nmeaFile = new NmeaFile(config.NmeaFile))
+            //Environment.NewLine = "\r\n";
+
+            using (NmeaFile nmeaFile = new NmeaFile(config.NmeaFile))
 			{
 				  Console.WriteLine(nmeaFile.ToJSON());
 			}
@@ -353,6 +369,12 @@ public static string ToCodeName(SignalType signalType)
 
         private static void CheckFeature_post()
         {
+        }
+
+        private static bool newline(ref string __result)
+        {
+            __result = "\r\n";
+			return false;
         }
     }
 
