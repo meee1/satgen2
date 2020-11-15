@@ -237,6 +237,8 @@ public static string ToCodeName(SignalType signalType)
             string[] commandLineArgs = Environment.GetCommandLineArgs();
             ConfigFile config = ConfigFile.Read(commandLineArgs[1]);
 
+            Console.WriteLine(config.ToJSON());
+
             string text = config.OutputFile.ToLower();
             string a = Path.GetExtension(text)!.ToLowerInvariant();
             Quantization bitsPerSample = (Quantization) config.BitsPerSample;
