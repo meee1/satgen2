@@ -244,10 +244,17 @@ public static string ToCodeName(SignalType signalType)
             Quantization bitsPerSample = (Quantization) config.BitsPerSample;
             var output = new LabSat3wOutput(config.OutputFile, config.SignalTypes, bitsPerSample);
 
+			Console.WriteLine(output.ChannelPlan.ToJSON());
 
             GnssTime startTime = GnssTime.FromUtc(config.Date);
+
+			Console.WriteLine(startTime.ToJSON());
+
             Trajectory trajectory = new NmeaFileTrajectory(in startTime, config.NmeaFile, config.GravitationalModel);
             Range<GnssTime, GnssTimeSpan> interval = trajectory.Interval;
+
+			Console.WriteLine(interval.ToJSON());
+
             IReadOnlyList<ConstellationBase> readOnlyList = ConstellationBase.Create(config.SignalTypes);
             foreach (ConstellationBase item in readOnlyList)
             {
