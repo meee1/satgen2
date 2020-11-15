@@ -19,7 +19,8 @@
           "Racelogic.Gnss": "2.0.0.0",
           "Racelogic.Gnss.SatGen": "2.0.0.0",
           "Racelogic.Libraries.Nmea": "1.0.0.0",
-          "Racelogic.Utilities": "1.0.0.0"
+          "Racelogic.Utilities": "1.0.0.0",
+          "Racelogic.Utilities.Win": "1.0.0.0"
         },
         "runtime": {
           "satgen2.dll": {}
@@ -338,6 +339,14 @@
           }
         }
       },
+      "Racelogic.Utilities.Win/1.0.0.0": {
+        "runtime": {
+          "Racelogic.Utilities.Win.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.6.226"
+          }
+        }
+      },
       "Flitesys.GeographicLib/1.0.2.0": {
         "runtime": {
           "Flitesys.GeographicLib.dll": {
@@ -367,14 +376,6 @@
           "Racelogic.Gnss.LabSat.dll": {
             "assemblyVersion": "2.0.0.0",
             "fileVersion": "2.0.0.448"
-          }
-        }
-      },
-      "Racelogic.Utilities.Win/1.0.0.0": {
-        "runtime": {
-          "Racelogic.Utilities.Win.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.6.226"
           }
         }
       },
@@ -738,6 +739,11 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Racelogic.Utilities.Win/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Flitesys.GeographicLib/1.0.2.0": {
       "type": "reference",
       "serviceable": false,
@@ -754,11 +760,6 @@
       "sha512": ""
     },
     "Racelogic.Gnss.LabSat/2.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Racelogic.Utilities.Win/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

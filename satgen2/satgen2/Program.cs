@@ -7,6 +7,8 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -162,9 +164,9 @@ public static string ToCodeName(SignalType signalType)
         static void Main(string[] args)
         {
             var harmony = new Harmony("com.company.project.product");
-            Task.Run(() =>
+            //Task.Run(() =>
             {
-                while(true)
+                //while(true)
                 {
                     var original = typeof(Racelogic.Gnss.SatGen.Simulation).GetMethod("CheckFeature",
                         BindingFlags.NonPublic | BindingFlags.Static);
@@ -178,9 +180,9 @@ public static string ToCodeName(SignalType signalType)
 
                     harmony.Patch(original, new HarmonyMethod(prefix));
 
-                    Thread.Sleep(5000);
+                   // Thread.Sleep(5000);
                 }
-            });
+            }//);
 
             {
 				//Environment.NewLine
@@ -195,6 +197,59 @@ public static string ToCodeName(SignalType signalType)
 
                 harmony.Patch(original, new HarmonyMethod(postfix));
             }
+
+            {
+				//Racelogic.Utilities.WinFileIO
+				//public void OpenForWriting(string fileName)
+
+                var original = typeof(Racelogic.Utilities.WinFileIO).GetMethod("OpenForWriting",
+                    BindingFlags.Public | BindingFlags.Instance);
+                Console.WriteLine(original);
+
+                var prefix =
+                    typeof(Program).GetMethod("OpenForWriting", BindingFlags.Static | BindingFlags.NonPublic);
+                Console.WriteLine(prefix);
+
+                harmony.Patch(original, new HarmonyMethod(prefix));
+            }
+
+            {
+                //public bool Close()
+
+                var original = typeof(Racelogic.Utilities.WinFileIO).GetMethod("Close",
+                    BindingFlags.Public | BindingFlags.Instance);
+                Console.WriteLine(original);
+
+                var prefix =
+                    typeof(Program).GetMethod("Close", BindingFlags.Static | BindingFlags.NonPublic);
+                Console.WriteLine(prefix);
+
+                harmony.Patch(original, new HarmonyMethod(prefix));
+            }
+
+            {
+                //public int WriteBlocks(IntPtr bufferPointer, int numBytesToWrite)
+
+                var original = typeof(Racelogic.Utilities.WinFileIO).GetMethods().Where(a => a.Name == "WriteBlocks")
+                    .Last();
+                Console.WriteLine(original);
+
+                var prefix =
+                    typeof(Program).GetMethod("WriteBlocks", BindingFlags.Static | BindingFlags.NonPublic);
+                Console.WriteLine(prefix);
+
+                harmony.Patch(original, new HarmonyMethod(prefix));
+            }
+
+            Console.WriteLine();
+
+            var methods = harmony.GetPatchedMethods();
+            foreach (var method in methods)
+            {
+                //...
+                Console.WriteLine("Patched {0}", method.ToString());
+            }
+
             Thread.Sleep(1000);
             runoutside(args);
             return;
@@ -258,7 +313,7 @@ public static string ToCodeName(SignalType signalType)
 
             using (NmeaFile nmeaFile = new NmeaFile(config.NmeaFile))
 			{
-				  Console.WriteLine(nmeaFile.ToJSON());
+				  //Console.WriteLine(nmeaFile.ToJSON());
 			}
 
 
@@ -375,6 +430,31 @@ public static string ToCodeName(SignalType signalType)
         {
             __result = "\r\n";
 			return false;
+        }
+
+        private static bool WriteBlocks(ref int __result, IntPtr bufferPointer, int numBytesToWrite)
+        {
+            __result = numBytesToWrite;
+            byte[] buffer = new byte[numBytesToWrite];
+            Marshal.Copy(bufferPointer, buffer, 0, numBytesToWrite);
+            stream.Write(buffer, 0, numBytesToWrite);
+
+			return false;
+        }
+
+        private static string filename = "";
+        private static FileStream stream;
+
+        private static bool OpenForWriting(string fileName)
+        {
+            filename = fileName;
+            stream = new FileStream(fileName, FileMode.Create);
+			return false;
+        }
+
+        private static bool Close()
+        {
+            return false;
         }
     }
 

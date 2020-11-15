@@ -52,6 +52,9 @@
     <Reference Include="Racelogic.Utilities">
       <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Utilities.dll</HintPath>
     </Reference>
+    <Reference Include="Racelogic.Utilities.Win">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Utilities.Win.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
