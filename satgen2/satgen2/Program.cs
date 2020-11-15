@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using Aladdin.HASP;
 using HarmonyLib;
 using Newtonsoft.Json;
 using Racelogic.DataTypes;
@@ -163,99 +164,6 @@ public static string ToCodeName(SignalType signalType)
         [STAThread]
         static void Main(string[] args)
         {
-            var harmony = new Harmony("com.company.project.product");
-
-            harmony.PatchAll();
-
-            //Task.Run(() =>
-
-            {
-                //while(true)
-                {
-                    var original = typeof(Racelogic.Gnss.SatGen.Simulation).GetMethod("CheckFeature",
-                        BindingFlags.NonPublic | BindingFlags.Static);
-                    Console.WriteLine(original);
-                    var prefix =
-                        typeof(Program).GetMethod("CheckFeature_pre", BindingFlags.Static | BindingFlags.NonPublic);
-                    Console.WriteLine(prefix);
-                    var postfix =
-                        typeof(Program).GetMethod("CheckFeature_post", BindingFlags.Static | BindingFlags.NonPublic);
-                    Console.WriteLine(postfix);
-
-                    harmony.Patch(original, new HarmonyMethod(prefix));
-
-                   // Thread.Sleep(5000);
-                }
-            }//);
-
-            {
-				//Environment.NewLine
-
-                var original = typeof(System.Environment).GetMethod("get_NewLine",
-                    BindingFlags.Public | BindingFlags.Static);
-                Console.WriteLine(original);
-
-                var postfix =
-                    typeof(Program).GetMethod("newline", BindingFlags.Static | BindingFlags.NonPublic);
-                Console.WriteLine(postfix);
-
-                harmony.Patch(original, new HarmonyMethod(postfix));
-            }
-
-            {
-				//Racelogic.Utilities.WinFileIO
-				//public void OpenForWriting(string fileName)
-
-                var original = typeof(Racelogic.Utilities.WinFileIO).GetMethod("OpenForWriting",
-                    BindingFlags.Public | BindingFlags.Instance);
-                Console.WriteLine(original);
-
-                var prefix =
-                    typeof(Program).GetMethod("OpenForWriting", BindingFlags.Static | BindingFlags.NonPublic);
-                Console.WriteLine(prefix);
-
-                harmony.Patch(original, new HarmonyMethod(prefix));
-            }
-
-            {
-                //public bool Close()
-
-                var original = typeof(Racelogic.Utilities.WinFileIO).GetMethod("Close",
-                    BindingFlags.Public | BindingFlags.Instance);
-                Console.WriteLine(original);
-
-                var prefix =
-                    typeof(Program).GetMethod("Close", BindingFlags.Static | BindingFlags.NonPublic);
-                Console.WriteLine(prefix);
-
-                harmony.Patch(original, new HarmonyMethod(prefix));
-            }
-
-            {
-                //public int WriteBlocks(IntPtr bufferPointer, int numBytesToWrite)
-
-                var original = typeof(Racelogic.Utilities.WinFileIO).GetMethods().Where(a => a.Name == "WriteBlocks")
-                    .Last();
-                Console.WriteLine(original);
-
-                var prefix =
-                    typeof(Program).GetMethod("WriteBlocks", BindingFlags.Static | BindingFlags.NonPublic);
-                Console.WriteLine(prefix);
-
-                harmony.Patch(original, new HarmonyMethod(prefix));
-            }
-
-            Console.WriteLine();
-
-            var methods = harmony.GetPatchedMethods();
-            foreach (var method in methods)
-            {
-                //...
-                Console.WriteLine("Patched {0}", method.ToString());
-            }
-
-            Thread.Sleep(1000);
-
             runoutside(args);
             return;
             /*
@@ -305,6 +213,101 @@ public static string ToCodeName(SignalType signalType)
             //app.MainWindow = new real.Racelogic.Gnss.SatGen.BlackBox.MainWindow();
             //app.Startup += App_Startup;
             //app.Run();
+        }
+
+        private static void DoPatch()
+        {
+			Harmony.DEBUG = true;
+            var harmony = new Harmony("com.company.project.product");
+
+
+
+            //Task.Run(() =>
+
+            {
+                //while(true)
+                {
+                    var original = typeof(Racelogic.Gnss.SatGen.Simulation).GetMethod("CheckFeature",
+                        BindingFlags.NonPublic | BindingFlags.Static);
+                    Console.WriteLine(original);
+                    var prefix =
+                        typeof(Program).GetMethod("CheckFeature_pre", BindingFlags.Static | BindingFlags.NonPublic);
+                    Console.WriteLine(prefix);
+                    var postfix =
+                        typeof(Program).GetMethod("CheckFeature_post", BindingFlags.Static | BindingFlags.NonPublic);
+                    Console.WriteLine(postfix);
+
+                    harmony.Patch(original, new HarmonyMethod(prefix));
+
+                    // Thread.Sleep(5000);
+                }
+            } //);
+
+            {
+                //Environment.NewLine
+
+                var original = typeof(System.Environment).GetMethod("get_NewLine",
+                    BindingFlags.Public | BindingFlags.Static);
+                Console.WriteLine(original);
+
+                var postfix =
+                    typeof(Program).GetMethod("newline", BindingFlags.Static | BindingFlags.NonPublic);
+                Console.WriteLine(postfix);
+
+                harmony.Patch(original, new HarmonyMethod(postfix));
+            }
+
+            {
+                //Racelogic.Utilities.WinFileIO
+                //public void OpenForWriting(string fileName)
+
+                var original = typeof(Racelogic.Utilities.WinFileIO).GetMethod("OpenForWriting",
+                    BindingFlags.Public | BindingFlags.Instance);
+                Console.WriteLine(original);
+
+                var prefix =
+                    typeof(Program).GetMethod("OpenForWriting", BindingFlags.Static | BindingFlags.NonPublic);
+                Console.WriteLine(prefix);
+
+                harmony.Patch(original, new HarmonyMethod(prefix));
+            }
+
+            {
+                //public bool Close()
+
+                var original = typeof(Racelogic.Utilities.WinFileIO).GetMethod("Close",
+                    BindingFlags.Public | BindingFlags.Instance);
+                Console.WriteLine(original);
+
+                var prefix =
+                    typeof(Program).GetMethod("Close", BindingFlags.Static | BindingFlags.NonPublic);
+                Console.WriteLine(prefix);
+
+                harmony.Patch(original, new HarmonyMethod(prefix));
+            }
+
+            {
+                //public int WriteBlocks(IntPtr bufferPointer, int numBytesToWrite)
+
+                var original = typeof(Racelogic.Utilities.WinFileIO).GetMethods().Where(a => a.Name == "WriteBlocks")
+                    .Last();
+                Console.WriteLine(original);
+
+                var prefix =
+                    typeof(Program).GetMethod("WriteBlocks", BindingFlags.Static | BindingFlags.NonPublic);
+                Console.WriteLine(prefix);
+
+                harmony.Patch(original, new HarmonyMethod(prefix));
+            }
+
+            Console.WriteLine();
+
+            var methods = harmony.GetPatchedMethods();
+            foreach (var method in methods)
+            {
+                //...
+                Console.WriteLine("Patched {0}", method.ToString());
+            }
         }
 
         public static void runoutside(string[] args)
@@ -362,6 +365,8 @@ public static string ToCodeName(SignalType signalType)
 
             var simulation = Simulation.Create(new SimulationParams(config.SignalTypes, trajectory, in interval, output,
                 readOnlyList, config.Mask, config.Attenuation));
+
+            DoPatch();
 
             simulation.Start();
             var progress = 0.0;
@@ -457,8 +462,9 @@ public static string ToCodeName(SignalType signalType)
 			return false;
         }
 
-        private static bool Close()
+        private static bool Close(ref bool __result)
         {
+            stream?.Close();
             return false;
         }
     }

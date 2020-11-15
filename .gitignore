@@ -8,3 +8,4 @@ outputfiles
 *.user
 /satgen2/satgen2/bin/Debug/netcoreapp3.1/satgen2.log
 /satgen2/satgen2/bin/Debug/netcoreapp3.1/*.LS3W
+/satgen2/satgen2/bin/Debug/netcoreapp3.1/output.ini
