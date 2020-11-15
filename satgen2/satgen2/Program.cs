@@ -164,7 +164,11 @@ public static string ToCodeName(SignalType signalType)
         static void Main(string[] args)
         {
             var harmony = new Harmony("com.company.project.product");
+
+            harmony.PatchAll();
+
             //Task.Run(() =>
+
             {
                 //while(true)
                 {
