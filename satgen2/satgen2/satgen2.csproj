@@ -2,7 +2,7 @@
 
   <PropertyGroup>
      <OutputType>Exe</OutputType>
-      <UseWPF>true</UseWPF>
+      <UseWPF>false</UseWPF>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>satgen2</RootNamespace>
     <AssemblyName>satgen2</AssemblyName>
@@ -40,10 +40,6 @@
     </Reference>
     <Reference Include="Racelogic.Gnss.SatGen">
       <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Gnss.SatGen.dll</HintPath>
-    </Reference>
-    <Reference Include="Racelogic.Gnss.SatGen.BlackBox">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Gnss.SatGen.BlackBox.dll</HintPath>
-      <Aliases>real</Aliases>
     </Reference>
     <Reference Include="Racelogic.Utilities">
       <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Utilities.dll</HintPath>
