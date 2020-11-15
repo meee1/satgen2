@@ -18,6 +18,7 @@
           "Racelogic.Geodetics": "1.0.0.0",
           "Racelogic.Gnss": "2.0.0.0",
           "Racelogic.Gnss.SatGen": "2.0.0.0",
+          "Racelogic.Libraries.Nmea": "1.0.0.0",
           "Racelogic.Utilities": "1.0.0.0"
         },
         "runtime": {
@@ -321,6 +322,14 @@
           }
         }
       },
+      "Racelogic.Libraries.Nmea/1.0.0.0": {
+        "runtime": {
+          "Racelogic.Libraries.Nmea.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.15.60"
+          }
+        }
+      },
       "Racelogic.Utilities/1.0.0.0": {
         "runtime": {
           "Racelogic.Utilities.dll": {
@@ -390,14 +399,6 @@
           "Racelogic.DataSource.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "2.0.26.613"
-          }
-        }
-      },
-      "Racelogic.Libraries.Nmea/1.0.0.0": {
-        "runtime": {
-          "Racelogic.Libraries.Nmea.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.15.60"
           }
         }
       },
@@ -727,6 +728,11 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Racelogic.Libraries.Nmea/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Racelogic.Utilities/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
@@ -768,11 +774,6 @@
       "sha512": ""
     },
     "Racelogic.DataSource/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Racelogic.Libraries.Nmea/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

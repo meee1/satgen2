@@ -46,6 +46,9 @@
     <Reference Include="Racelogic.Gnss.SatGen">
       <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Gnss.SatGen.dll</HintPath>
     </Reference>
+    <Reference Include="Racelogic.Libraries.Nmea">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Libraries.Nmea.dll</HintPath>
+    </Reference>
     <Reference Include="Racelogic.Utilities">
       <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Utilities.dll</HintPath>
     </Reference>

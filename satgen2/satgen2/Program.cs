@@ -17,6 +17,7 @@ using Racelogic.DataTypes;
 using Racelogic.Geodetics;
 using Racelogic.Gnss;
 using Racelogic.Gnss.SatGen;
+using Racelogic.Libraries.Nmea;
 using Racelogic.Utilities;
 
 
@@ -238,6 +239,12 @@ public static string ToCodeName(SignalType signalType)
             ConfigFile config = ConfigFile.Read(commandLineArgs[1]);
 
             Console.WriteLine(config.ToJSON());
+
+			using (NmeaFile nmeaFile = new NmeaFile(config.NmeaFile))
+			{
+				  Console.WriteLine(nmeaFile.ToJSON());
+			}
+
 
             string text = config.OutputFile.ToLower();
             string a = Path.GetExtension(text)!.ToLowerInvariant();
