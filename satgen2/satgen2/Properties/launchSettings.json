@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "satgen2": {
+      "commandName": "Project",
+      "commandLineArgs": "\"profile.txt\""
+    }
+  }
+}
