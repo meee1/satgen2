@@ -13,13 +13,12 @@
           "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.1",
           "hasp_net_windows": "5.11.1.23192",
+          "Newtonsoft.Json": "12.0.0.0",
           "Racelogic.DataTypes": "3.0.0.0",
           "Racelogic.Geodetics": "1.0.0.0",
           "Racelogic.Gnss": "2.0.0.0",
           "Racelogic.Gnss.SatGen": "2.0.0.0",
-          "Racelogic.Utilities": "1.0.0.0",
-          "Racelogic.WPF.Utilities": "1.0.0.0",
-          "SlimDX": "4.0.13.43"
+          "Racelogic.Utilities": "1.0.0.0"
         },
         "runtime": {
           "satgen2.dll": {}
@@ -282,6 +281,14 @@
           }
         }
       },
+      "Newtonsoft.Json/12.0.0.0": {
+        "runtime": {
+          "Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.1.22727"
+          }
+        }
+      },
       "Racelogic.DataTypes/3.0.0.0": {
         "runtime": {
           "Racelogic.DataTypes.dll": {
@@ -319,30 +326,6 @@
           "Racelogic.Utilities.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "2.0.7.490"
-          }
-        }
-      },
-      "Racelogic.WPF.Utilities/1.0.0.0": {
-        "runtime": {
-          "Racelogic.WPF.Utilities.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.3.24.799"
-          }
-        }
-      },
-      "SlimDX/4.0.13.43": {
-        "runtime": {
-          "SlimDX.dll": {
-            "assemblyVersion": "4.0.13.43",
-            "fileVersion": "0.0.0.0"
-          }
-        }
-      },
-      "Newtonsoft.Json/12.0.0.0": {
-        "runtime": {
-          "Newtonsoft.Json.dll": {
-            "assemblyVersion": "12.0.0.0",
-            "fileVersion": "12.0.1.22727"
           }
         }
       },
@@ -418,11 +401,19 @@
           }
         }
       },
-      "System.Windows.Interactivity/4.5.0.0": {
+      "SlimDX/4.0.13.43": {
         "runtime": {
-          "System.Windows.Interactivity.dll": {
-            "assemblyVersion": "4.5.0.0",
-            "fileVersion": "3.0.40218.0"
+          "SlimDX.dll": {
+            "assemblyVersion": "4.0.13.43",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "Racelogic.FileRoutines/1.0.0.0": {
+        "runtime": {
+          "Racelogic.FileRoutines.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "2.0.84.905"
           }
         }
       },
@@ -434,19 +425,11 @@
           }
         }
       },
-      "Infralution.Localization.Wpf/3.3.1.0": {
+      "Racelogic.WPF.Utilities/1.0.0.0": {
         "runtime": {
-          "Infralution.Localization.Wpf.dll": {
-            "assemblyVersion": "3.3.1.0",
-            "fileVersion": "3.3.1.0"
-          }
-        }
-      },
-      "Racelogic.FileRoutines/1.0.0.0": {
-        "runtime": {
-          "Racelogic.FileRoutines.dll": {
+          "Racelogic.WPF.Utilities.dll": {
             "assemblyVersion": "1.0.0.0",
-            "fileVersion": "2.0.84.905"
+            "fileVersion": "1.3.24.799"
           }
         }
       },
@@ -463,6 +446,22 @@
           "Racelogic.Compression.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "2.0.0.183"
+          }
+        }
+      },
+      "System.Windows.Interactivity/4.5.0.0": {
+        "runtime": {
+          "System.Windows.Interactivity.dll": {
+            "assemblyVersion": "4.5.0.0",
+            "fileVersion": "3.0.40218.0"
+          }
+        }
+      },
+      "Infralution.Localization.Wpf/3.3.1.0": {
+        "runtime": {
+          "Infralution.Localization.Wpf.dll": {
+            "assemblyVersion": "3.3.1.0",
+            "fileVersion": "3.3.1.0"
           }
         }
       }
@@ -703,6 +702,11 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Newtonsoft.Json/12.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Racelogic.DataTypes/3.0.0.0": {
       "type": "reference",
       "serviceable": false,
@@ -724,21 +728,6 @@
       "sha512": ""
     },
     "Racelogic.Utilities/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Racelogic.WPF.Utilities/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "SlimDX/4.0.13.43": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Newtonsoft.Json/12.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -788,7 +777,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "System.Windows.Interactivity/4.5.0.0": {
+    "SlimDX/4.0.13.43": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Racelogic.FileRoutines/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -798,12 +792,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Infralution.Localization.Wpf/3.3.1.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Racelogic.FileRoutines/1.0.0.0": {
+    "Racelogic.WPF.Utilities/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -814,6 +803,16 @@
       "sha512": ""
     },
     "Racelogic.Compression/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.Windows.Interactivity/4.5.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Infralution.Localization.Wpf/3.3.1.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

@@ -31,6 +31,9 @@
     <Reference Include="hasp_net_windows">
       <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\hasp_net_windows.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Racelogic.DataTypes">
       <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.DataTypes.dll</HintPath>
     </Reference>
@@ -45,12 +48,6 @@
     </Reference>
     <Reference Include="Racelogic.Utilities">
       <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Utilities.dll</HintPath>
-    </Reference>
-    <Reference Include="Racelogic.WPF.Utilities">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.WPF.Utilities.dll</HintPath>
-    </Reference>
-    <Reference Include="SlimDX">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\SlimDX.dll</HintPath>
     </Reference>
   </ItemGroup>
 

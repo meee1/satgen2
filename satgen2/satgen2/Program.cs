@@ -12,12 +12,12 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using HarmonyLib;
+using Newtonsoft.Json;
 using Racelogic.DataTypes;
 using Racelogic.Geodetics;
 using Racelogic.Gnss;
 using Racelogic.Gnss.SatGen;
 using Racelogic.Utilities;
-using Racelogic.WPF.Utilities;
 
 
 namespace satgen2
@@ -236,10 +236,10 @@ public static string ToCodeName(SignalType signalType)
         {
             string[] commandLineArgs = Environment.GetCommandLineArgs();
             ConfigFile config = ConfigFile.Read(commandLineArgs[1]);
-            
+
             string text = config.OutputFile.ToLower();
             string a = Path.GetExtension(text)!.ToLowerInvariant();
-            Quantization bitsPerSample = (Quantization)config.BitsPerSample;
+            Quantization bitsPerSample = (Quantization) config.BitsPerSample;
             var output = new LabSat3wOutput(config.OutputFile, config.SignalTypes, bitsPerSample);
 
 
@@ -252,17 +252,23 @@ public static string ToCodeName(SignalType signalType)
                 string almanacPath = GetAlmanacPath(item.ConstellationType, config);
                 if (!item.LoadAlmanac(almanacPath, in startTime))
                 {
-                    string text2 = "Invalid " + item.ConstellationType.ToLongName() + " almanac file \"" + Path.GetFileName(almanacPath) + "\"";
+                    string text2 = "Invalid " + item.ConstellationType.ToLongName() + " almanac file \"" +
+                                   Path.GetFileName(almanacPath) + "\"";
                     RLLogger.GetLogger().LogMessage(text2);
                     //MessageBox.Show(Application.Current.MainWindow, text2, "SatGen error", MessageBoxButton.OK, MessageBoxImage.Hand);
                     return;
                 }
+
                 AlmanacBase? almanac = item.Almanac;
                 GnssTime simulationTime = interval.Start;
                 almanac!.UpdateAlmanacForTime(in simulationTime);
             }
 
-            var simulation = Simulation.Create(new SimulationParams(config.SignalTypes, trajectory, in interval, output,
+            Console.WriteLine(
+                (config.SignalTypes, trajectory, interval, output,
+                    readOnlyList, config.Mask, config.Attenuation).ToJSON());
+
+        var simulation = Simulation.Create(new SimulationParams(config.SignalTypes, trajectory, in interval, output,
                 readOnlyList, config.Mask, config.Attenuation));
 
             simulation.Start();
@@ -633,4 +639,12 @@ public static string ToCodeName(SignalType signalType)
         }
     }
     */
+
+    public static class Extensions
+    {
+        public static string ToJSON(this object msg)
+        {
+            return JsonConvert.SerializeObject(msg);
+        }
+    }
 }
