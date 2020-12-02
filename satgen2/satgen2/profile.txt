@@ -1,5 +1,5 @@
 [Simulation Parameters]
-Signal = GPS_L1CA,GPS_L2C,GPS_L5
+Signal = GPS_L1CA,GPS_L2C,GAL_E1BC,GAL_E5A,GAL_E5B
 [Receiver Dynamics]
 Static=0
 Latitude_in_deg=0.0000
@@ -23,7 +23,7 @@ Almanac_File_NAV=NAV_2020-306.alm
 Mask_in_deg=10
 
 [Receiver Signal and Hardware Profile]
-Attenuation = -3
+Attenuation = 0
 IFFreq_in_Hz = 4092000
 SampleRate_in_KHz = 12000
 IQ_format=I

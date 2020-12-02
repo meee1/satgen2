@@ -347,6 +347,7 @@ public static string ToCodeName(SignalType signalType)
 
         public static void runoutside(string[] args)
         {
+            Console.WriteLine("blah.exe profile.txt");
             string[] commandLineArgs = Environment.GetCommandLineArgs();
             ConfigFile config = ConfigFile.Read(commandLineArgs[1]);
 
