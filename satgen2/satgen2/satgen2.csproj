@@ -35,6 +35,9 @@
     <Reference Include="hasp_net_windows">
       <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\hasp_net_windows.dll</HintPath>
     </Reference>
+    <Reference Include="libiio-sharp">
+      <HintPath>libiio\libiio-sharp.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -52,6 +55,9 @@
     </Reference>
     <Reference Include="Racelogic.Libraries.Nmea">
       <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Libraries.Nmea.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Maths">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Maths.dll</HintPath>
     </Reference>
     <Reference Include="Racelogic.Utilities">
       <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Utilities.dll</HintPath>

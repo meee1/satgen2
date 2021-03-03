@@ -16,12 +16,14 @@
           "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.1",
           "hasp_net_windows": "5.11.1.23192",
+          "libiio-sharp": "0.21.0.0",
           "Newtonsoft.Json": "12.0.0.0",
           "Racelogic.DataTypes": "3.0.0.0",
           "Racelogic.Geodetics": "1.0.0.0",
           "Racelogic.Gnss": "2.0.0.0",
           "Racelogic.Gnss.SatGen": "2.0.0.0",
           "Racelogic.Libraries.Nmea": "1.0.0.0",
+          "Racelogic.Maths": "1.0.0.0",
           "Racelogic.Utilities": "1.0.0.0",
           "Racelogic.Utilities.Win": "1.0.0.0"
         },
@@ -908,6 +910,14 @@
           }
         }
       },
+      "libiio-sharp/0.21.0.0": {
+        "runtime": {
+          "libiio-sharp.dll": {
+            "assemblyVersion": "0.21.0.0",
+            "fileVersion": "0.21.0.0"
+          }
+        }
+      },
       "Newtonsoft.Json/12.0.0.0": {
         "runtime": {
           "Newtonsoft.Json.dll": {
@@ -956,6 +966,14 @@
           }
         }
       },
+      "Racelogic.Maths/1.0.0.0": {
+        "runtime": {
+          "Racelogic.Maths.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "2.0.9.116"
+          }
+        }
+      },
       "Racelogic.Utilities/1.0.0.0": {
         "runtime": {
           "Racelogic.Utilities.dll": {
@@ -985,14 +1003,6 @@
           "MathNet.Numerics.dll": {
             "assemblyVersion": "4.7.0.0",
             "fileVersion": "4.7.0.0"
-          }
-        }
-      },
-      "Racelogic.Maths/1.0.0.0": {
-        "runtime": {
-          "Racelogic.Maths.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "2.0.9.116"
           }
         }
       },
@@ -1770,6 +1780,11 @@
       "serviceable": false,
       "sha512": ""
     },
+    "libiio-sharp/0.21.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Newtonsoft.Json/12.0.0.0": {
       "type": "reference",
       "serviceable": false,
@@ -1800,6 +1815,11 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Racelogic.Maths/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Racelogic.Utilities/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
@@ -1816,11 +1836,6 @@
       "sha512": ""
     },
     "MathNet.Numerics/4.7.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Racelogic.Maths/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
