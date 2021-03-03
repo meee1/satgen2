@@ -1,6 +1,7 @@
 ﻿using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Configuration;
 using System.Diagnostics;
 using System.IO;
@@ -15,6 +16,7 @@ using System.Windows;
 using System.Windows.Input;
 using Aladdin.HASP;
 using HarmonyLib;
+using iio;
 using Mono.Cecil;
 using Racelogic.DataTypes;
 using Racelogic.Geodetics;
@@ -168,6 +170,8 @@ namespace satgen2
         [STAThread]
         static void Main(string[] args)
         {
+            checkiio();
+
             runoutside(args);
             return;
             /*
@@ -217,6 +221,117 @@ namespace satgen2
             //app.MainWindow = new real.Racelogic.Gnss.SatGen.BlackBox.MainWindow();
             //app.Startup += App_Startup;
             //app.Run();
+        }
+
+        private static void checkiio()
+        {
+            Context ctx = new Context("ip:192.168.2.1");
+
+            Console.WriteLine("IIO context created: " + ctx.name);
+            Console.WriteLine("IIO context description: " + ctx.description);
+            Console.WriteLine("IIO context has " + ctx.devices.Count + " devices:");
+            foreach (Device dev in ctx.devices)
+            {
+                Console.WriteLine("\t" + dev.id + ": " + dev.name);
+                if (dev is Trigger)
+                {
+                    Console.WriteLine("Found trigger! Rate=" + ((Trigger)dev).get_rate());
+                }
+                Console.WriteLine("\t\t" + dev.channels.Count + " channels found:");
+                foreach (iio.Channel chn in dev.channels)
+                {
+                    string type = "input";
+                    if (chn.output)
+                    {
+                        type = "output";
+                    }
+                    Console.WriteLine("\t\t\t" + chn.id + ": " + chn.name + " (" + type + ")");
+                    if (chn.attrs.Count == 0)
+                    {
+                        continue;
+                    }
+                    Console.WriteLine("\t\t\t" + chn.attrs.Count + " channel-specific attributes found:");
+                    foreach (Attr attr in chn.attrs)
+                    {
+                        Console.WriteLine("\t\t\t\t" + attr.name);
+                        if (attr.name.CompareTo("frequency") == 0)
+                        {
+                            Console.WriteLine("Attribute content: " + attr.read());
+                        }
+                    }
+
+                }
+                /* If we find cf-ad9361-lpc, try to read a few bytes from the first channel */
+                if (dev.name.CompareTo("cf-ad9361-lpc") == 0)
+                {
+                    iio.Channel chn = dev.channels[0];
+                    chn.enable();
+                    IOBuffer buf = new IOBuffer(dev, 0x8000);
+                    buf.refill();
+
+                    Console.WriteLine("Read " + chn.read(buf).Length + " bytes from hardware");
+                    buf.Dispose();
+                }
+                if (dev.attrs.Count == 0)
+                {
+                    continue;
+                }
+                Console.WriteLine("\t\t" + dev.attrs.Count + " device-specific attributes found:");
+                foreach (Attr attr in dev.attrs)
+                {
+                    Console.WriteLine("\t\t\t" + attr.name);
+                }
+            }
+
+            var tx = ctx.find_device("cf-ad9361-dds-core-lpc");
+
+            tx.set_kernel_buffers_count(8);
+
+            var phydev = ctx.find_device("ad9361-phy");
+            var phy_chn = phydev.find_channel("voltage0", true);
+            phy_chn.find_attribute("rf_port_select").write("A");
+            phy_chn.find_attribute("rf_bandwidth").write(MHZ(3.0));
+            phy_chn.find_attribute("sampling_frequency").write(MHZ(2.6));
+            phy_chn.find_attribute("hardwaregain").write(-20);
+
+            phydev.find_channel("altvoltage0", true).find_attribute("powerdown").write(true);
+
+            phydev.find_channel("altvoltage1", true).find_attribute("frequency").write(GHZ(1.575420));
+
+            var tx0_i = tx.find_channel("voltage0", true);
+            var tx0_q = tx.find_channel("voltage1", true);
+
+            tx0_i.enable();
+            tx0_q.enable();
+
+            
+
+            // samples * iq * short
+            IOBuffer tx_buffer = new IOBuffer(tx, (uint) MHZ(2.6));
+
+            phydev.find_channel("altvoltage1", true).find_attribute("powerdown").write(false);
+
+            var inp = File.OpenRead(@"C:\Users\mich1\Desktop\Hex\gps-sdr-sim\gpssim.bin");
+
+            var buf2 = new byte[(uint)MHZ(2.6) * 2 * 2];
+            //tx_buffer.fill();
+            while (true)
+            {
+                inp.Read(buf2);
+                tx_buffer.fill(buf2);
+                tx_buffer.push();
+                Console.WriteLine(".");
+            }
+        }
+
+        private static long GHZ(double x)
+        {
+            return (long)(x * 1000000000.0 + .5);
+        }
+
+        private static long MHZ(double x)
+        {
+            return (long)(x * 1000000.0 + .5);
         }
 
         private static void DoPatch()

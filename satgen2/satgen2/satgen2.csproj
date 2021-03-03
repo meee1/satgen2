@@ -33,37 +33,37 @@
 
   <ItemGroup>
     <Reference Include="hasp_net_windows">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\hasp_net_windows.dll</HintPath>
+      <HintPath>C:\Users\mich1\Desktop\Hex\satgen2\satgen2\satgen2\bin\Debug\netcoreapp3.1\hasp_net_windows.dll</HintPath>
     </Reference>
     <Reference Include="libiio-sharp">
       <HintPath>libiio\libiio-sharp.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Newtonsoft.Json.dll</HintPath>
+      <HintPath>C:\Users\mich1\Desktop\Hex\satgen2\satgen2\satgen2\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Racelogic.DataTypes">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.DataTypes.dll</HintPath>
+      <HintPath>C:\Users\mich1\Desktop\Hex\satgen2\satgen2\satgen2\bin\Debug\netcoreapp3.1\Racelogic.DataTypes.dll</HintPath>
     </Reference>
     <Reference Include="Racelogic.Geodetics">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Geodetics.dll</HintPath>
+      <HintPath>C:\Users\mich1\Desktop\Hex\satgen2\satgen2\satgen2\bin\Debug\netcoreapp3.1\Racelogic.Geodetics.dll</HintPath>
     </Reference>
     <Reference Include="Racelogic.Gnss">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Gnss.dll</HintPath>
+      <HintPath>C:\Users\mich1\Desktop\Hex\satgen2\satgen2\satgen2\bin\Debug\netcoreapp3.1\Racelogic.Gnss.dll</HintPath>
     </Reference>
     <Reference Include="Racelogic.Gnss.SatGen">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Gnss.SatGen.dll</HintPath>
+      <HintPath>C:\Users\mich1\Desktop\Hex\satgen2\satgen2\satgen2\bin\Debug\netcoreapp3.1\Racelogic.Gnss.SatGen.dll</HintPath>
     </Reference>
     <Reference Include="Racelogic.Libraries.Nmea">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Libraries.Nmea.dll</HintPath>
+      <HintPath>C:\Users\mich1\Desktop\Hex\satgen2\satgen2\satgen2\bin\Debug\netcoreapp3.1\Racelogic.Libraries.Nmea.dll</HintPath>
     </Reference>
     <Reference Include="Racelogic.Maths">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Maths.dll</HintPath>
+      <HintPath>C:\Users\mich1\Desktop\Hex\satgen2\satgen2\satgen2\bin\Debug\netcoreapp3.1\Racelogic.Maths.dll</HintPath>
     </Reference>
     <Reference Include="Racelogic.Utilities">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Utilities.dll</HintPath>
+      <HintPath>C:\Users\mich1\Desktop\Hex\satgen2\satgen2\satgen2\bin\Debug\netcoreapp3.1\Racelogic.Utilities.dll</HintPath>
     </Reference>
     <Reference Include="Racelogic.Utilities.Win">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Utilities.Win.dll</HintPath>
+      <HintPath>C:\Users\mich1\Desktop\Hex\satgen2\satgen2\satgen2\bin\Debug\netcoreapp3.1\Racelogic.Utilities.Win.dll</HintPath>
     </Reference>
   </ItemGroup>
 

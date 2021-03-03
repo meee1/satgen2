@@ -1,5 +1,5 @@
 [Simulation Parameters]
-Signal = GPS_L1CA,GAL_E1BC,GLO_L1OF,BDS_B1I
+Signal = GPS_L1CA,GPS_L2C,GAL_E1BC,GAL_E5A,GAL_E5B
 [Receiver Dynamics]
 Static=0
 Latitude_in_deg=0.0000
@@ -20,7 +20,7 @@ Almanac_File_GLO=MCCJ_201114.agl
 Almanac_File_BDS=BDS_20201114.alm
 Almanac_File_GAL=2020-11-13.xml
 Almanac_File_NAV=NAV_2020-306.alm
-Mask_in_deg=0
+Mask_in_deg=10
 
 [Receiver Signal and Hardware Profile]
 Attenuation = 0
