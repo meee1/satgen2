@@ -171,6 +171,7 @@ namespace satgen2
         static void Main(string[] args)
         {
             checkiio();
+            return;
 
             runoutside(args);
             return;
@@ -307,11 +308,13 @@ namespace satgen2
             
 
             // samples * iq * short
-            IOBuffer tx_buffer = new IOBuffer(tx, (uint) MHZ(2.6));
+            tx_buffer = new IOBuffer(tx, (uint) MHZ(2.6));
 
             phydev.find_channel("altvoltage1", true).find_attribute("powerdown").write(false);
 
             var inp = File.OpenRead(@"C:\Users\mich1\Desktop\Hex\gps-sdr-sim\gpssim.bin");
+            
+            inp = File.OpenRead(@"C:\Users\mich1\Desktop\Hex\satgen2\satgen2\satgen2\bin\Debug\netcoreapp3.1\output.LS3W");
 
             var buf2 = new byte[(uint)MHZ(2.6) * 2 * 2];
             //tx_buffer.fill();
@@ -320,8 +323,9 @@ namespace satgen2
                 inp.Read(buf2);
                 tx_buffer.fill(buf2);
                 tx_buffer.push();
-                Console.WriteLine(".");
+                Console.WriteLine(inp.Position / (float)inp.Length);
             }
+
         }
 
         private static long GHZ(double x)
@@ -360,8 +364,7 @@ namespace satgen2
 
                     //harmony.Patch(original, new HarmonyMethod(prefix));
 
-                    install(original,
-                        typeof(Program).GetMethod("CheckFeature_orig", BindingFlags.Static | BindingFlags.NonPublic));
+                    install(original,typeof(Program).GetMethod("CheckFeature_orig", BindingFlags.Static | BindingFlags.NonPublic));
 
                     // Thread.Sleep(5000);
                 }
@@ -488,7 +491,7 @@ namespace satgen2
             Quantization bitsPerSample = (Quantization) config.BitsPerSample;
             //var output = new LabSat3wOutput(config.OutputFile, config.SignalTypes, bitsPerSample);
 
-            var output = new BladeRFFileOutput(config.OutputFile, config.SignalTypes, (int) 3e6);
+            var output = new BladeRFFileOutput(config.OutputFile, config.SignalTypes, (int)MHZ(2.6));
 
             Console.WriteLine(output.ChannelPlan.ToJSON());
 
@@ -525,6 +528,8 @@ namespace satgen2
 
             var simulation = Simulation.Create(new SimulationParams(config.SignalTypes, trajectory, in interval, output,
                 readOnlyList, config.Mask, config.Attenuation));
+
+            //checkiio();
 
             DoPatch();
 
@@ -633,12 +638,14 @@ namespace satgen2
             byte[] buffer = new byte[numBytesToWrite];
             Marshal.Copy(bufferPointer, buffer, 0, numBytesToWrite);
             stream.Write(buffer, 0, numBytesToWrite);
+            //tx_buffer.fill(buffer);
 
             return false;
         }
 
         private static string filename = "";
         private static FileStream stream;
+        private static IOBuffer tx_buffer;
 
         private static void OpenForWriting(object __instance, string fileName)
         {
