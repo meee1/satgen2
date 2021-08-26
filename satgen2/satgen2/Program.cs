@@ -1,15 +1,18 @@
 ﻿using System;
+using System.Buffers;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Diagnostics;
 using System.IO;
+using System.IO.Pipes;
 using System.Linq;
+using System.Numerics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.WindowsRuntime;
+
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,6 +28,7 @@ using Racelogic.Gnss.SatGen;
 using Racelogic.Libraries.Nmea;
 using Racelogic.Maths;
 using Racelogic.Utilities;
+using Channel = Racelogic.Gnss.SatGen.Channel;
 
 
 namespace satgen2
@@ -64,7 +68,7 @@ namespace satgen2
            NavicSSPS = 16777216UL,
        }
     */
-    class Program
+    public class Program
     {
         // Racelogic.Gnss.ExtensionMethods
         public static string ToCodeName(SignalType signalType)
@@ -170,8 +174,7 @@ namespace satgen2
         [STAThread]
         static void Main(string[] args)
         {
-            checkiio();
-            return;
+            
 
             runoutside(args);
             return;
@@ -362,14 +365,14 @@ namespace satgen2
 
 
 
-                    //harmony.Patch(original, new HarmonyMethod(prefix));
+                    harmony.Patch(original, new HarmonyMethod(prefix));
 
-                    install(original,typeof(Program).GetMethod("CheckFeature_orig", BindingFlags.Static | BindingFlags.NonPublic));
+                    //install(original, typeof(Program).GetMethod("CheckFeature_orig", BindingFlags.Static | BindingFlags.NonPublic));
 
                     // Thread.Sleep(5000);
                 }
             } //);
-
+            //if (false)
             {
                 //Environment.NewLine
 
@@ -383,7 +386,7 @@ namespace satgen2
 
                 harmony.Patch(original, new HarmonyMethod(postfix));
             }
-
+            //if (false)
             {
                 //Racelogic.Utilities.WinFileIO
                 //public void OpenForWriting(string fileName)
@@ -396,11 +399,13 @@ namespace satgen2
                     typeof(Program).GetMethod("OpenForWriting", BindingFlags.Static | BindingFlags.NonPublic);
                 Console.WriteLine(prefix);
 
-                //harmony.Patch(original, new HarmonyMethod(prefix));
+                //RuntimeHelpers.PrepareMethod(prefix.MethodHandle);
 
-                install(original, prefix);
+                harmony.Patch(original, new HarmonyMethod(prefix));
+
+                //install(original, prefix);
             }
-
+            if (false)
             {
                 //public bool Close()
 
@@ -417,6 +422,7 @@ namespace satgen2
                 harmony.Patch(original, new HarmonyMethod(prefix));
             }
 
+            //if(false)
             {
                 //public int WriteBlocks(IntPtr bufferPointer, int numBytesToWrite)
 
@@ -429,6 +435,8 @@ namespace satgen2
                 Console.WriteLine(prefix);
 
                 RuntimeHelpers.PrepareMethod(original.MethodHandle);
+                RuntimeHelpers.PrepareMethod(prefix.MethodHandle);
+                
 
                 harmony.Patch(original, new HarmonyMethod(prefix));
             }
@@ -487,7 +495,7 @@ namespace satgen2
 
 
             string text = config.OutputFile.ToLower();
-            string a = Path.GetExtension(text)!.ToLowerInvariant();
+            string a = Path.GetExtension(text).ToLowerInvariant();
             Quantization bitsPerSample = (Quantization) config.BitsPerSample;
             //var output = new LabSat3wOutput(config.OutputFile, config.SignalTypes, bitsPerSample);
 
@@ -500,9 +508,15 @@ namespace satgen2
             Console.WriteLine(startTime.ToJSON());
 
             Trajectory trajectory = new NmeaFileTrajectory(in startTime, config.NmeaFile, config.GravitationalModel);
-            Range<GnssTime, GnssTimeSpan> interval = trajectory.Interval;
 
+            //new LiveNmeaTrajectory(DateTime.Now, "df", 115200);
+            trajectory = new FakeLiveNmeaTrajectory(GnssTime.Now, 5);
+
+
+            Range<GnssTime, GnssTimeSpan> interval = trajectory.Interval;
             Console.WriteLine(interval.ToJSON());
+
+           
 
             IReadOnlyList<ConstellationBase> readOnlyList = ConstellationBase.Create(config.SignalTypes);
             foreach (ConstellationBase item in readOnlyList)
@@ -517,9 +531,9 @@ namespace satgen2
                     return;
                 }
 
-                AlmanacBase? almanac = item.Almanac;
+                AlmanacBase almanac = item.Almanac;
                 GnssTime simulationTime = interval.Start;
-                almanac!.UpdateAlmanacForTime(in simulationTime);
+                almanac.UpdateAlmanacForTime(in simulationTime);
             }
 
             Console.WriteLine(
@@ -637,8 +651,15 @@ namespace satgen2
             __result = numBytesToWrite;
             byte[] buffer = new byte[numBytesToWrite];
             Marshal.Copy(bufferPointer, buffer, 0, numBytesToWrite);
-            stream.Write(buffer, 0, numBytesToWrite);
+            //stream.Write(buffer, 0, numBytesToWrite);
             //tx_buffer.fill(buffer);
+
+
+            //if (pipeServer.IsConnected)
+            {
+                Console.WriteLine(".");
+                pipeServer.Write(buffer, 0, numBytesToWrite);
+            }
 
             return false;
         }
@@ -647,11 +668,17 @@ namespace satgen2
         private static FileStream stream;
         private static IOBuffer tx_buffer;
 
+
+        private static NamedPipeServerStream pipeServer =
+            new NamedPipeServerStream("testpipe", PipeDirection.Out, 1, PipeTransmissionMode.Message,
+                PipeOptions.WriteThrough, 100, 3000000 * 2 * 2*2);
+
         private static void OpenForWriting(object __instance, string fileName)
         {
             filename = fileName;
             stream = new FileStream(fileName, FileMode.Create);
-            //return false;
+
+            pipeServer.WaitForConnection();
         }
 
         private static bool Close(ref bool __result)
@@ -659,7 +686,10 @@ namespace satgen2
             stream?.Close();
             return false;
         }
+
+   
     }
+
 
     /*
     public class App : Application
