@@ -499,7 +499,7 @@ namespace satgen2
             Quantization bitsPerSample = (Quantization) config.BitsPerSample;
             //var output = new LabSat3wOutput(config.OutputFile, config.SignalTypes, bitsPerSample);
 
-            var output = new BladeRFFileOutput(config.OutputFile, config.SignalTypes, (int)MHZ(2.6));
+            var output = new BladeRFFileOutput(config.OutputFile, config.SignalTypes, (int)MHZ(3));
 
             Console.WriteLine(output.ChannelPlan.ToJSON());
 
@@ -670,8 +670,8 @@ namespace satgen2
 
 
         private static NamedPipeServerStream pipeServer =
-            new NamedPipeServerStream("testpipe", PipeDirection.Out, 1, PipeTransmissionMode.Message,
-                PipeOptions.WriteThrough, 100, 3000000 * 2 * 2*2);
+            new NamedPipeServerStream("testpipe", PipeDirection.InOut, 1, PipeTransmissionMode.Byte,
+                PipeOptions.None, 1000, 3000000 * 2 * 2 * 2);
 
         private static void OpenForWriting(object __instance, string fileName)
         {

@@ -20,13 +20,12 @@ namespace plutotx
 
             var pipeClient =
                 new NamedPipeClientStream(".", "testpipe",
-                    PipeDirection.In, PipeOptions.None,
+                    PipeDirection.InOut, PipeOptions.None,
                     TokenImpersonationLevel.Impersonation);
 
             Console.WriteLine("Connecting to server...\n");
-            //pipeClient.ReadMode = PipeTransmissionMode.Message;
             pipeClient.Connect();
-            
+
             Start();
 
             byte[] buffer = new byte[(3000000 * 2 * 2) / 10];
@@ -36,10 +35,13 @@ namespace plutotx
             while (true)
             {
                 int numBytesToWrite = pipeClient.Read(buffer, 0, buffer.Length);
-                Console.WriteLine(numBytesToWrite);
+                
+                var samp = numBytesToWrite / 2 / 2;
+
+                Console.WriteLine(numBytesToWrite + " " + samp);
 
                 buf.fill(buffer);
-                buf.push();
+                buf.push((uint)samp);
             }
         }
 
