@@ -19,6 +19,8 @@ namespace plutotx
 
             var process = System.Diagnostics.Process.Start(new ProcessStartInfo("satgen2.exe", "profile.txt")
                 { UseShellExecute = true });
+            process.PriorityClass = ProcessPriorityClass.High;
+            Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.High;
 
             var pipeClient =
                 new NamedPipeClientStream(".", "testpipe",
