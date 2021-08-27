@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Racelogic.Geodetics</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>8.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\satgen2\bin\Debug\net5.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Flitesys.GeographicLib" >
+            <HintPath>..\satgen2\bin\Debug\net5.0\Flitesys.GeographicLib.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Numerics">
+      <HintPath>..\satgen2\bin\Debug\net5.0\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.DataTypes">
+      <HintPath>..\satgen2\bin\Debug\net5.0\Racelogic.DataTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Maths">
+      <HintPath>..\satgen2\bin\Debug\net5.0\Racelogic.Maths.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

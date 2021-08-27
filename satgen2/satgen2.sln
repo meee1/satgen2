@@ -9,6 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "plutotx", "..\plutotx\pluto
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Racelogic.Gnss.SatGen", "Racelogic.Gnss.SatGen\Racelogic.Gnss.SatGen.csproj", "{D8E853B0-2757-4216-BE6D-98BB838C7C9B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Racelogic.Gnss", "Racelogic.Gnss\Racelogic.Gnss.csproj", "{22F5D7A2-533E-43D0-B717-990AA04D6E42}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Racelogic.Geodetics", "Racelogic.Geodetics\Racelogic.Geodetics.csproj", "{3F580EF3-7927-4EC5-AFFC-D6694FCFE5F4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Racelogic.DataTypes", "Racelogic.DataTypes\Racelogic.DataTypes.csproj", "{1BAEDD25-89C4-4D9D-9A43-E0E86555AD13}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +33,18 @@ Global
 		{D8E853B0-2757-4216-BE6D-98BB838C7C9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8E853B0-2757-4216-BE6D-98BB838C7C9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8E853B0-2757-4216-BE6D-98BB838C7C9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22F5D7A2-533E-43D0-B717-990AA04D6E42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22F5D7A2-533E-43D0-B717-990AA04D6E42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22F5D7A2-533E-43D0-B717-990AA04D6E42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22F5D7A2-533E-43D0-B717-990AA04D6E42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F580EF3-7927-4EC5-AFFC-D6694FCFE5F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F580EF3-7927-4EC5-AFFC-D6694FCFE5F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F580EF3-7927-4EC5-AFFC-D6694FCFE5F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F580EF3-7927-4EC5-AFFC-D6694FCFE5F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BAEDD25-89C4-4D9D-9A43-E0E86555AD13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BAEDD25-89C4-4D9D-9A43-E0E86555AD13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BAEDD25-89C4-4D9D-9A43-E0E86555AD13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BAEDD25-89C4-4D9D-9A43-E0E86555AD13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

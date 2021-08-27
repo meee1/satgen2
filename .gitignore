@@ -4,14 +4,6 @@
 
 .vs
 obj
-outputfiles
 *.user
-/satgen2/satgen2/bin/Debug/netcoreapp3.1/satgen2.log
-/satgen2/satgen2/bin/Debug/netcoreapp3.1/*.LS3W
-/satgen2/satgen2/bin/Debug/netcoreapp3.1/output.ini
-/plutotx/bin/Debug/net5.0
-/satgen2/satgen2/bin/Debug/net5.0
-/satgen2/Racelogic.Gnss.SatGen/bin/Debug/netcoreapp3.1
-/satgen2/Racelogic.Gnss
-/satgen2/Racelogic.Geodetics
-/satgen2/Racelogic.DataTypes
+bin/
+obj/
