@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Racelogic.Gnss.SatGen</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>8.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="Racelogic.DataTypes">
+      <HintPath>..\satgen2\bin\Debug\net5.0\Racelogic.DataTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Geodetics">
+      <HintPath>..\satgen2\bin\Debug\net5.0\Racelogic.Geodetics.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Gnss">
+      <HintPath>..\satgen2\bin\Debug\net5.0\Racelogic.Gnss.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Gnss.LabSat">
+      <HintPath>..\satgen2\bin\Debug\net5.0\Racelogic.Gnss.LabSat.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Gnss.BladeRF" />
+    <Reference Include="Racelogic.Utilities">
+      <HintPath>..\satgen2\bin\Debug\net5.0\Racelogic.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Utilities.Win">
+      <HintPath>..\satgen2\bin\Debug\net5.0\Racelogic.Utilities.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="hasp_net_windows">
+      <HintPath>..\satgen2\bin\Debug\net5.0\hasp_net_windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Maths">
+      <HintPath>..\satgen2\bin\Debug\net5.0\Racelogic.Maths.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Comms.Serial">
+      <HintPath>..\satgen2\bin\Debug\net5.0\Racelogic.Comms.Serial.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Core">
+      <HintPath>..\satgen2\bin\Debug\net5.0\Racelogic.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.DataSource">
+      <HintPath>..\satgen2\bin\Debug\net5.0\Racelogic.DataSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Libraries.Nmea">
+      <HintPath>..\satgen2\bin\Debug\net5.0\Racelogic.Libraries.Nmea.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

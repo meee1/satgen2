@@ -39,6 +39,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Racelogic.Gnss.SatGen\Racelogic.Gnss.SatGen.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="hasp_net_windows">
       <HintPath>bin\Debug\net5.0\hasp_net_windows.dll</HintPath>
     </Reference>
@@ -56,9 +60,6 @@
     </Reference>
     <Reference Include="Racelogic.Gnss">
       <HintPath>bin\Debug\net5.0\Racelogic.Gnss.dll</HintPath>
-    </Reference>
-    <Reference Include="Racelogic.Gnss.SatGen">
-      <HintPath>bin\Debug\net5.0\Racelogic.Gnss.SatGen.dll</HintPath>
     </Reference>
     <Reference Include="Racelogic.Libraries.Nmea">
       <HintPath>bin\Debug\net5.0\Racelogic.Libraries.Nmea.dll</HintPath>
