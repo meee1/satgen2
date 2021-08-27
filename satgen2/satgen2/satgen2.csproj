@@ -78,6 +78,12 @@
     <None Update="2020-319.alm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="2021-08-24.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="2021-238.alm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="BDS_20140912.alm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -94,6 +100,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="BDS_20201114.alm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="BDS_20210826.alm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="libgcc_s_seh-1.dll">
@@ -142,6 +151,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Geoids\egm96-5.pgm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="NAV_2021-213.alm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="nmeaInput.txt">

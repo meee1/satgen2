@@ -15,15 +15,15 @@ Simulation_Mon=11
 Simulation_Year=2020
 
 [GPS_Sattelites Profile]
-Almanac_File_GPS=2020-319.alm
+Almanac_File_GPS=2021-238.alm
 Almanac_File_GLO=MCCJ_201114.agl
-Almanac_File_BDS=BDS_20201114.alm
-Almanac_File_GAL=2020-11-13.xml
-Almanac_File_NAV=NAV_2020-306.alm
-Mask_in_deg=10
+Almanac_File_BDS=BDS_20210826.alm
+Almanac_File_GAL=2021-08-24.xml
+Almanac_File_NAV=NAV_2021-213.alm
+Mask_in_deg=0
 
 [Receiver Signal and Hardware Profile]
-Attenuation = 0
+Attenuation = 3
 IFFreq_in_Hz = 4092000
 SampleRate_in_KHz = 12000
 IQ_format=I
@@ -31,6 +31,6 @@ bitPerSample = 1
 egm=EGM96
 
 [Simulation Output]
-IF_IQ_File=output.LS3W
+IF_IQ_File=output.IQ
 NMEA_File=nmea.txt
 Approximation=false

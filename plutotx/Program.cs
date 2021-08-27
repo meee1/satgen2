@@ -1,5 +1,6 @@
 ﻿using iio;
 using System;
+using System.Diagnostics;
 using System.IO.Pipes;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
@@ -16,7 +17,8 @@ namespace plutotx
         {
             Console.WriteLine("Hello World!");
 
-            var process = System.Diagnostics.Process.Start("satgen2.exe", "profile.txt");
+            var process = System.Diagnostics.Process.Start(new ProcessStartInfo("satgen2.exe", "profile.txt")
+                { UseShellExecute = true });
 
             var pipeClient =
                 new NamedPipeClientStream(".", "testpipe",

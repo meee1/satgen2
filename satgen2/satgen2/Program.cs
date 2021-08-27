@@ -510,7 +510,7 @@ namespace satgen2
             Trajectory trajectory = new NmeaFileTrajectory(in startTime, config.NmeaFile, config.GravitationalModel);
 
             //new LiveNmeaTrajectory(DateTime.Now, "df", 115200);
-            trajectory = new FakeLiveNmeaTrajectory(GnssTime.Now, 5);
+            trajectory = new FakeLiveNmeaTrajectory(GnssTime.Now, 1);
 
 
             Range<GnssTime, GnssTimeSpan> interval = trajectory.Interval;
