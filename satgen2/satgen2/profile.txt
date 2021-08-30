@@ -23,7 +23,7 @@ Almanac_File_NAV=NAV_2021-213.alm
 Mask_in_deg=0
 
 [Receiver Signal and Hardware Profile]
-Attenuation = 3
+Attenuation = -4
 IFFreq_in_Hz = 4092000
 SampleRate_in_KHz = 12000
 IQ_format=I
