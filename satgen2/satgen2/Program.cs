@@ -71,6 +71,9 @@ namespace satgen2
     public class Program
     {
         // Racelogic.Gnss.ExtensionMethods
+
+        Racelogic.Gnss.SatGen.BlackBox.ConnectionStatus item;
+
         public static string ToCodeName(SignalType signalType)
         {
             switch (signalType)

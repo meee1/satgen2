@@ -70,6 +70,7 @@
     </Reference>
     <Reference Include="Racelogic.Gnss.SatGen.BlackBox">
       <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Gnss.SatGen.BlackBox.exe</HintPath>
+      <SpecificVersion>false</SpecificVersion>
     </Reference>
     <Reference Include="Racelogic.Libraries.Nmea">
       <HintPath>bin\Debug\net5.0\Racelogic.Libraries.Nmea.dll</HintPath>
