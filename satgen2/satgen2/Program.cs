@@ -380,7 +380,7 @@ namespace satgen2
                     BindingFlags.Public | BindingFlags.Static);
                 Console.WriteLine(original);
 
-                var postfix =
+                var postfix = 
                     typeof(Program).GetMethod("newline", BindingFlags.Static | BindingFlags.NonPublic);
                 Console.WriteLine(postfix);
 
