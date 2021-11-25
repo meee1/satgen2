@@ -23,8 +23,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="profile.txt" />
     <None Remove="Racelogic.Gnss.SatGen.BlackBox.g.resources" />
     <None Remove="Racelogic.Gnss.SatGen.BlackBox.Properties.Resources.resources" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="profile.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -167,9 +174,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="nmeaInput.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="profile.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="zlib1.dll">

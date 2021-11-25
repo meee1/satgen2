@@ -6,7 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "satgen2", "satgen2\satgen2.csproj", "{5C16100E-FB30-4705-ADD3-EDE68283F520}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{F27EBFF7-E70D-4657-8C11-8D5E711B9FBB}"
-EndProjectProject("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "plutotx", "..\plutotx\plutotx.csproj", "{D1288879-9E69-465B-9093-C8D2149BF593}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Racelogic.Gnss.SatGen", "Racelogic.Gnss.SatGen\Racelogic.Gnss.SatGen.csproj", "{D8E853B0-2757-4216-BE6D-98BB838C7C9B}"
 EndProject
@@ -15,6 +14,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Racelogic.Geodetics", "Racelogic.Geodetics\Racelogic.Geodetics.csproj", "{3F580EF3-7927-4EC5-AFFC-D6694FCFE5F4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Racelogic.DataTypes", "Racelogic.DataTypes\Racelogic.DataTypes.csproj", "{1BAEDD25-89C4-4D9D-9A43-E0E86555AD13}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "plutotx", "..\plutotx\plutotx.csproj", "{E5CF523A-E34E-47A4-8ACB-3135A5141A33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,10 +31,6 @@ Global
 		{F27EBFF7-E70D-4657-8C11-8D5E711B9FBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F27EBFF7-E70D-4657-8C11-8D5E711B9FBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F27EBFF7-E70D-4657-8C11-8D5E711B9FBB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D1288879-9E69-465B-9093-C8D2149BF593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D1288879-9E69-465B-9093-C8D2149BF593}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D1288879-9E69-465B-9093-C8D2149BF593}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D1288879-9E69-465B-9093-C8D2149BF593}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D8E853B0-2757-4216-BE6D-98BB838C7C9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D8E853B0-2757-4216-BE6D-98BB838C7C9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8E853B0-2757-4216-BE6D-98BB838C7C9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -50,6 +47,10 @@ Global
 		{1BAEDD25-89C4-4D9D-9A43-E0E86555AD13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BAEDD25-89C4-4D9D-9A43-E0E86555AD13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BAEDD25-89C4-4D9D-9A43-E0E86555AD13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5CF523A-E34E-47A4-8ACB-3135A5141A33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5CF523A-E34E-47A4-8ACB-3135A5141A33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5CF523A-E34E-47A4-8ACB-3135A5141A33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5CF523A-E34E-47A4-8ACB-3135A5141A33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
