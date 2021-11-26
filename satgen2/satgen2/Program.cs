@@ -604,6 +604,60 @@ namespace satgen2
             }
         }
 
+        public static void HijackMethod(Type sourceType, string sourceMethod, Type targetType, string targetMethod)
+        {
+            // Get methods using reflection
+            var source = sourceType.GetMethod(sourceMethod);
+            var target = targetType.GetMethod(targetMethod);
+
+            // Prepare methods to get machine code (not needed in this example, though)
+            RuntimeHelpers.PrepareMethod(source.MethodHandle);
+            RuntimeHelpers.PrepareMethod(target.MethodHandle);
+
+            var sourceMethodDescriptorAddress = source.MethodHandle.Value;
+            var targetMethodMachineCodeAddress = target.MethodHandle.GetFunctionPointer();
+
+            // Pointer is two pointers from the beginning of the method descriptor
+            Marshal.WriteIntPtr(sourceMethodDescriptorAddress, 2 * IntPtr.Size, targetMethodMachineCodeAddress);
+        }
+
+        public static void HijackMethod(MethodBase source, MethodBase target)
+        {
+            RuntimeHelpers.PrepareMethod(source.MethodHandle);
+            RuntimeHelpers.PrepareMethod(target.MethodHandle);
+
+
+            var offset = 2 * IntPtr.Size;
+            IntPtr sourceAddress = Marshal.ReadIntPtr(source.MethodHandle.Value, offset);
+            IntPtr targetAddress = Marshal.ReadIntPtr(target.MethodHandle.Value, offset);
+
+            var is32Bit = IntPtr.Size == 4;
+            byte[] instruction;
+
+            if (is32Bit)
+            {
+                instruction = new byte[] {
+                    0x68, // push <value>
+                }
+                 .Concat(BitConverter.GetBytes((int)targetAddress))
+                 .Concat(new byte[] {
+                    0xC3 //ret
+                 }).ToArray();
+            }
+            else
+            {
+                instruction = new byte[] {
+                    0x48, 0xB8 // mov rax <value>
+                }
+                .Concat(BitConverter.GetBytes((long)targetAddress))
+                .Concat(new byte[] {
+                    0x50, // push rax
+                    0xC3  // ret
+                }).ToArray();
+            }
+
+            Marshal.Copy(instruction, 0, sourceAddress, instruction.Length);
+        }
 
         /*
         private static void App_Startup(object sender, StartupEventArgs e)
