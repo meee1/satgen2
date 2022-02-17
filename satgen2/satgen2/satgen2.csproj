@@ -102,6 +102,9 @@
     <None Update="2021-238.alm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="2022-02-15.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="2022-046.alm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

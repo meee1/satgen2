@@ -531,6 +531,7 @@ namespace satgen2
                     string text2 = "Invalid " + item.ConstellationType.ToLongName() + " almanac file \"" +
                                    Path.GetFileName(almanacPath) + "\"";
                     RLLogger.GetLogger().LogMessage(text2);
+                    Console.WriteLine(text2);
                     //MessageBox.Show(Application.Current.MainWindow, text2, "SatGen error", MessageBoxButton.OK, MessageBoxImage.Hand);
                     return;
                 }
