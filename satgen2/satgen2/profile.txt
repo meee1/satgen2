@@ -15,15 +15,15 @@ Simulation_Mon=11
 Simulation_Year=2020
 
 [GPS_Sattelites Profile]
-Almanac_File_GPS=2021-238.alm
+Almanac_File_GPS=2022-046.alm
 Almanac_File_GLO=MCCJ_201114.agl
 Almanac_File_BDS=BDS_20210826.alm
-Almanac_File_GAL=2021-08-24.xml
+Almanac_File_GAL=2022-02-15.xml
 Almanac_File_NAV=NAV_2021-213.alm
 Mask_in_deg=0
 
 [Receiver Signal and Hardware Profile]
-Attenuation = -4
+Attenuation = 0
 IFFreq_in_Hz = 4092000
 SampleRate_in_KHz = 12000
 IQ_format=I

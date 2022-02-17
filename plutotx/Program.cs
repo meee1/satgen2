@@ -130,7 +130,7 @@ namespace plutotx
 
                     rfbw.write(3000000);
                     samplehz.write((long)3000000);
-                    gain.write(0);
+                    gain.write(-30);
 
 
                     var _rx0_i = dev.find_channel("voltage0", false);
