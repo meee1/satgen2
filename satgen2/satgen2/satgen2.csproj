@@ -3,7 +3,7 @@
   <PropertyGroup>
      <OutputType>Exe</OutputType>
       <UseWPF>false</UseWPF>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>satgen2</RootNamespace>
     <AssemblyName>satgen2</AssemblyName>
     <AssemblyVersion>4.0.0.0</AssemblyVersion>

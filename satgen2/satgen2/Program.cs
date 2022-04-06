@@ -515,7 +515,18 @@ namespace satgen2
             //new LiveNmeaTrajectory(DateTime.Now, "df", 115200);
             trajectory = new FakeLiveNmeaTrajectory(GnssTime.Now, 1);
 
-            ((FakeLiveNmeaTrajectory)trajectory).ecef = Geodetic.FromDegrees(-38.1417102, 144.3619074, 100).ToEcef(Datum.WGS84, Geoid.Egm96);
+            var lat = -38.1417102;
+            var lng = 144.3619074;
+            var alt = 100.0;
+
+            if (args.Count() > 3)
+            {
+                lat = double.Parse(args[1]);
+                lng = double.Parse(args[2]);
+                alt = double.Parse(args[3]);
+            }
+
+            ((FakeLiveNmeaTrajectory)trajectory).ecef = Geodetic.FromDegrees(lat ,  lng, alt).ToEcef(Datum.WGS84, Geoid.Egm96);
 
             Range<GnssTime, GnssTimeSpan> interval = trajectory.Interval;
             Console.WriteLine(interval.ToJSON());

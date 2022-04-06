@@ -1,7 +1,9 @@
 ﻿using iio;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO.Pipes;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Threading;
@@ -17,8 +19,12 @@ namespace plutotx
         {
             Console.WriteLine("Hello World!");
 
-            var process = System.Diagnostics.Process.Start(new ProcessStartInfo("satgen2.exe", "profile.txt")
-                { UseShellExecute = true });
+            List<string> args2 = new List<string>();
+            args2.Add("profile.txt");
+            args2.AddRange(args);
+
+            var process = System.Diagnostics.Process.Start(new ProcessStartInfo("satgen2.exe", args2.Aggregate("", (a, b) => a + " " + b))
+            { UseShellExecute = true });
             process.PriorityClass = ProcessPriorityClass.High;
             Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.High;
 
