@@ -14,16 +14,19 @@ namespace plutotx
     {
         private static Device tx;
         private static IOBuffer buf;
+        private static Process process;
 
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
 
+            Console.CancelKeyPress += Console_CancelKeyPress;
+
             List<string> args2 = new List<string>();
             args2.Add("profile.txt");
             args2.AddRange(args);
 
-            var process = System.Diagnostics.Process.Start(new ProcessStartInfo("satgen2.exe", args2.Aggregate("", (a, b) => a + " " + b))
+            process = System.Diagnostics.Process.Start(new ProcessStartInfo("satgen2.exe", args2.Aggregate("", (a, b) => a + " " + b))
             { UseShellExecute = true });
             process.PriorityClass = ProcessPriorityClass.High;
             Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.High;
@@ -53,6 +56,16 @@ namespace plutotx
                 buf.fill(buffer);
                 buf.push((uint)samp);
             }
+        }
+
+        private static void Console_CancelKeyPress(object sender, ConsoleCancelEventArgs e)
+        {
+            process.Kill();
+        }
+
+        ~Program()
+        {
+            process.Kill();
         }
 
         public static void Start()
@@ -134,7 +147,7 @@ namespace plutotx
                     var freq = phy.find_channel("altvoltage0", true).find_attribute("frequency");
                     var gain = phy.find_channel("voltage0", true).find_attribute("hardwaregain");
 
-                    rfbw.write(3000000);
+                    rfbw.write(5000000);
                     samplehz.write((long)3000000);
                     gain.write(-30);
 

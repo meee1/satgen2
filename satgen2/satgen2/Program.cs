@@ -515,9 +515,9 @@ namespace satgen2
             //new LiveNmeaTrajectory(DateTime.Now, "df", 115200);
             trajectory = new FakeLiveNmeaTrajectory(GnssTime.Now, 1);
 
-            var lat = -38.1417102;
-            var lng = 144.3619074;
-            var alt = 100.0;
+            var lat = 0.0;
+            var lng = 0.0;
+            var alt = 10000.0;
 
             if (args.Count() > 3)
             {
