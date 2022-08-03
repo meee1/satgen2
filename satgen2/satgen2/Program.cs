@@ -565,12 +565,13 @@ namespace satgen2
 
             simulation.Start();
             var progress = 0.0;
-            simulation.ProgressChanged += (o, e) => { progress = e.Progress; };
+            simulation.ProgressChanged += (o, e) => { progress = e.Progress; elapesed = e.ElapsedTime; simtime = e.SimulatedTime; };
+
 
             while (simulation.SimulationState != SimulationState.Finished)
             {
                 Thread.Sleep(1000);
-                Console.WriteLine("{0}  {1}  ", progress * 100.0, simulation.SimulationState);
+                Console.WriteLine("{0}  {1}  {2}  {3} {4} {5}", progress * 100.0, simulation.SimulationState, simulation.IsAlive, simulation.BufferUnderrunCount, elapesed, simtime);
             }
         }
 
@@ -742,6 +743,8 @@ namespace satgen2
         private static NamedPipeServerStream pipeServer =
             new NamedPipeServerStream("testpipe", PipeDirection.InOut, 1, PipeTransmissionMode.Byte,
                 PipeOptions.None, 1000, 3000000 * 2 * 2 * 2);
+        private static TimeSpan elapesed;
+        private static GnssTime simtime;
 
         private static void OpenForWriting(object __instance, string fileName)
         {
