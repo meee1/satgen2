@@ -717,10 +717,13 @@ namespace satgen2
             return false;
         }
 
+        static byte[] buffer = new byte[0];
+
         private static bool WriteBlocks(ref int __result, IntPtr bufferPointer, int numBytesToWrite)
         {
             __result = numBytesToWrite;
-            byte[] buffer = new byte[numBytesToWrite];
+            if (buffer.Length < numBytesToWrite)
+                Array.Resize(ref buffer, numBytesToWrite);
             Marshal.Copy(bufferPointer, buffer, 0, numBytesToWrite);
             //stream.Write(buffer, 0, numBytesToWrite);
             //tx_buffer.fill(buffer);
@@ -729,7 +732,7 @@ namespace satgen2
             //if (pipeServer.IsConnected)
             {
                 Console.WriteLine(".");
-                pipeServer.Write(buffer, 0, numBytesToWrite);
+                    pipeServer.Write(buffer, 0, numBytesToWrite);
             }
 
             return false;

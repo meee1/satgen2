@@ -48,13 +48,20 @@ namespace plutotx
             while (true)
             {
                 int numBytesToWrite = pipeClient.Read(buffer, 0, buffer.Length);
+
+                if (numBytesToWrite == 0)
+                { Thread.Sleep(20); continue; }
                 
                 var samp = numBytesToWrite / 2 / 2;
 
                 Console.WriteLine(numBytesToWrite + " " + samp);
-
-                buf.fill(buffer);
-                buf.push((uint)samp);
+                try
+                {
+                    buf.fill(buffer);
+                    buf.push((uint)samp);
+                }
+                catch {
+                    }
             }
         }
 
