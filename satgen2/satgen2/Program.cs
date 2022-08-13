@@ -500,7 +500,9 @@ namespace satgen2
             Quantization bitsPerSample = (Quantization) config.BitsPerSample;
             //var output = new LabSat3wOutput(config.OutputFile, config.SignalTypes, bitsPerSample);
 
-            var output = new BladeRFFileOutput(config.OutputFile, config.SignalTypes, (int)MHZ(3));
+            //var output = new BladeRFFileOutput(config.OutputFile, config.SignalTypes, (int)MHZ(3));
+
+            var output = new PipeOutput(config.OutputFile, config.SignalTypes, (int)MHZ(3));
 
             Console.WriteLine(output.ChannelPlan.ToJSON());
 
@@ -730,7 +732,7 @@ namespace satgen2
             //if (pipeServer.IsConnected)
             {
                 Console.WriteLine(".");
-                    pipeServer.Write(buffer, 0, numBytesToWrite);
+                   // pipeServer.Write(buffer, 0, numBytesToWrite);
             }
 
             return false;
@@ -741,9 +743,7 @@ namespace satgen2
         private static IOBuffer tx_buffer;
 
 
-        private static NamedPipeServerStream pipeServer =
-            new NamedPipeServerStream("testpipe", PipeDirection.InOut, 1, PipeTransmissionMode.Byte,
-                PipeOptions.None, 1000, 3000000 * 2 * 2 * 2);
+        //private static NamedPipeServerStream pipeServer = new NamedPipeServerStream("testpipe", PipeDirection.InOut, 1, PipeTransmissionMode.Byte, PipeOptions.None, 1000, 3000000 * 2 * 2 * 2);
         private static TimeSpan elapesed;
         private static GnssTime simtime;
 
@@ -752,7 +752,7 @@ namespace satgen2
             filename = fileName;
             stream = new FileStream(fileName, FileMode.Create);
 
-            pipeServer.WaitForConnection();
+            //pipeServer.WaitForConnection();
         }
 
         private static bool Close(ref bool __result)
