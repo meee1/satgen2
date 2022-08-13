@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO.MemoryMappedFiles;
 using System.IO.Pipes;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -31,37 +32,49 @@ namespace plutotx
             process.PriorityClass = ProcessPriorityClass.High;
             Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.High;
 
-            var pipeClient =
-                new NamedPipeClientStream(".", "testpipe",
-                    PipeDirection.InOut, PipeOptions.None,
-                    TokenImpersonationLevel.Impersonation);
+            //var pipeClient = new NamedPipeClientStream(".", "testpipe", PipeDirection.InOut, PipeOptions.None, TokenImpersonationLevel.Impersonation);
+
+            var mm = MemoryMappedFile.CreateOrOpen("satgen", 1024 * 1024 * 20);
+
+            var mmsrc = mm.CreateViewAccessor();
 
             Console.WriteLine("Connecting to server...\n");
-            pipeClient.Connect();
+            //pipeClient.Connect();
 
-            Start();
+            //Start();
 
-            byte[] buffer = new byte[(3000000 * 2 * 2) / 10];
+            byte[] buffer = new byte[1024 * 1024 * 20];
 
             var samples = 3000000 / 10;
 
             while (true)
             {
-                int numBytesToWrite = pipeClient.Read(buffer, 0, buffer.Length);
-
+                //int numBytesToWrite = pipeClient.Read(buffer, 0, buffer.Length);
+                var length = mmsrc.ReadInt32(0);
+                if(length == 0)
+                {
+                    Thread.Sleep(10);
+                    continue;
+                }
+                int numBytesToWrite = mmsrc.ReadArray(4, buffer, 0, length);
+                mmsrc.Write(0, 0);
                 if (numBytesToWrite == 0)
-                { Thread.Sleep(20); continue; }
-                
+                {
+                    Thread.Sleep(20);
+                    continue;
+                }
+
                 var samp = numBytesToWrite / 2 / 2;
 
                 Console.WriteLine(numBytesToWrite + " " + samp);
                 try
                 {
                     buf.fill(buffer);
-                    buf.push((uint)samp);
+                    buf.push((uint) samp);
                 }
-                catch {
-                    }
+                catch
+                {
+                }
             }
         }
 

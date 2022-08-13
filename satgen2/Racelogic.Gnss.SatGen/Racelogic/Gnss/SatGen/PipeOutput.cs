@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO.MemoryMappedFiles;
 using System.IO.Pipes;
 using System.Runtime.InteropServices;
 
@@ -54,15 +55,20 @@ namespace Racelogic.Gnss.SatGen
 			}
 		}
 
-        private static NamedPipeServerStream pipeServer =
+       /* private static NamedPipeServerStream pipeServer =
             new NamedPipeServerStream("testpipe", PipeDirection.InOut, 1, PipeTransmissionMode.Byte,
                 PipeOptions.None, 1000, 3000000 * 2 * 2 * 2);
+	   */
+        static MemoryMappedFile mm = MemoryMappedFile.CreateOrOpen("satgen", 1024 * 1024 * 20);
+        private MemoryMappedViewAccessor mmdest;
 
-		public PipeOutput(string filePath, IEnumerable<SignalType> signalTypes, in int sampleRate)
+        public PipeOutput(string filePath, IEnumerable<SignalType> signalTypes, in int sampleRate)
 			: base(filePath)
 		{
 			channelPlan = GetChannelPlan(signalTypes, in sampleRate);
-		}
+
+            mmdest = mm.CreateViewAccessor();
+        }
 
 		internal sealed override bool Write(SimulationSlice slice)
 		{
@@ -79,9 +85,13 @@ namespace Racelogic.Gnss.SatGen
             {
                 {
                     Console.WriteLine(".");
-					if(pipeServer.IsConnected)
-                        pipeServer.Write(buffer.Span);
-                }
+					//if(pipeServer.IsConnected)
+					//pipeServer.Write(buffer.Span);
+                    var temp = buffer.Span.ToArray();
+					
+                    mmdest.WriteArray<byte>(4, temp, 0, byteCount);
+                    mmdest.Write(0, byteCount);
+				}
             }
             slice.State = SimulationSliceState.WritingFinished;
 			return true;
