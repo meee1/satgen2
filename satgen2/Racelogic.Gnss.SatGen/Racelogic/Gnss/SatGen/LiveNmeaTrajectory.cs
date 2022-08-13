@@ -89,12 +89,12 @@ namespace Racelogic.Gnss.SatGen
 			Interval = new Range<GnssTime, GnssTimeSpan>(ggaMidnight, GnssTime.MaxValue);
 			port = new ComPort(portName)
 			{
-				BaudRate = baudRate
+				//BaudRate = baudRate
 			};
-			if (port.Open())
+			//if (port.Open())
 			{
-				port.PropertyChanged += OnPortPropertyChanged;
-				return;
+				//port.PropertyChanged += OnPortPropertyChanged;
+				//return;
 			}
 			base.ErrorMessage = $"ERROR: Can't open serial port {portName} at {(int)baudRate} bps";
 			RLLogger.GetLogger().LogMessage(base.ErrorMessage);
@@ -104,7 +104,7 @@ namespace Racelogic.Gnss.SatGen
 		{
 			if (e.PropertyName == "NmeaData")
 			{
-				ProcessNmeaSample(port.NmeaData);
+				//ProcessNmeaSample(port.NmeaData);
 			}
 		}
 
@@ -516,10 +516,10 @@ namespace Racelogic.Gnss.SatGen
 			if (disposing)
 			{
 				outputTimer.Dispose();
-				if (port != null)
+				//if (port != null)
 				{
-					port.PropertyChanged -= OnPortPropertyChanged;
-					port.ClosePortAndCleanup();
+				//	port.PropertyChanged -= OnPortPropertyChanged;
+				//	port.ClosePortAndCleanup();
 				}
 			}
 		}

@@ -72,7 +72,7 @@ namespace satgen2
     {
         // Racelogic.Gnss.ExtensionMethods
 
-        Racelogic.Gnss.SatGen.BlackBox.ConnectionStatus item;
+        //Racelogic.Gnss.SatGen.BlackBox.ConnectionStatus item;
 
         public static string ToCodeName(SignalType signalType)
         {
@@ -491,10 +491,8 @@ namespace satgen2
 
             //Environment.NewLine = "\r\n";
 
-            using (NmeaFile nmeaFile = new NmeaFile(config.NmeaFile))
-            {
-                //Console.WriteLine(nmeaFile.ToJSON());
-            }
+            //(NmeaFile nmeaFile = new NmeaFile(config.NmeaFile));
+   
 
 
             string text = config.OutputFile.ToLower();
@@ -561,7 +559,7 @@ namespace satgen2
 
             //checkiio();
 
-            DoPatch();
+            //DoPatch();
 
             simulation.Start();
             var progress = 0.0;

@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <AssemblyName>Racelogic.Comms.Serial</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <UseWPF>True</UseWPF>
+    <TargetFramework>net472</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>Preview</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace />
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Racelogic.Core\Racelogic.Core.csproj" />
+    <ProjectReference Include="..\Racelogic.DataSource\Racelogic.DataSource.csproj" />
+    <ProjectReference Include="..\Racelogic.DataTypes\Racelogic.DataTypes.csproj" />
+    <ProjectReference Include="..\Racelogic.Utilities\Racelogic.Utilities.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="System.Core" />
+    <Reference Include="PresentationCore" />
+  </ItemGroup>
+</Project>

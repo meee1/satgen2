@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="VipsRover"><value>Rover</value></data>
+  <data name="VbSpsOld"><value>Mk I</value></data>
+  <data name="RecordAndReplay"><value>RLLS03-1RP</value></data>
+  <data name="ExcelVersion_Excel95"><value>Excel 95</value></data>
+  <data name="ExcelVersion_Excel97"><value>Excel 97</value></data>
+  <data name="VideoVBoxVciWatermark"><value>Video VBOX (VCI + watermark)</value></data>
+  <data name="CanDisplay2"><value>CAN Display 2</value></data>
+  <data name="InternalVci"><value>Internal VCI</value></data>
+  <data name="CutOffFrequency_SevenHz"><value>7Hz</value></data>
+  <data name="SerialBaudRate_br921600"><value>921.6 kbit/sec</value></data>
+  <data name="CanLogger"><value>CAN Bus Logger</value></data>
+  <data name="Active"><value>Active</value></data>
+  <data name="SerialBaudRate_brUser"><value>User</value></data>
+  <data name="SerialBaudRate_br9600"><value>9600 bit/sec</value></data>
+  <data name="SerialBaudRate_br2400"><value>2400 bit/sec</value></data>
+  <data name="SerialBaudRate_br1200"><value>1200 bit/sec</value></data>
+  <data name="SerialBaudRate_br7200"><value>7200 bit/sec</value></data>
+  <data name="SerialBaudRate_br4800"><value>4800 bit/sec</value></data>
+  <data name="Dsp03L"><value>Multi Function Display Lite (DSP03L)</value></data>
+  <data name="Dsp032"><value>Multi Function Display 2 (DSP03-2)</value></data>
+  <data name="CutOffFrequency_FifteenHz"><value>15 Hz</value></data>
+  <data name="SerialBaudRate_br230400"><value>230.4 kbit/sec</value></data>
+  <data name="SerialBaudRate_br256000"><value>256 kbit/sec</value></data>
+  <data name="CanHub"><value>CAN hub</value></data>
+  <data name="SerialBaudRate_br128000"><value>128 kbit/sec</value></data>
+  <data name="SerialBaudRate_br115200"><value>115.2 kbit/sec</value></data>
+  <data name="PerMeter"><value>PerMeter</value></data>
+  <data name="SingleChannel"><value>1 Channel</value></data>
+  <data name="LabSat"><value>Lab Sat</value></data>
+  <data name="SerialBaudRate_br460800"><value>460.8 kbit/sec</value></data>
+  <data name="SerialBaudRate_br471420"><value>471.42 kbit/sec</value></data>
+  <data name="VideoVBox4Camera"><value>Video VBOX 4 camera</value></data>
+  <data name="Generic"><value>Generic</value></data>
+  <data name="HdLite"><value>HD Lite</value></data>
+  <data name="BluetoothModule"><value>Bluetooth module</value></data>
+  <data name="VB2Sps"><value>VBOX II Speed Sensor</value></data>
+  <data name="VBoxII"><value>VBox II</value></data>
+  <data name="VBIISL"><value>VBII SL</value></data>
+  <data name="VBIISX"><value>VBII SX</value></data>
+  <data name="TriChannel"><value>3 Channel</value></data>
+  <data name="VBoxMicro"><value>VBOX Micro</value></data>
+  <data name="VBoxSport"><value>VBox Sport</value></data>
+  <data name="TcMkII"><value>Traction Control (MKII)</value></data>
+  <data name="Declined"><value>Declined</value></data>
+  <data name="VideoVBoxLite"><value>Video VBOX Lite</value></data>
+  <data name="Replay"><value>RLLS03-1P</value></data>
+  <data name="ExcelVersion_None"><value>Unavailable</value></data>
+  <data name="MiniOled"><value>Mini OLED Display</value></data>
+  <data name="Accepted"><value>Accepted</value></data>
+  <data name="VBIIMotorSport"><value>VBOXII Pro 4 MotorSport</value></data>
+  <data name="ModulesNotFound"><value>Modules not found</value></data>
+  <data name="VehicleSeparation1"><value>Vehicle separation 1</value></data>
+  <data name="VehicleSeparation2"><value>Vehicle separation 2</value></data>
+  <data name="VBoxMicroVci"><value>VBOX Micro VCI</value></data>
+  <data name="UpdaterCaptionCircuitDatabase"><value>Circuit Database</value></data>
+  <data name="VideoVBox4CameraSingleChannel"><value>Video VBOX 4 camera (single channel)</value></data>
+  <data name="VB2Sx10"><value>VBOXII SX-10</value></data>
+  <data name="VB10Sps"><value>VB10SPS</value></data>
+  <data name="VBoxManager"><value>VBOX Manager</value></data>
+  <data name="Correct"><value>Correct</value></data>
+  <data name="Inactive"><value>Inactive</value></data>
+  <data name="DriftBox"><value>DriftBox</value></data>
+  <data name="NissanVdms"><value>Nissan VDMS</value></data>
+  <data name="BaseStationPro"><value>Base Station Pro</value></data>
+  <data name="LaneDeparture"><value>Lane departure</value></data>
+  <data name="MfdTouch"><value>MFD Touch</value></data>
+  <data name="Default"><value>Default</value></data>
+  <data name="MiningTruckMfd"><value>Mining Truck MFD</value></data>
+  <data name="Checked"><value>Checked</value></data>
+  <data name="PerformanceBoxSport"><value>PerformanceBox Sport</value></data>
+  <data name="BaseStationS"><value>Base Station S</value></data>
+  <data name="BaseStation"><value>Base Station</value></data>
+  <data name="Enterprise"><value>RLLS03-2RP</value></data>
+  <data name="VideoVboxHd"><value>VBOX Video HD2</value></data>
+  <data name="CanGateway"><value>CAN Gateway</value></data>
+  <data name="VipsBeacon"><value>Beacon</value></data>
+  <data name="Enabled"><value>Enabled</value></data>
+  <data name="No"><value>No</value></data>
+  <data name="On"><value>On</value></data>
+  <data name="InternalVehicleSeparationPart1"><value>Internal vehicle separation part 1</value></data>
+  <data name="InternalVehicleSeparationPart2"><value>Internal vehicle separation part 2</value></data>
+  <data name="SoundMeter"><value>Sound meter</value></data>
+  <data name="InternalLaneDeparture"><value>Internal lane departure</value></data>
+  <data name="Imu"><value>IMU</value></data>
+  <data name="Off"><value>Off</value></data>
+  <data name="Oem"><value>RLLS03-1POM</value></data>
+  <data name="Vsc"><value>Vehicle Speed Control</value></data>
+  <data name="Tc8"><value>8 Channel Thermocouple (TC8)</value></data>
+  <data name="Tda"><value>Traction Drift Adjuster</value></data>
+  <data name="Yes"><value>Yes</value></data>
+  <data name="Adc03"><value>ADC03</value></data>
+  <data name="Adc02"><value>8 Channel Analogue (ADC02)</value></data>
+  <data name="Adc01"><value>4 Channel Analogue (ADC01)</value></data>
+  <data name="False"><value>False</value></data>
+  <data name="Fim03"><value>Frequency Input Module (FIM03)</value></data>
+  <data name="Fim02"><value>Frequency Input Module (FIM02)</value></data>
+  <data name="Fim01"><value>Frequency Input Module (FIM01)</value></data>
+  <data name="InternalSlipModule"><value>Internal slip module</value></data>
+  <data name="Dac02"><value>Analogue Output (DAC02)</value></data>
+  <data name="Dac01"><value>Analogue Output (DAC01)</value></data>
+  <data name="Dsp03"><value>Multi Function Display (DSP03)</value></data>
+  <data name="Can01"><value>Vehicle CAN Interface (CAN01)</value></data>
+  <data name="Can02"><value>16 Channel Vehicle CAN Interface (CAN02)</value></data>
+  <data name="VBox3Sps"><value>VBOX 3 Speed Sensor</value></data>
+  <data name="VBox3"><value>VBOX 3</value></data>
+  <data name="VBoxMini"><value>VBOX Mini</value></data>
+  <data name="Yaw02"><value>Yaw 02</value></data>
+  <data name="CanBootloaderS"><value>CAN Bootloader - S</value></data>
+  <data name="CanLoggerDp"><value>CAN Logger DP</value></data>
+  <data name="OledLogger"><value>OLED Logger</value></data>
+  <data name="Adc03DC"><value>Daimler Chrysler ADC03</value></data>
+  <data name="SerialBaudRate_br600"><value>600 bit/sec</value></data>
+  <data name="DualChannel"><value>2 Channel</value></data>
+  <data name="LapTimer"><value>Lap timer</value></data>
+  <data name="Dsp03DC"><value>Daimler Chrysler MFD</value></data>
+  <data name="Disabled"><value>Disabled</value></data>
+  <data name="Unchecked"><value>Unchecked</value></data>
+  <data name="PerMeterSp"><value>PerMeterSP</value></data>
+  <data name="VideoVBoxWaterproof32Can"><value>Video VBOX waterproof 32 CAN</value></data>
+  <data name="SerialBaudRate_br1000000"><value>1 Mbit/sec</value></data>
+  <data name="CanBootloader"><value>CAN Bootloader</value></data>
+  <data name="Vbs20Sl"><value>Slip Angle Sensor</value></data>
+  <data name="VideoVBoxLite2Can"><value>Video VBOX Lite 2 CAN</value></data>
+  <data name="VideoVBoxLite4Can"><value>Video VBOX Lite 4 CAN</value></data>
+  <data name="VideoVBoxLite8Can"><value>Video VBOX Lite 8 CAN</value></data>
+  <data name="MicroInputModule"><value>Micro Input Module</value></data>
+  <data name="SpeedProfiler"><value>Speed Profiler</value></data>
+  <data name="VB2SpsD1"><value>100 Hz Speed Sensor</value></data>
+  <data name="ImuAttitude"><value>IMU Attitude</value></data>
+  <data name="HdCamera"><value>VBOX HD</value></data>
+  <data name="VideoVBoxWaterproof8Can"><value>Video VBOX waterproof 8 CAN</value></data>
+  <data name="CutOffFrequency_TenHz"><value>10 Hz</value></data>
+  <data name="CanDisplay"><value>CAN Display</value></data>
+  <data name="VBoxIIPro4"><value>VBox II Pro 4</value></data>
+  <data name="VboxTouch"><value>VBOX Touch</value></data>
+  <data name="Automotive"><value>Automotive</value></data>
+  <data name="ExcelVersion_Excel2010"><value>Excel 2010</value></data>
+  <data name="ExcelVersion_Excel2003"><value>Excel 2003</value></data>
+  <data name="ExcelVersion_Excel2000"><value>Excel 2000</value></data>
+  <data name="ExcelVersion_Excel2007"><value>Excel 2007</value></data>
+  <data name="VbSpsMkIII"><value>Mk III (B110)</value></data>
+  <data name="VideoVBox4Camera8Can"><value>Video VBOX 4 camera 8 CAN</value></data>
+  <data name="VideoVBoxWatermark"><value>Video VBOX (watermark)</value></data>
+  <data name="SerialBaudRate_br38400"><value>38.4 kbit/sec</value></data>
+  <data name="SerialBaudRate_br28800"><value>28.8 kbit/sec</value></data>
+  <data name="SerialBaudRate_br19200"><value>19.2 kbit/sec</value></data>
+  <data name="SerialBaudRate_br14400"><value>14.4 kbit/sec</value></data>
+  <data name="SerialBaudRate_br56000"><value>56 kbit/sec</value></data>
+  <data name="SerialBaudRate_br57600"><value>57.6 kbit/sec</value></data>
+  <data name="SerialBaudRate_br46800"><value>46.8 kbit/sec</value></data>
+  <data name="NtripModem"><value>Ntrip Modem</value></data>
+  <data name="Incorrect"><value>Incorrect</value></data>
+  <data name="MiniInputModule"><value>Mini Input Module</value></data>
+  <data name="PerformanceBoxSportVci"><value>PerformanceBox Sport VCI</value></data>
+  <data name="GpsOdometer"><value>GPS Odometer</value></data>
+  <data name="VbSpsMkIIOem"><value>Mk II (OEM-1)</value></data>
+  <data name="Broadcast"><value>Broadcast</value></data>
+  <data name="DriftMeter"><value>Drift Meter</value></data>
+  <data name="DriftBoxSp"><value>DriftBoxSP</value></data>
+  <data name="SlipAngle"><value>Slip angle</value></data>
+  <data name="VideoVBox"><value>Video VBOX</value></data>
+  <data name="VideoVBoxSingleChannel"><value>Video VBOX (single channel)</value></data>
+  <data name="SlipAngleMkII"><value>Slip Angle MKII - using MFD not VBOX 3 PCB</value></data>
+  <data name="RtkTouch"><value>RTK Touch</value></data>
+  <data name="BatteryPack"><value>PB Touch battery pack</value></data>
+  <data name="Professional"><value>RLLS03-2P</value></data>
+  <data name="MiniLapTimer"><value>Mini Lap timer</value></data>
+  <data name="VdmsJapan"><value>VDMS Japan</value></data>
+  <data name="Oled"><value>OLED Display</value></data>
+  <data name="VB2L"><value>VBOX II Lite</value></data>
+  <data name="Vips"><value>VBOX Indoor Positioning System</value></data>
+  <data name="Vdms"><value>VDMS</value></data>
+  <data name="True"><value>True</value></data>
+  <data name="VdmsTouch"><value>VDMS 2</value></data>
+  </root>

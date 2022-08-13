@@ -46,7 +46,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Racelogic.DataTypes\Racelogic.DataTypes.csproj" />
+    <ProjectReference Include="..\Racelogic.Geodetics\Racelogic.Geodetics.csproj" />
     <ProjectReference Include="..\Racelogic.Gnss.SatGen\Racelogic.Gnss.SatGen.csproj" />
+    <ProjectReference Include="..\Racelogic.Gnss\Racelogic.Gnss.csproj" />
+    <ProjectReference Include="..\Racelogic.Libraries.Nmea\Racelogic.Libraries.Nmea.csproj" />
+    <ProjectReference Include="..\Racelogic.Maths\Racelogic.Maths.csproj" />
+    <ProjectReference Include="..\Racelogic.Utilities\Racelogic.Utilities.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -58,28 +64,6 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>bin\Debug\net5.0\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Racelogic.DataTypes">
-      <HintPath>bin\Debug\net5.0\Racelogic.DataTypes.dll</HintPath>
-    </Reference>
-    <Reference Include="Racelogic.Geodetics">
-      <HintPath>bin\Debug\net5.0\Racelogic.Geodetics.dll</HintPath>
-    </Reference>
-    <Reference Include="Racelogic.Gnss">
-      <HintPath>bin\Debug\net5.0\Racelogic.Gnss.dll</HintPath>
-    </Reference>
-    <Reference Include="Racelogic.Gnss.SatGen.BlackBox">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Gnss.SatGen.BlackBox.exe</HintPath>
-      <SpecificVersion>false</SpecificVersion>
-    </Reference>
-    <Reference Include="Racelogic.Libraries.Nmea">
-      <HintPath>bin\Debug\net5.0\Racelogic.Libraries.Nmea.dll</HintPath>
-    </Reference>
-    <Reference Include="Racelogic.Maths">
-      <HintPath>bin\Debug\net5.0\Racelogic.Maths.dll</HintPath>
-    </Reference>
-    <Reference Include="Racelogic.Utilities">
-      <HintPath>bin\Debug\net5.0\Racelogic.Utilities.dll</HintPath>
     </Reference>
     <Reference Include="Racelogic.Utilities.Win">
       <HintPath>bin\Debug\net5.0\Racelogic.Utilities.Win.dll</HintPath>

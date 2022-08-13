@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="KalmanFilterStatusExtraInformation_NotInitialised"><value>Not initialised</value></data>
+  <data name="TimeUnit_HoursMinutesWholeSecondsNoSeparator"><value>hhmmss</value></data>
+  <data name="VBoxChannel_WavFile"><value>Wav file</value></data>
+  <data name="StandAlone"><value>Stand alone</value></data>
+  <data name="DistanceUnit_Feet"><value>ft</value></data>
+  <data name="VBoxChannel_Heading"><value>Heading</value></data>
+  <data name="VBoxChannel_VelocityQuality"><value>Velocity quality</value></data>
+  <data name="KalmanFilterStatusExtraInformation_NewImu"><value>New IMU</value></data>
+  <data name="KalmanFilterStatusExtraInformation_NoSats"><value>No sats</value></data>
+  <data name="SplitType_Split"><value>Split</value></data>
+  <data name="VBoxChannel_Height"><value>Height</value></data>
+  <data name="SplitType_None"><value>Not set</value></data>
+  <data name="VBoxChannel_TimeFromTestStart"><value>Time since start</value></data>
+  <data name="MassUnit_Ton"><value>tons</value></data>
+  <data name="SplitType_StartFinish"><value>Start / Finish</value></data>
+  <data name="KalmanFilterStatusExtraInformation_ImuNotFound"><value>IMU not found</value></data>
+  <data name="CalculatedChannel_ElapsedTime"><value>Elapsed Time</value></data>
+  <data name="VBoxChannel_EndOfAcceleration"><value>End of acceleration</value></data>
+  <data name="SplitType_Finish"><value>Finish</value></data>
+  <data name="TemperatureUnit_DegreeC"><value>°C</value></data>
+  <data name="VBoxChannel_AviFileIndex"><value>Avi file index</value></data>
+  <data name="VBoxChannel2_PositionQuality"><value>Position quality</value></data>
+  <data name="KalmanFilterStatusExtraInformation_CoastingTimeout"><value>Coasting timeout</value></data>
+  <data name="FuelLevel"><value>Fuel level</value></data>
+  <data name="VBoxChannel_CompactFlashBufferSize"><value>Compact flash buffer size</value></data>
+  <data name="VerticalAcceleration"><value>Vertical acceleration</value></data>
+  <data name="NmeaFixQuality_Simulation"><value>Simulation mode</value></data>
+  <data name="NmeaFixQuality_FloatRtk"><value>Float RTK</value></data>
+  <data name="SpeedUnit_MilesPerHour"><value>mph</value></data>
+  <data name="VBoxChannel_Event2Time"><value>Event 2 time</value></data>
+  <data name="EngineRpm"><value>Engine RPM</value></data>
+  <data name="AccelerationUnit_MetresPerSecondSquared"><value>m/s²</value></data>
+  <data name="NmeaMessages_None"><value>None</value></data>
+  <data name="SplitType_SectorStart"><value>Sector start</value></data>
+  <data name="MassUnit_Gram"><value>g</value></data>
+  <data name="NoData"><value>No data</value></data>
+  <data name="SecondsText"><value>s</value></data>
+  <data name="NmeaActiveIndicator_Void"><value>Void</value></data>
+  <data name="KalmanFilterStatusExtraInformation_IMUCoast"><value>IMU Coast</value></data>
+  <data name="VBoxChannel_AviSyncTime"><value>Avi sync time</value></data>
+  <data name="VBoxChannel2_WheelSpeed1"><value>Wheel speed 1</value></data>
+  <data name="VBoxChannel2_WheelSpeed2"><value>Wheel speed 2</value></data>
+  <data name="TimeUnit_Milliseconds"><value>milliseconds</value></data>
+  <data name="FuelPressure"><value>Fuel pressure</value></data>
+  <data name="KalmanFilterStatus_Good"><value>Good</value></data>
+  <data name="VBoxChannel_LongitudinalAcceleration"><value>Longitudinal acceleration</value></data>
+  <data name="Hemisphere_NoData"><value>No data</value></data>
+  <data name="SplitType_PitLaneFinish"><value>Finish</value></data>
+  <data name="VBoxChannel2_CentrelineDeviation"><value>Centreline deviation</value></data>
+  <data name="NmeaFixQuality_GpsFix"><value>GPS fix (SPS)</value></data>
+  <data name="MassUnit_Newton"><value>N</value></data>
+  <data name="TemperatureUnit_Kelvin"><value>K</value></data>
+  <data name="CANTranChannels_Brake"><value>Brake</value></data>
+  <data name="NmeaModeIndicator_NoData"><value>No data</value></data>
+  <data name="CANTranChannels_Speed"><value>Speed</value></data>
+  <data name="VBoxChannel2_RollRateImu"><value>RollRate</value></data>
+  <data name="PressureUnit_Atmosphere"><value>atm</value></data>
+  <data name="VBoxChannel_Yaw01Status"><value>Yaw01Status</value></data>
+  <data name="DaysText"><value>d</value></data>
+  <data name="NmeaFixQuality_Manual"><value>Manual input mode</value></data>
+  <data name="KalmanFilterStatusExtraInformation_Initialised"><value>Initialised</value></data>
+  <data name="NmeaFixQuality_NoData"><value>No data</value></data>
+  <data name="EngineLoad"><value>Engine load</value></data>
+  <data name="VBoxChannel_SolutionType"><value>Solution type</value></data>
+  <data name="VBoxChannel_Battery2Voltage"><value>Battery 2 voltage</value></data>
+  <data name="Unknown"><value>Unknown</value></data>
+  <data name="LatLongUnit_DegreesDecimalMinutes"><value>ddd°mmm.mmmmm'</value></data>
+  <data name="VBoxChannel2_XAccelImu"><value>X_accel</value></data>
+  <data name="VBoxChannel_DualAntenna"><value>Dual antenna</value></data>
+  <data name="VBoxChannel_LateralAcceleration"><value>Lateral acceleration</value></data>
+  <data name="Nmea3DFix_NoData"><value>No data</value></data>
+  <data name="VBoxChannel_Longitude"><value>Longitude</value></data>
+  <data name="VBoxChannel_TriggerEventTime"><value>Trigger event time</value></data>
+  <data name="KalmanFilterStatusExtraInformation_Enabled"><value>IMU kalman filter enabled</value></data>
+  <data name="NmeaModeIndicator_Simulator"><value>Simulator</value></data>
+  <data name="VBoxChannel2_YAccelImu"><value>Y_accel</value></data>
+  <data name="VBoxChannel2_ZAccelImu"><value>Z_accel</value></data>
+  <data name="NmeaModeIndicator_Autonomous"><value>Autonomous</value></data>
+  <data name="AccelerationUnit_FeetPerSecondSquared"><value>ft/s²</value></data>
+  <data name="DistanceUnit_Metres"><value>m</value></data>
+  <data name="TimeUnit_HoursMinutesSeconds"><value>hh:mm:ss.ss</value></data>
+  <data name="Percent"><value>%</value></data>
+  <data name="VBoxChannel_Satellites"><value>Satellites</value></data>
+  <data name="NmeaFixQuality_PpsFix"><value>PPS fix</value></data>
+  <data name="NmeaFixQuality_Invalid"><value>Invalid</value></data>
+  <data name="TimeUnit_HoursMinutesSecondsPlusNonZeroDays"><value>hh:mm:ss.ss [+d]</value></data>
+  <data name="CalculatedChannel_Distance"><value>Distance</value></data>
+  <data name="CANTranChannels_Reverse"><value>Reverse</value></data>
+  <data name="VBoxChannel2_PitchAngleKf"><value>Pitch_IMU</value></data>
+  <data name="VBoxChannel2_HeadingKf"><value>Heading (derived from KF)</value></data>
+  <data name="DataFormat_Double"><value>Double</value></data>
+  <data name="DistanceUnit_Miles"><value>mi</value></data>
+  <data name="AccelerationUnit_G"><value>g</value></data>
+  <data name="IntakeManifoldPressure"><value>Intake manifold pressure</value></data>
+  <data name="PressureUnit_KiloPascal"><value>kPa</value></data>
+  <data name="CalculatedChannel_LongAcc"><value>Long Acc</value></data>
+  <data name="Degrees"><value>°</value></data>
+  <data name="ByteOrder_Intel"><value>Intel</value></data>
+  <data name="SpeedUnit_MetresPerSecond"><value>m/s</value></data>
+  <data name="VBoxChannel_Battery1Voltage"><value>Battery 1 voltage</value></data>
+  <data name="KalmanFilterStatusExtraInformation_TestMode"><value>Test mode</value></data>
+  <data name="VBoxChannel2_YawRateImu"><value>YawRate</value></data>
+  <data name="DegreeUnit_Degree"><value>Degrees</value></data>
+  <data name="TimeUnit_HoursMinutesSecondsNoSeparator"><value>hhmmss.ss</value></data>
+  <data name="MultiplexorType_MultiplexorSignal"><value>Multiplexor</value></data>
+  <data name="DistanceUnit_NauticalMiles"><value>nmi</value></data>
+  <data name="KalmanFilterStatusExtraInformation_NotEnabled"><value>IMU kalman filter not enabled</value></data>
+  <data name="Hemisphere_North"><value>North</value></data>
+  <data name="Hemisphere_South"><value>South</value></data>
+  <data name="CalculatedChannel_LatAcc"><value>Lat Acc</value></data>
+  <data name="DataFormat_Signed"><value>Signed</value></data>
+  <data name="DataFormat_Single"><value>Single</value></data>
+  <data name="VBoxChannel_VBox3Rms_VBMiniYaw"><value>VBox3 rms / VBox mini yaw rate</value></data>
+  <data name="VBoxChannel_VerticalVelocity"><value>Vertical velocity</value></data>
+  <data name="Enabled"><value>Enabled</value></data>
+  <data name="Nmea3DFix_NA"><value>N/A</value></data>
+  <data name="MassAirFlowRate"><value>Mass air flow rate</value></data>
+  <data name="KalmanFilterStatusExtraInformation_ImuFound"><value>IMU found</value></data>
+  <data name="KalmanFilterStatusExtraInformation_Reset"><value>Reset</value></data>
+  <data name="MultiplexorType_MultiplexedSignal"><value>Multiplexed</value></data>
+  <data name="KalmanFilterStatusExtraInformation_GoodLock"><value>Good lock</value></data>
+  <data name="MassUnit_Kilogram"><value>kg</value></data>
+  <data name="DataFormat_Unsigned"><value>Unsigned</value></data>
+  <data name="KalmanFilterStatus_Error"><value>Error</value></data>
+  <data name="SplitType_PitLaneStart"><value>Start</value></data>
+  <data name="Rpm"><value>rpm</value></data>
+  <data name="Miles"><value>miles</value></data>
+  <data name="North"><value>N</value></data>
+  <data name="EngineOilTemperature"><value>Engine oil temperature</value></data>
+  <data name="South"><value>S</value></data>
+  <data name="CANTranOutputTypes_Frequency"><value>Frequency</value></data>
+  <data name="KalmanFilterStatus_NoData"><value>No data</value></data>
+  <data name="VBoxChannel_InternalTemperature"><value>Internal temperature</value></data>
+  <data name="NoSolution"><value>No solution</value></data>
+  <data name="CANTranChannels_Lights"><value>Lights</value></data>
+  <data name="Distance"><value>Distance</value></data>
+  <data name="Disabled"><value>Disabled</value></data>
+  <data name="VBoxChannel_UtcTime"><value>UTC time</value></data>
+  <data name="NmeaMessages_Gga"><value>GGA</value></data>
+  <data name="NmeaMessages_Gll"><value>GLL</value></data>
+  <data name="NmeaMessages_Gst"><value>GST</value></data>
+  <data name="NmeaMessages_Gsv"><value>GSV</value></data>
+  <data name="NmeaMessages_Gsa"><value>GSA</value></data>
+  <data name="NmeaMessages_Vtg"><value>VTG</value></data>
+  <data name="NmeaMessages_Rmc"><value>RMC</value></data>
+  <data name="NmeaMessages_Zda"><value>ZDA</value></data>
+  <data name="LateralAcceleration"><value>Lateral acceleration</value></data>
+  <data name="VehicleSpeed"><value>Vehicle speed</value></data>
+  <data name="ThrottlePosition"><value>Throttle position</value></data>
+  <data name="VBoxChannel_MemoryUsed"><value>Memory used</value></data>
+  <data name="VBoxChannel_None"><value>None</value></data>
+  <data name="CombinedAcceleration"><value>Combined acceleration</value></data>
+  <data name="VBoxChannel_Speed"><value>Speed</value></data>
+  <data name="VBoxChannel_Drift"><value>Serialnumber / VBox mini drift</value></data>
+  <data name="NmeaFixQuality_DgpsFix"><value>DGPS fix</value></data>
+  <data name="EngineCoolantTemp"><value>Engine coolant temperature</value></data>
+  <data name="CodeDiff"><value>Code diff</value></data>
+  <data name="KalmanFilterStatusExtraInformation_Initialise"><value>Initialise</value></data>
+  <data name="VBoxChannel2_RollAngleKf"><value>Roll_IMU</value></data>
+  <data name="Hemisphere_East"><value>East</value></data>
+  <data name="Hemisphere_West"><value>West</value></data>
+  <data name="TemperatureUnit_Fahrenheit"><value>°F</value></data>
+  <data name="KalmanFilterStatus_NotMoving"><value>Not moving</value></data>
+  <data name="HoursText"><value>h</value></data>
+  <data name="VBoxChannel2_Date"><value>Date</value></data>
+  <data name="SoundUnit_db"><value>dBA</value></data>
+  <data name="VBoxChannel_Yaw01YawRate"><value>Yaw01 yaw rate</value></data>
+  <data name="KalmanFilterStatus_NotReady"><value>Not ready</value></data>
+  <data name="NmeaFixSelection_NoData"><value>No data</value></data>
+  <data name="Kilometres"><value>km</value></data>
+  <data name="CANTranChannels_RPM"><value>RPM</value></data>
+  <data name="Nmea3DFix_NoFix"><value>No fix</value></data>
+  <data name="Nmea3DFix_Fix3D"><value>3D fix</value></data>
+  <data name="Nmea3DFix_Fix2D"><value>2D fix</value></data>
+  <data name="SpeedUnit_KilometresPerHour"><value>km/h</value></data>
+  <data name="DegreeUnit_Radians"><value>Radians</value></data>
+  <data name="VBoxChannel2_HeadingImu2"><value>Head_IMU</value></data>
+  <data name="VBoxChannel_Distance"><value>Distance</value></data>
+  <data name="VBoxChannel2_CorrectedDistance"><value>Corrected distance</value></data>
+  <data name="NmeaActiveIndicator_Active"><value>Active</value></data>
+  <data name="CANTranChannels_IgnitionKey"><value>Ignition key</value></data>
+  <data name="NmeaFixSelection_Manual"><value>Manual</value></data>
+  <data name="TimeUnit_DaysHoursMinutesSeconds"><value>dd:hh:mm:ss.ss</value></data>
+  <data name="VBoxChannel2_BeidouSatellites"><value>Beidou satellites</value></data>
+  <data name="VBoxChannel2_T1"><value>T1</value></data>
+  <data name="VBoxChannel_Latitude"><value>Latitude</value></data>
+  <data name="KalmanFilterStatusExtraInformation_ImuDataFound"><value>IMU data found</value></data>
+  <data name="TimeUnit_SecondsSinceMidnight"><value>seconds</value></data>
+  <data name="VBoxChannel2_PitchRateImu"><value>PitchRate</value></data>
+  <data name="KalmanFilterStatusExtraInformation_SendOverSerialNotSelected"><value>Send over serial not selected.</value></data>
+  <data name="LongitudinalAcceleration"><value>Longitudinal acceleration</value></data>
+  <data name="IntakeAirTemperature"><value>Intake air temperature</value></data>
+  <data name="NmeaFixQuality_Rtk"><value>Real Time Kinematic</value></data>
+  <data name="CANTranPriorities_Level5"><value>Level 5</value></data>
+  <data name="CANTranPriorities_Level4"><value>Level 4</value></data>
+  <data name="CANTranPriorities_Level7"><value>Level 7</value></data>
+  <data name="CANTranPriorities_Level6"><value>Level 6</value></data>
+  <data name="CANTranPriorities_Level1"><value>Level 1</value></data>
+  <data name="CANTranPriorities_Level0"><value>Level 0</value></data>
+  <data name="CANTranPriorities_Level3"><value>Level 3</value></data>
+  <data name="CANTranPriorities_Level2"><value>Level 2</value></data>
+  <data name="TimeUnit_DaysHoursMinutesWholeSeconds"><value>dd:hh:mm:ss</value></data>
+  <data name="ByteOrder_Motorola"><value>Motorola</value></data>
+  <data name="Radians"><value>rad</value></data>
+  <data name="MinutesText"><value>m</value></data>
+  <data name="NmeaModeIndicator_Differential"><value>Differential</value></data>
+  <data name="GramsPerSec"><value>Grams/sec</value></data>
+  <data name="TimeUnit_HoursMinutesWholeSeconds"><value>hh:mm:ss</value></data>
+  <data name="DistanceUnit_Kilometres"><value>km</value></data>
+  <data name="KalmanFilterStatusExtraInformation_ImuDataNotFound"><value>IMU data not found</value></data>
+  <data name="FixedPos"><value>Fixed pos</value></data>
+  <data name="RTKFloat"><value>RTK float</value></data>
+  <data name="RTKFixed"><value>RTK fixed</value></data>
+  <data name="VBoxChannel_InternalA2D2"><value>Internal analogue to digital 2</value></data>
+  <data name="VBoxChannel_InternalA2D3"><value>Internal analogue to digital 3</value></data>
+  <data name="VBoxChannel_InternalA2D1"><value>Internal analogue to digital 1</value></data>
+  <data name="VBoxChannel_InternalA2D4"><value>Internal analogue to digital 4</value></data>
+  <data name="VBoxChannel_GlonassSatellites"><value>Glonass satellites</value></data>
+  <data name="NmeaFixSelection_Auto"><value>Auto</value></data>
+  <data name="CANTranOutputTypes_Level"><value>Level</value></data>
+  <data name="PressureUnit_inHG"><value>inHg</value></data>
+  <data name="PressureUnit_mBar"><value>mBar</value></data>
+  <data name="LatLongUnit_Minutes"><value>m.m'</value></data>
+  <data name="SpeedUnit_FeetPerSecond"><value>ft/s</value></data>
+  <data name="NmeaActiveIndicator_NoData"><value>No data</value></data>
+  <data name="splitType_SectorEnd"><value>Sector end</value></data>
+  <data name="NmeaFixQuality_Estimated"><value>Estimated (dead reckoning)</value></data>
+  <data name="VBoxChannel_GpsSatellites"><value>Gps satellites</value></data>
+  <data name="NmeaModeIndicator_Estimated"><value>Estimated</value></data>
+  <data name="TimeUnit_HoursMinutes"><value>hh:mm</value></data>
+  <data name="ElapsedTime"><value>Elapsed time</value></data>
+  <data name="PressureUnit_Psi"><value>psi</value></data>
+  <data name="PressureUnit_Bar"><value>bar</value></data>
+  <data name="VBoxChannel_Yaw01LateralAcceleration"><value>Yaw01 lateral acceleration</value></data>
+  <data name="ImuCoasting"><value>IMU coasting</value></data>
+  <data name="KalmanFilterStatus_NotEnabled"><value>Not enabled</value></data>
+  <data name="VBoxChannel_BrakeDistance"><value>Brake distance</value></data>
+  <data name="DataFormat_PseudoSigned"><value>Pseudo signed</value></data>
+  <data name="SpeedUnit_Knots"><value>kn</value></data>
+  <data name="East"><value>E</value></data>
+  <data name="West"><value>W</value></data>
+  <data name="NmeaModeIndicator_NotValid"><value>Not valid</value></data>
+  <data name="MultiplexorType_Signal"><value>Signal</value></data>
+  <data name="MassUnit_Pound"><value>lb</value></data>
+  <data name="MassUnit_Tonne"><value>tonnes</value></data>
+  <data name="MassUnit_Stone"><value>st</value></data>
+  </root>
