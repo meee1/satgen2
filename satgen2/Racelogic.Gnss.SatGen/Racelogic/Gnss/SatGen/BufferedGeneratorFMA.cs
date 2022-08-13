@@ -179,16 +179,15 @@ namespace Racelogic.Gnss.SatGen
 			IEnumerable<Signal> signals = parameters2.Channel.Signals;
 			if (signals.Any())
 			{
-				ConstellationType[] array2 = signals.Select((Signal s) => s.ConstellationType).Distinct().ToArray();
-				if (array2.Length > 1 /*&& (
-                    from ct in array2
-					select from s in signals
-						where s.ConstellationType == ct
-					select s.ModulationType into mm
-					select mm.Select((ModulationType m) => bufferedGeneratorFMA.signalParameters[m].Count()).Sum()).All((int c) => c > 0)*/)
-				{
-					generatorFeatures |= GeneratorFeatures.MultiConstellaton;
-				}
+                ConstellationType[] array2 = signals.Select((Signal s) => s.ConstellationType).Distinct().ToArray();
+                if (array2.Length > 1 && (from ct in array2
+                         from s in signals
+                            where s.ConstellationType == ct
+                            select s.ModulationType into mm
+                            select mm).Select((ModulationType m) => bufferedGeneratorFMA.signalParameters[m].Count()).Sum() > 0)
+                {
+                    generatorFeatures |= GeneratorFeatures.MultiConstellaton;
+                }
 				if (signals.Select((Signal s) => s.FrequencyBand).Distinct().Count() > 1)
 				{
 					generatorFeatures |= GeneratorFeatures.MultiBand;
