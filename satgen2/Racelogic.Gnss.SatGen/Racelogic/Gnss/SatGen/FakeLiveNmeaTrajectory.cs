@@ -67,9 +67,8 @@ namespace Racelogic.Gnss.SatGen
 		{
 			using (sampleLock.Lock())
 			{
-				sampleTime = GnssTime.Now;
-				inputBuffer.Push(new Pvt(in sampleTime, in ecef));
-				//sampleTime += base.SampleSpan;
+                inputBuffer.Push(new Pvt(in sampleTime, in ecef));
+				sampleTime += base.SampleSpan;
 				ProcessNewSample();
 			}
 		}

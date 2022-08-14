@@ -21,10 +21,12 @@ using Aladdin.HASP;
 using HarmonyLib;
 using iio;
 using Mono.Cecil;
+using Racelogic.Core.Filters;
 using Racelogic.DataTypes;
 using Racelogic.Geodetics;
 using Racelogic.Gnss;
 using Racelogic.Gnss.SatGen;
+using Racelogic.Gnss.SatGen.Gps;
 using Racelogic.Libraries.Nmea;
 using Racelogic.Maths;
 using Racelogic.Utilities;
@@ -35,7 +37,13 @@ namespace satgen2
 {
     public class Program
     {
-       
+        //https://cddis.nasa.gov/archive/gnss/data/daily/2022/225/22n/brdc2250.22n.gz
+        //https://gist.github.com/patapovich/c69a41fcc7f673bac6d8d431f97907af
+
+        //ftp://cddis.gsfc.nasa.gov/gnss/data/daily/$current_year/brdc/
+        //wget -4 "ftp://cddis.gsfc.nasa.gov/gnss/data/daily/$current_year/brdc/$latest_version"
+
+
         [STAThread]
         static void Main(string[] args)
         {
@@ -242,6 +250,9 @@ namespace satgen2
         public static void runoutside(string[] args)
         {
             Console.WriteLine("blah.exe profile.txt");
+
+            Trace.Listeners.Add(new TextWriterTraceListener("log.log", "tracelog"));
+
             RLLogger.GetLogger().LogMessage("start");
             string[] commandLineArgs = Environment.GetCommandLineArgs();
             ConfigFile config = ConfigFile.Read(commandLineArgs[1]);
@@ -272,7 +283,7 @@ namespace satgen2
             Trajectory trajectory = new NmeaFileTrajectory(in startTime, config.NmeaFile, config.GravitationalModel);
 
             //new LiveNmeaTrajectory(DateTime.Now, "df", 115200);
-            trajectory = new FakeLiveNmeaTrajectory(GnssTime.Now, 1);
+            trajectory = new FakeLiveNmeaTrajectory(GnssTime.Now, 5);
 
             var lat = 0.0;
             var lng = 0.0;
@@ -309,6 +320,64 @@ namespace satgen2
                 AlmanacBase almanac = item.Almanac;
                 GnssTime simulationTime = interval.Start;
                 almanac.UpdateAlmanacForTime(in simulationTime);
+                /*
+                foreach (var almanacBaselineSatellite in item.Almanac.BaselineSatellites)
+                {
+                    Satellite eph = almanacBaselineSatellite as Satellite;
+                    var data = new byte[0];
+
+                    ///https://github.com/tomojitakasu/RTKLIB/blob/master/src/rinex.c#L1028
+                    eph.Af0 = data[0];
+                    eph.Af1 = data[1];
+                    eph.Af2 = data[2];
+
+                    eph.SqrtA = SQR(data[10]); eph.Eccentricity = data[8]; eph.i0 = data[15]; eph.OMG0 = data[13];
+                    eph.omg = data[17]; eph.M0 = data[6]; eph.deln = data[5]; eph.OMGd = data[18];
+                    eph.idot = data[19]; eph.Crc = data[16]; eph.Crs = data[4]; eph.Cuc = data[7];
+                    eph.Cus = data[9]; eph.Cic = data[12]; eph.Cis = data[14];
+
+                    eph.iode = (int)data[3];      // IODE 
+                    eph.iodc = (int)data[26];      // IODC 
+                    eph.toes = data[11];      // toe (s) in gps week 
+                    eph.week = (int)data[21];      // gps week 
+                    eph.toe = adjweek(gpst2time(eph.week, data[11]), toc);
+                    eph.ttr = adjweek(gpst2time(eph.week, data[27]), toc);
+
+                    eph.code = (int)data[20];      // GPS: codes on L2 ch 
+                    eph.svh = (int)data[24];      // sv health 
+                    eph.sva = uraindex(data[23]);  // ura (m.index) 
+                    eph.flag = (int)data[22];      // GPS: L2 P data flag 
+
+                    eph.tgd[0] = data[25];      // TGD 
+                    eph.fit = data[28];      // fit interval 
+
+
+                    
+                     	return new Satellite
+			{
+				ArgumentOfPerigee = satellite.ArgumentOfPerigee,
+				Eccentricity = satellite.Eccentricity,
+				Health = satellite.Health,
+				Id = satellite.Id,
+				Inclination = satellite.Inclination,
+				IsEnabled = satellite.IsEnabled,
+				IsHealthy = satellite.IsHealthy,
+				MeanMotionCorrection = satellite.MeanMotionCorrection,
+				OrbitType = satellite.OrbitType,
+				RateOfInclination = satellite.RateOfInclination,
+				RateOfLongitudeOfAscendingNode = satellite.RateOfLongitudeOfAscendingNode,
+				SqrtA = satellite.SqrtA,
+				IssueOfDataClock = issueOfDataClock,
+				LongitudeOfAscendingNode = radians,
+				MeanAnomaly = meanAnomaly,
+				TimeOfApplicability = gpsSecondOfWeek,
+				TransmissionInterval = transmissionInterval,
+				Week = gpsWeek
+			};
+                     
+                     
+                }*/
+
             }
 
             Console.WriteLine(
