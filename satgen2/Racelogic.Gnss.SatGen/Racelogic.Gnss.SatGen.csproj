@@ -10,7 +10,9 @@
     <LangVersion>Preview</LangVersion>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>True</Optimize>
+  </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Racelogic.Core\Racelogic.Core.csproj" />
     <ProjectReference Include="..\Racelogic.DataSource\Racelogic.DataSource.csproj" />

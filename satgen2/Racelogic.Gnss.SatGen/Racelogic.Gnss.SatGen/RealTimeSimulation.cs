@@ -220,7 +220,7 @@ internal sealed class RealTimeSimulation : Simulation
 			(Range<GnssTime, GnssTimeSpan>, IReadOnlyList<Pvt>) result;
 			while (!creationQueue.TryDequeue(out result) && base.SimulationState < SimulationState.Cancelling)
 			{
-				Thread.Yield();
+				Thread.Sleep(1);
 			}
 			if (base.SimulationState < SimulationState.Cancelling)
 			{
@@ -264,7 +264,7 @@ internal sealed class RealTimeSimulation : Simulation
 			SimulationSlice result;
 			while (!processingQueue.TryDequeue(out result) && base.SimulationState < SimulationState.Cancelling)
 			{
-				Thread.Yield();
+                Thread.Sleep(1);
 			}
 			if (base.SimulationState < SimulationState.Cancelling)
 			{
@@ -304,7 +304,7 @@ internal sealed class RealTimeSimulation : Simulation
 			SimulationSlice result;
 			while (!outputQueue.TryDequeue(out result) && base.SimulationState < SimulationState.Cancelling)
 			{
-				Thread.Yield();
+                Thread.Sleep(1);
 			}
 			if (base.SimulationState >= SimulationState.Cancelling)
 			{
