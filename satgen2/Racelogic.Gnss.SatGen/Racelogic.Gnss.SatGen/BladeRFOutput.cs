@@ -5,10 +5,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using Racelogic.Geodetics;
-using Racelogic.Gnss.BladeRF;
+//using Racelogic.Gnss.BladeRF;
 
 namespace Racelogic.Gnss.SatGen;
-
+/*
 public sealed class BladeRFOutput : StreamOutput, ILiveOutput, INotifyPropertyChanged
 {
 	private readonly ChannelPlan channelPlan;
@@ -241,3 +241,4 @@ public sealed class BladeRFOutput : StreamOutput, ILiveOutput, INotifyPropertyCh
 		}
 	}
 }
+*/

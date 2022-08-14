@@ -1,10 +1,10 @@
 using System;
 using System.IO.Ports;
 using System.Threading;
-using ZylSoft.Serial;
+//using ZylSoft.Serial;
 
 namespace Racelogic.Libraries.Nmea;
-
+/*
 public class ZylSoftSerialPort : ISerialPort
 {
 	private readonly SerialPort serialPort;
@@ -148,3 +148,4 @@ public class ZylSoftSerialPort : ISerialPort
 		}
 	}
 }
+*/

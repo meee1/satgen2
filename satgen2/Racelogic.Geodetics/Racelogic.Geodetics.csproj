@@ -10,22 +10,13 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup />
-  <ItemGroup />
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Flitesys.GeographicLib">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Flitesys.GeographicLib.dll</HintPath>
-    </Reference>
-    <Reference Include="MathNet.Numerics">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\MathNet.Numerics.dll</HintPath>
-    </Reference>
-    <Reference Include="Racelogic.DataTypes">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.DataTypes.dll</HintPath>
-    </Reference>
-    <Reference Include="Racelogic.Maths">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Maths.dll</HintPath>
-    </Reference>
+    <PackageReference Include="Flitesys.GeographicLib" Version="1.0.2" />
+    <PackageReference Include="MathNet.Numerics" Version="5.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Racelogic.DataTypes\Racelogic.DataTypes.csproj" />
+    <ProjectReference Include="..\Racelogic.Maths\Racelogic.Maths.csproj" />
   </ItemGroup>
 </Project>

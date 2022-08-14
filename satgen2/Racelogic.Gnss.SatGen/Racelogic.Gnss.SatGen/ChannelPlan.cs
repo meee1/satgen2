@@ -51,11 +51,11 @@ public sealed class ChannelPlan
 		}
 	}
 
-	internal ChannelPlan()
+	internal ChannelPlan(): this(Array.Empty<Channel>(), 0)
 	{
 		Channel[] array = Array.Empty<Channel>();
 		int num = 0;
-		this._002Ector(array, in num);
+		//this._002Ector(array, in num);
 	}
 
 	public ChannelPlan(IReadOnlyList<Channel?> channels, in int dataRate)

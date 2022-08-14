@@ -504,7 +504,8 @@ public abstract class Simulation : BasePropertyChanged, IDisposable
 
 	[MethodImpl(MethodImplOptions.Synchronized)]
 	private static bool CheckFeature(HaspFeature feature)
-	{
+    {
+        return true;
 		using Hasp hasp = new Hasp(feature);
 		HaspStatus num = hasp.Login(VendorCode.Code);
 		hasp.Logout();

@@ -10,10 +10,10 @@ internal sealed class ModulationCMCL : ModulationBPSK
 
 	private readonly decimal secondOfWeek;
 
-	public ModulationCMCL(ModulationBank modulationBank, Signal signal, byte[] data, in int bitRate, sbyte[] cmCode, sbyte[] negatedCmCode, sbyte[] clCode, in Range<GnssTime, GnssTimeSpan> interval, in GnssTime timeStamp)
+	public ModulationCMCL(ModulationBank modulationBank, Signal signal, byte[] data, in int bitRate, sbyte[] cmCode, sbyte[] negatedCmCode, sbyte[] clCode, in Range<GnssTime, GnssTimeSpan> interval, in GnssTime timeStamp): base(modulationBank, signal, data, in bitRate, cmCode, negatedCmCode, interval.Width.Seconds, in timeStamp)
 	{
 		double intervalLength = interval.Width.Seconds;
-		base._002Ector(modulationBank, signal, data, in bitRate, cmCode, negatedCmCode, in intervalLength, in timeStamp);
+		//base._002Ector(modulationBank, signal, data, in bitRate, cmCode, negatedCmCode, in intervalLength, in timeStamp);
 		this.clCode = clCode;
 		secondOfWeek = interval.Start.GpsSecondOfWeekDecimal;
 	}

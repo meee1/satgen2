@@ -3,19 +3,17 @@
   <PropertyGroup>
     <AssemblyName>Racelogic.Libraries.Nmea</AssemblyName>
     <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
-    <TargetFramework>net471</TargetFramework>
+    <TargetFramework>net472</TargetFramework>
   </PropertyGroup>
   <PropertyGroup>
     <LangVersion>Preview</LangVersion>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup />
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Racelogic.Utilities\Racelogic.Utilities.csproj" />
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Core" />
-    <Reference Include="ZylSerialPort" />
-    <Reference Include="Racelogic.Utilities">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Utilities.dll</HintPath>
-    </Reference>
   </ItemGroup>
 </Project>

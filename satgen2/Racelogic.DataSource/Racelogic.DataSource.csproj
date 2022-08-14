@@ -12,19 +12,13 @@
   <PropertyGroup>
     <RootNamespace />
   </PropertyGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Reference Include="Racelogic.Core">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Racelogic.Utilities">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Utilities.dll</HintPath>
-    </Reference>
-    <Reference Include="Racelogic.Geodetics">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Geodetics.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Newtonsoft.Json.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\Racelogic.Core\Racelogic.Core.csproj" />
+    <ProjectReference Include="..\Racelogic.Geodetics\Racelogic.Geodetics.csproj" />
+    <ProjectReference Include="..\Racelogic.Maths\Racelogic.Maths.csproj">
+      <Aliases>math2</Aliases>
+    </ProjectReference>
+    <ProjectReference Include="..\Racelogic.Utilities\Racelogic.Utilities.csproj" />
   </ItemGroup>
+
 </Project>

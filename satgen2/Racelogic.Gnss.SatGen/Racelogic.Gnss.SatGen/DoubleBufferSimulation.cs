@@ -112,10 +112,10 @@ internal sealed class DoubleBufferSimulation : Simulation
 		}
 	}
 
-	public DoubleBufferSimulation(SimulationParams simulationParameters)
+	public DoubleBufferSimulation(SimulationParams simulationParameters): base(simulationParameters)
 	{
 		SimulationParams simulationParameters2 = simulationParameters;
-		base._002Ector(simulationParameters2);
+		//base._002Ector(simulationParameters2);
 		DoubleBufferSimulation doubleBufferSimulation = this;
 		concurrency = GetConcurrency(simulationParameters2.Output);
 		timeInProcess = (double)concurrency * simulationParameters2.SliceLength;

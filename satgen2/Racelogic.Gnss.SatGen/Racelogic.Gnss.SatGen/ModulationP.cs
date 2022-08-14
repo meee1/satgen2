@@ -18,10 +18,10 @@ internal sealed class ModulationP : ModulationBPSK
 
 	private readonly decimal secondOfWeek;
 
-	public ModulationP(ModulationBank modulationBank, Signal signal, in int satIndex, byte[] data, in int bitRate, in Range<GnssTime, GnssTimeSpan> interval, in GnssTime timeStamp)
+	public ModulationP(ModulationBank modulationBank, Signal signal, in int satIndex, byte[] data, in int bitRate, in Range<GnssTime, GnssTimeSpan> interval, in GnssTime timeStamp):base(modulationBank, signal, data, in bitRate, null, null, interval.Width.Seconds, in timeStamp)
 	{
 		double intervalLength = interval.Width.Seconds;
-		base._002Ector(modulationBank, signal, data, in bitRate, null, null, in intervalLength, in timeStamp);
+		//base._002Ector(modulationBank, signal, data, in bitRate, null, null, in intervalLength, in timeStamp);
 		this.satIndex = satIndex;
 		secondOfWeek = interval.Start.GpsSecondOfWeekDecimal;
 	}

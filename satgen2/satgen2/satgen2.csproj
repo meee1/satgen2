@@ -39,6 +39,7 @@
     <PackageReference Include="Lib.Harmony" Version="2.1.1" />
     <PackageReference Include="Microsoft.NETCore.Platforms" Version="3.1.7" />
     <PackageReference Include="Mono.Cecil" Version="0.11.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="System.Diagnostics.Tools" Version="4.3.0" />
     <PackageReference Include="System.IO.Ports" Version="4.7.0" />
     <PackageReference Include="System.Resources.ResourceManager" Version="4.3.0" />
@@ -52,6 +53,7 @@
     <ProjectReference Include="..\Racelogic.Gnss\Racelogic.Gnss.csproj" />
     <ProjectReference Include="..\Racelogic.Libraries.Nmea\Racelogic.Libraries.Nmea.csproj" />
     <ProjectReference Include="..\Racelogic.Maths\Racelogic.Maths.csproj" />
+    <ProjectReference Include="..\Racelogic.Utilities.Win\Racelogic.Utilities.Win.csproj" />
     <ProjectReference Include="..\Racelogic.Utilities\Racelogic.Utilities.csproj" />
   </ItemGroup>
 
@@ -64,9 +66,6 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>bin\Debug\net5.0\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Racelogic.Utilities.Win">
-      <HintPath>bin\Debug\net5.0\Racelogic.Utilities.Win.dll</HintPath>
     </Reference>
   </ItemGroup>
 

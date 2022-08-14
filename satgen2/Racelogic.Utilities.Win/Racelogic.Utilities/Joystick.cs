@@ -59,7 +59,7 @@ public class Joystick : IDisposable
 	{
 		IntPtr handle = new WindowInteropHelper(Application.Current.MainWindow).Handle;
 		joystick = new SlimDX.DirectInput.Joystick(directInput, deviceInstance.InstanceGuid);
-		joystick.SetCooperativeLevel(handle, CooperativeLevel.Background | CooperativeLevel.Nonexclusive);
+		//joystick.SetCooperativeLevel(handle, CooperativeLevel.Background | CooperativeLevel.Nonexclusive);
 		joystick.Acquire();
 		foreach (DeviceObjectInstance item in from d in joystick.GetObjects()
 			where d.ObjectType.HasFlag(ObjectDeviceType.Axis) || d.ObjectType.HasFlag(ObjectDeviceType.AbsoluteAxis) || d.ObjectType.HasFlag(ObjectDeviceType.RelativeAxis)

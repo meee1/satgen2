@@ -37,7 +37,7 @@ public class FakeLiveNmeaTrajectory : Trajectory, ILiveTrajectory
 
 	private readonly Timer inputTimer;
 
-	private readonly Ecef ecef = Geodetic.FromDegrees(51.9895405, -0.9913955, 111.57).ToEcef(Datum.WGS84, Geoid.Egm96);
+	public Ecef ecef = Geodetic.FromDegrees(51.9895405, -0.9913955, 111.57).ToEcef(Datum.WGS84, Geoid.Egm96);
 
 	private GnssTime sampleTime;
 

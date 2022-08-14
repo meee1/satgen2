@@ -115,11 +115,11 @@ internal sealed class BufferedGenerator : Generator
 		}
 	}
 
-	public unsafe BufferedGenerator(in Memory<byte> buffer, ModulationBank modulationBank, GeneratorParams parameters, SimulationParams simulationParameters)
+	public unsafe BufferedGenerator(in Memory<byte> buffer, ModulationBank modulationBank, GeneratorParams parameters, SimulationParams simulationParameters): base(buffer, parameters)
 	{
 		ModulationBank modulationBank2 = modulationBank;
 		GeneratorParams parameters2 = parameters;
-		base._002Ector(in buffer, parameters2);
+		//base._002Ector(in buffer, parameters2);
 		BufferedGenerator bufferedGenerator = this;
 		double[] array = parameters2.TimePositions;
 		int size = array.Length;
@@ -181,11 +181,11 @@ internal sealed class BufferedGenerator : Generator
 		if (signals.Any())
 		{
 			ConstellationType[] array2 = signals.Select((Signal s) => s.ConstellationType).Distinct().ToArray();
-			if (array2.Length > 1 && (from ct in array2
-				select from s in signals
+			if (array2.Length > 1/* && (from ct in array2
+				 from s in signals
 					where s.ConstellationType == ct
 					select s.ModulationType into mm
-				select mm.Select((ModulationType m) => bufferedGenerator.signalParameters[m].Count()).Sum()).All((int c) => c > 0))
+				select mm.Select((ModulationType m) => bufferedGenerator.signalParameters[m].Count()).Sum()).All((int c) => c > 0)*/)
 			{
 				generatorFeatures |= GeneratorFeatures.MultiConstellaton;
 			}

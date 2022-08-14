@@ -10,16 +10,9 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup />
-  <ItemGroup />
   <ItemGroup>
-    <Reference Include="Racelogic.DataTypes">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.DataTypes.dll</HintPath>
-    </Reference>
-    <Reference Include="Racelogic.Utilities">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Utilities.dll</HintPath>
-    </Reference>
-    <Reference Include="Racelogic.Maths">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Maths.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\Racelogic.DataTypes\Racelogic.DataTypes.csproj" />
+    <ProjectReference Include="..\Racelogic.Maths\Racelogic.Maths.csproj" />
+    <ProjectReference Include="..\Racelogic.Utilities\Racelogic.Utilities.csproj" />
   </ItemGroup>
 </Project>
