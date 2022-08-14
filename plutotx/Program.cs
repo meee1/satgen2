@@ -41,7 +41,7 @@ namespace plutotx
             Console.WriteLine("Connecting to server...\n");
             //pipeClient.Connect();
 
-            //Start();
+            Start();
 
             byte[] buffer = new byte[1024 * 1024 * 20];
 
