@@ -1,4 +1,5 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AssemblyName>Racelogic.Utilities</AssemblyName>
     <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
@@ -9,7 +10,10 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup />
+  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\Racelogic.DataTypes\Racelogic.DataTypes.csproj" />
+    <Reference Include="Racelogic.DataTypes">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.DataTypes.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

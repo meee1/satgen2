@@ -2,12 +2,12 @@ using System;
 using System.ComponentModel;
 using Racelogic.Comms.Serial.Properties;
 using Racelogic.Core;
-//using ZylSoft.Serial;
+using ZylSoft.Serial;
 
 namespace Racelogic.Comms.Serial;
 
 public struct PortSettings : INotifyPropertyChanged
-{/*
+{
 	public EventHandler FlushPort;
 
 	public SerialBaudRate BaudRate
@@ -56,9 +56,9 @@ public struct PortSettings : INotifyPropertyChanged
 			OnNotify("PortName");
 		}
 	}
-	*/
+
 	public event PropertyChangedEventHandler PropertyChanged;
-	/*
+
 	internal event EventHandler<SlidingMessageEventArgs> NewSlidingMessage;
 
 	internal void Initialise(string portName)
@@ -167,5 +167,5 @@ public struct PortSettings : INotifyPropertyChanged
 		{
 			this.PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));
 		}
-	}*/
+	}
 }

@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AssemblyName>Racelogic.Geodetics</AssemblyName>
@@ -5,17 +6,26 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>Preview</LangVersion>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup />
+  <ItemGroup />
   <ItemGroup>
-    <PackageReference Include="Flitesys.GeographicLib" Version="1.0.2" />
-    <PackageReference Include="MathNet.Numerics" Version="5.0.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Racelogic.DataTypes\Racelogic.DataTypes.csproj" />
-    <ProjectReference Include="..\Racelogic.Maths\Racelogic.Maths.csproj" />
-    <ProjectReference Include="..\Racelogic.Utilities\Racelogic.Utilities.csproj" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Flitesys.GeographicLib">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Flitesys.GeographicLib.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Numerics">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.DataTypes">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.DataTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Maths">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Maths.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

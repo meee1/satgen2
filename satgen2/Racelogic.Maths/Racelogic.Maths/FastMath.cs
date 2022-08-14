@@ -136,7 +136,14 @@ public static class FastMath
 		quarterCycleLookupCount = cosLookupCount >> 1;
 		cosLookupStepsPerCycle = (double)cosLookupCount / 0.5;
 		cosLookupTable = new(double, double)[cosLookupCount + 1];
-        InitializeCosLookupTable(cosLookupCount);
+		decimalAccuracy = 0.000000000000000000000000001m;
+		MachineEpsilonDecimal = 0.0000000000000000000000000001m;
+		PIDecimal = 3.1415926535897932384626433833m;
+		HalfPIDecimal = 1.5707963267948966192313216916m;
+		TwoPIDecimal = 6.2831853071795864769252867666m;
+		PIInvDecimal = 0.3183098861837906715377675267m;
+		TwoPIInvDecimal = 0.1591549430918953357688837634m;
+		InitializeCosLookupTable(cosLookupCount);
 	}
 
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]

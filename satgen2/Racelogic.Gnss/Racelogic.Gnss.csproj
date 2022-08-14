@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AssemblyName>Racelogic.Gnss</AssemblyName>
@@ -5,13 +6,20 @@
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
   <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>Preview</LangVersion>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup />
+  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\Racelogic.DataTypes\Racelogic.DataTypes.csproj" />
-    <ProjectReference Include="..\Racelogic.Maths\Racelogic.Maths.csproj" />
-    <ProjectReference Include="..\Racelogic.Utilities\Racelogic.Utilities.csproj" />
+    <Reference Include="Racelogic.DataTypes">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.DataTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Utilities">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Maths">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Maths.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

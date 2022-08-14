@@ -1,4 +1,5 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AssemblyName>Racelogic.Gnss.SatGen</AssemblyName>
     <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
@@ -6,33 +7,48 @@
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>Preview</LangVersion>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <Optimize>True</Optimize>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <Optimize>True</Optimize>
-  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\Racelogic.Core\Racelogic.Core.csproj" />
-    <ProjectReference Include="..\Racelogic.DataSource\Racelogic.DataSource.csproj" />
-    <ProjectReference Include="..\Racelogic.DataTypes\Racelogic.DataTypes.csproj" />
-    <ProjectReference Include="..\Racelogic.Geodetics\Racelogic.Geodetics.csproj" />
-    <ProjectReference Include="..\Racelogic.Gnss.LabSat\Racelogic.Gnss.LabSat.csproj" />
-    <ProjectReference Include="..\Racelogic.Gnss\Racelogic.Gnss.csproj" />
-    <ProjectReference Include="..\Racelogic.Libraries.Nmea\Racelogic.Libraries.Nmea.csproj" />
-    <ProjectReference Include="..\Racelogic.Maths\Racelogic.Maths.csproj" />
-    <ProjectReference Include="..\Racelogic.Utilities.Win\Racelogic.Utilities.Win.csproj" />
-    <ProjectReference Include="..\Racelogic.Utilities\Racelogic.Utilities.csproj" />
-  </ItemGroup>
-  <ItemGroup>
+    <Reference Include="Racelogic.DataTypes">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.DataTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Geodetics">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Geodetics.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Gnss">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Gnss.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Gnss.LabSat">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Gnss.LabSat.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Gnss.BladeRF" />
+    <Reference Include="Racelogic.Utilities">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Utilities.Win">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Utilities.Win.dll</HintPath>
+    </Reference>
     <Reference Include="hasp_net_windows">
-      <HintPath>..\satgen2\hasp_net_windows.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\hasp_net_windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Maths">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Maths.dll</HintPath>
     </Reference>
     <Reference Include="Racelogic.Comms.Serial">
-      <HintPath>..\satgen2\Racelogic.Comms.Serial.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Comms.Serial.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Core">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.DataSource">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.DataSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Libraries.Nmea">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Libraries.Nmea.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>

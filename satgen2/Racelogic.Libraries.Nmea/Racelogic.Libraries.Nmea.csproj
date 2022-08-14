@@ -1,18 +1,21 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AssemblyName>Racelogic.Libraries.Nmea</AssemblyName>
     <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
-	  <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>net471</TargetFramework>
   </PropertyGroup>
   <PropertyGroup>
     <LangVersion>Preview</LangVersion>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup />
+  <ItemGroup />
   <ItemGroup>
-    <PackageReference Include="System.IO.Ports" Version="4.7.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Racelogic.Utilities\Racelogic.Utilities.csproj" />
+    <Reference Include="System.Core" />
+    <Reference Include="ZylSerialPort" />
+    <Reference Include="Racelogic.Utilities">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Utilities.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

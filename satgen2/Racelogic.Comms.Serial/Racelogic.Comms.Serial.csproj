@@ -1,9 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <AssemblyName>Racelogic.Comms.Serial</AssemblyName>
     <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
     <UseWPF>True</UseWPF>
-    <TargetFramework>net472</TargetFramework>
+    <TargetFramework>net471</TargetFramework>
   </PropertyGroup>
   <PropertyGroup>
     <LangVersion>Preview</LangVersion>
@@ -12,17 +13,38 @@
   <PropertyGroup>
     <RootNamespace />
   </PropertyGroup>
+  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\Racelogic.Core\Racelogic.Core.csproj" />
-    <ProjectReference Include="..\Racelogic.DataSource\Racelogic.DataSource.csproj" />
-    <ProjectReference Include="..\Racelogic.DataTypes\Racelogic.DataTypes.csproj" />
-    <ProjectReference Include="..\Racelogic.Utilities\Racelogic.Utilities.csproj" />
-  </ItemGroup>
-  <ItemGroup>
+    <Reference Include="Racelogic.Utilities">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.FileRoutines">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.FileRoutines.dll</HintPath>
+    </Reference>
     <Reference Include="System.Management" />
+    <Reference Include="Racelogic.DataSource">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.DataSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.DataTypes.Win">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.DataTypes.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Core">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.WPF.Utilities">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.WPF.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.DataTypes">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.DataTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="ZylSerialPort" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="WindowsBase" />
     <Reference Include="System.Core" />
+    <Reference Include="GalaSoft.MvvmLight.WPF4" />
     <Reference Include="PresentationCore" />
+    <Reference Include="Racelogic.Core.Win">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Core.Win.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

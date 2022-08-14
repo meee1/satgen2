@@ -1,4 +1,5 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AssemblyName>Racelogic.DataSource</AssemblyName>
     <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
@@ -11,15 +12,19 @@
   <PropertyGroup>
     <RootNamespace />
   </PropertyGroup>
+  <ItemGroup />
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Racelogic.Core\Racelogic.Core.csproj" />
-    <ProjectReference Include="..\Racelogic.Geodetics\Racelogic.Geodetics.csproj" />
-    <ProjectReference Include="..\Racelogic.Maths\Racelogic.Maths.csproj">
-      <Aliases>math2</Aliases>
-    </ProjectReference>
-    <ProjectReference Include="..\Racelogic.Utilities\Racelogic.Utilities.csproj" />
+    <Reference Include="Racelogic.Core">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Utilities">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Geodetics">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Geodetics.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

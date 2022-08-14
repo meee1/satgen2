@@ -80,7 +80,10 @@ internal sealed class UserConfiguration : MemoryBlock
 		}
 	}
 
-	internal UserConfiguration(LabSat2 labSat): base(labSat, 64,32)
+	internal UserConfiguration(LabSat2 labSat)
 	{
-    }
+		int num = 64;
+		int blockLength = 32;
+		base._002Ector(labSat, in num, in blockLength);
+	}
 }
