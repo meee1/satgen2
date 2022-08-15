@@ -43,9 +43,7 @@ namespace plutotx
 
             Start();
 
-            byte[] buffer = new byte[1024 * 1024 * 20];
-
-            var samples = 3000000 / 10;
+            byte[] buffer = new byte[0];
 
             while (true)
             {
@@ -53,26 +51,32 @@ namespace plutotx
                 var length = mmsrc.ReadInt32(0);
                 if(length == 0)
                 {
-                    Thread.Sleep(10);
+                    Thread.Sleep(1);
                     continue;
                 }
+                if (buf == null)
+                    buf = new IOBuffer(tx, (uint)(length / 2 / 2));
+
+                if (buffer.Length != length)
+                    Array.Resize(ref buffer, length);
+
                 int numBytesToWrite = mmsrc.ReadArray(4, buffer, 0, length);
                 mmsrc.Write(0, 0);
                 if (numBytesToWrite == 0)
                 {
-                    Thread.Sleep(20);
+                    Thread.Sleep(1);
                     continue;
                 }
 
                 var samp = numBytesToWrite / 2 / 2;
 
                 Console.WriteLine(numBytesToWrite + " " + samp);
-                try
+               // try
                 {
                     buf.fill(buffer);
                     buf.push((uint) samp);
                 }
-                catch
+                //catch
                 {
                 }
             }
@@ -96,6 +100,88 @@ namespace plutotx
                 Console.WriteLine("Unable to create IIO context");
                 return;
             }
+
+            { 
+                /*
+// RX stream config
+rxcfg.bw_hz = MHZ(2);   // 2 MHz rf bandwidth
+rxcfg.fs_hz = MHZ(2.5);   // 2.5 MS/s rx sample rate
+rxcfg.lo_hz = GHZ(2.5); // 2.5 GHz rf frequency
+rxcfg.rfport = "A_BALANCED"; // port A (select for rf freq.)
+
+
+                _rx_channel_names = ["voltage0", "voltage1"]
+                _tx_channel_names = ["voltage0", "voltage1"]
+                self._ctrl = self._ctx.find_device("ad9361-phy")
+                self._rxadc = self._ctx.find_device("cf-ad9361-lpc")
+                self._txdac = self._ctx.find_device("cf-ad9361-dds-core-lpc")
+                    */
+
+                var phy = ctx.get_device("ad9361-phy");
+
+                // joint
+                var samplehz = phy.find_channel("voltage0", false).find_attribute("sampling_frequency");
+
+                //rx
+                var gainmode = phy.find_channel("voltage0", false).find_attribute("gain_control_mode");
+                gainmode.write("slow_attack");
+
+                //manual
+                //gain.write(40);
+
+                var rfbw = phy.find_channel("voltage0", false).find_attribute("rf_bandwidth");
+                var freq = phy.find_channel("altvoltage0", true).find_attribute("frequency");
+                var gain = phy.find_channel("voltage0", true).find_attribute("hardwaregain");
+
+                rfbw.write(3000000);
+                samplehz.write((long)3000000);
+                gain.write(-30);
+
+
+                var dev = ctx.get_device("cf-ad9361-lpc");
+                var _rx0_i = dev.find_channel("voltage0", false);
+                var _rx0_q = dev.find_channel("voltage1", false);
+
+                //_rx0_i.enable();
+                //_rx0_q.enable();
+
+                //tx
+
+                var rfbwtx = phy.find_channel("voltage0", true).find_attribute("rf_bandwidth");
+                var freqtx = phy.find_channel("altvoltage1", true).find_attribute("frequency");
+
+                freqtx.write(1575420000);
+
+                rfbwtx.write(3000000);
+
+
+                tx = ctx.get_device("cf-ad9361-dds-core-lpc");
+
+                var _tx0_i = tx.find_channel("voltage0", true);
+                var _tx0_q = tx.find_channel("voltage1", true);
+
+                _tx0_i.enable();
+                _tx0_q.enable();
+
+                
+                //IOBuffer buf = new IOBuffer(dev, 2000000 / 20);
+
+                float scale = 1.0f / 32768.0f;
+
+                float[] lut = new float[0x10000];
+                for (UInt16 i = 0x0000; i < 0xFFFF; i++)
+                {
+                    lut[i] = ((((i & 0xFFFF) + 32768) % 65536) - 32768) * scale;
+                }
+
+                //var sampleCount = buf.samples_count;
+
+
+                //Console.WriteLine("Read " + chn.read(buf).Length + " bytes from hardware");
+                //buf.Dispose();
+            }
+
+
             Console.WriteLine("IIO context created: " + ctx.name);
             Console.WriteLine("IIO context description: " + ctx.description);
             Console.WriteLine("IIO context has " + ctx.devices.Count + " devices:");
@@ -132,87 +218,7 @@ namespace plutotx
                     }
 
                 }
-                /* If we find cf-ad9361-lpc, try to read a few bytes from the first channel */
-                if (dev.name.CompareTo("cf-ad9361-lpc") == 0)
-                {
 
-                    /*
-    // RX stream config
-    rxcfg.bw_hz = MHZ(2);   // 2 MHz rf bandwidth
-    rxcfg.fs_hz = MHZ(2.5);   // 2.5 MS/s rx sample rate
-    rxcfg.lo_hz = GHZ(2.5); // 2.5 GHz rf frequency
-    rxcfg.rfport = "A_BALANCED"; // port A (select for rf freq.)
-                     
-
-                    _rx_channel_names = ["voltage0", "voltage1"]
-                    _tx_channel_names = ["voltage0", "voltage1"]
-                    self._ctrl = self._ctx.find_device("ad9361-phy")
-                    self._rxadc = self._ctx.find_device("cf-ad9361-lpc")
-                    self._txdac = self._ctx.find_device("cf-ad9361-dds-core-lpc")
-                        */
-
-                    var phy = ctx.get_device("ad9361-phy");
-
-                    // joint
-                    var samplehz = phy.find_channel("voltage0", false).find_attribute("sampling_frequency");
-
-                    //rx
-                    var gainmode = phy.find_channel("voltage0", false).find_attribute("gain_control_mode");
-                    gainmode.write("slow_attack");
-
-                    //manual
-                    //gain.write(40);
-
-                    var rfbw = phy.find_channel("voltage0", false).find_attribute("rf_bandwidth");
-                    var freq = phy.find_channel("altvoltage0", true).find_attribute("frequency");
-                    var gain = phy.find_channel("voltage0", true).find_attribute("hardwaregain");
-
-                    rfbw.write(5000000);
-                    samplehz.write((long)3000000);
-                    gain.write(-30);
-
-
-                    var _rx0_i = dev.find_channel("voltage0", false);
-                    var _rx0_q = dev.find_channel("voltage1", false);
-
-                    //_rx0_i.enable();
-                    //_rx0_q.enable();
-
-                    //tx
-
-                    var rfbwtx = phy.find_channel("voltage0", true).find_attribute("rf_bandwidth");
-                    var freqtx = phy.find_channel("altvoltage1", true).find_attribute("frequency");
-
-                    freqtx.write(1575420000);
-
-                    rfbwtx.write(3000000);
-
-
-                    tx = ctx.get_device("cf-ad9361-dds-core-lpc");
-
-                    var _tx0_i = tx.find_channel("voltage0", true);
-                    var _tx0_q = tx.find_channel("voltage1", true);
-
-                    _tx0_i.enable();
-                    _tx0_q.enable();
-
-                    buf = new IOBuffer(tx, 3000000 / 10);
-                    //IOBuffer buf = new IOBuffer(dev, 2000000 / 20);
-
-                    float scale = 1.0f / 32768.0f;
-
-                    float[] lut = new float[0x10000];
-                    for (UInt16 i = 0x0000; i < 0xFFFF; i++)
-                    {
-                        lut[i] = ((((i & 0xFFFF) + 32768) % 65536) - 32768) * scale;
-                    }
-
-                    //var sampleCount = buf.samples_count;
-
-
-                    //Console.WriteLine("Read " + chn.read(buf).Length + " bytes from hardware");
-                    //buf.Dispose();
-                }
                 if (dev.attrs.Count == 0)
                 {
                     continue;
