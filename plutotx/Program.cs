@@ -133,9 +133,9 @@ rxcfg.rfport = "A_BALANCED"; // port A (select for rf freq.)
                 var freq = phy.find_channel("altvoltage0", true).find_attribute("frequency");
                 var gain = phy.find_channel("voltage0", true).find_attribute("hardwaregain");
 
-                rfbw.write(3000000);
+                rfbw.write(5000000);
                 samplehz.write((long)3000000);
-                gain.write(-30);
+                gain.write(0);
 
 
                 var dev = ctx.get_device("cf-ad9361-lpc");
