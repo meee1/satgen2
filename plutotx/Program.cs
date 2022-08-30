@@ -152,7 +152,7 @@ rxcfg.rfport = "A_BALANCED"; // port A (select for rf freq.)
 
                 freqtx.write(1575420000);
 
-                rfbwtx.write(3000000);
+                rfbwtx.write(5000000);
 
 
                 tx = ctx.get_device("cf-ad9361-dds-core-lpc");
