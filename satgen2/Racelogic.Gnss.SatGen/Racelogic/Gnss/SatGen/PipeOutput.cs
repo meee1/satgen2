@@ -59,7 +59,7 @@ namespace Racelogic.Gnss.SatGen
             new NamedPipeServerStream("testpipe", PipeDirection.InOut, 1, PipeTransmissionMode.Byte,
                 PipeOptions.None, 1000, 3000000 * 2 * 2 * 2);
 	   */
-        static MemoryMappedFile mm = MemoryMappedFile.CreateOrOpen("satgen", 1024 * 1024 * 20);
+        static MemoryMappedFile mm = MemoryMappedFile.CreateOrOpen("satgen", 1024 * 1024 * 40);
         private MemoryMappedViewAccessor mmdest;
 
         public PipeOutput(string filePath, IEnumerable<SignalType> signalTypes, in int sampleRate)

@@ -27,14 +27,14 @@ namespace plutotx
             args2.Add("profile.txt");
             args2.AddRange(args);
 
+            var mm = MemoryMappedFile.CreateOrOpen("satgen", 1024 * 1024 * 40);
+
             process = System.Diagnostics.Process.Start(new ProcessStartInfo("satgen2.exe", args2.Aggregate("", (a, b) => a + " " + b))
             { UseShellExecute = true });
             process.PriorityClass = ProcessPriorityClass.High;
             Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.High;
 
             //var pipeClient = new NamedPipeClientStream(".", "testpipe", PipeDirection.InOut, PipeOptions.None, TokenImpersonationLevel.Impersonation);
-
-            var mm = MemoryMappedFile.CreateOrOpen("satgen", 1024 * 1024 * 20);
 
             var mmsrc = mm.CreateViewAccessor();
 
