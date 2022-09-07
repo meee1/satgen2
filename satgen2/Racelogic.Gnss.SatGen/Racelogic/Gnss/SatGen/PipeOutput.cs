@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.IO.MemoryMappedFiles;
 using System.IO.Pipes;
 using System.Runtime.InteropServices;
@@ -55,12 +56,15 @@ namespace Racelogic.Gnss.SatGen
 			}
 		}
 
-       /* private static NamedPipeServerStream pipeServer =
-            new NamedPipeServerStream("testpipe", PipeDirection.InOut, 1, PipeTransmissionMode.Byte,
-                PipeOptions.None, 1000, 3000000 * 2 * 2 * 2);
-	   */
-        static MemoryMappedFile mm = MemoryMappedFile.CreateOrOpen("satgen", 1024 * 1024 * 40);
-        private MemoryMappedViewAccessor mmdest;
+		/* private static NamedPipeServerStream pipeServer =
+			 new NamedPipeServerStream("testpipe", PipeDirection.InOut, 1, PipeTransmissionMode.Byte,
+				 PipeOptions.None, 1000, 3000000 * 2 * 2 * 2);
+		*/
+        private static MemoryMappedFile mm = MemoryMappedFile.CreateFromFile(
+            new FileStream("satgenmm", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite), null,
+            1024 * 1024 * 40, MemoryMappedFileAccess.ReadWrite, HandleInheritability.None, true);
+		//static MemoryMappedFile mm = MemoryMappedFile.CreateOrOpen("satgen", 1024 * 1024 * 40);
+		private MemoryMappedViewAccessor mmdest;
 
         public PipeOutput(string filePath, IEnumerable<SignalType> signalTypes, in int sampleRate)
 			: base(filePath)
@@ -73,11 +77,11 @@ namespace Racelogic.Gnss.SatGen
 		internal sealed override bool Write(SimulationSlice slice)
 		{
 			slice.State = SimulationSliceState.WritingStarted;
-			if (base.OutputFile == null && base.FilePath != null && !CreateFile(base.FilePath))
+			/*if (base.OutputFile == null && base.FilePath != null && !CreateFile(base.FilePath))
 			{
 				slice.State = SimulationSliceState.WritingFinished;
 				return false;
-			}
+			}*/
 			Memory<byte> buffer = slice.GetOutputSignal();
 			double seconds = slice.Interval.Width.Seconds;
 			int byteCount = GetOutputByteCountForInterval(in seconds);

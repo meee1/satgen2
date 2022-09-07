@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.IO.MemoryMappedFiles;
 using System.IO.Pipes;
 using System.Linq;
@@ -27,8 +28,10 @@ namespace plutotx
             args2.Add("profile.txt");
             args2.AddRange(args);
 
-            var mm = MemoryMappedFile.CreateOrOpen("satgen", 1024 * 1024 * 40);
-
+            var mm = MemoryMappedFile.CreateFromFile(
+                new FileStream("satgenmm", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite), null,
+                1024 * 1024 * 40, MemoryMappedFileAccess.ReadWrite, HandleInheritability.None, true);
+            //var mm = MemoryMappedFile.CreateOrOpen("satgen", 1024 * 1024 * 40);
             process = System.Diagnostics.Process.Start(new ProcessStartInfo("satgen2.exe", args2.Aggregate("", (a, b) => a + " " + b))
             { UseShellExecute = true });
             process.PriorityClass = ProcessPriorityClass.High;
