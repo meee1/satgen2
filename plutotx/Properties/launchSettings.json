@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "plutotx": {
+      "commandName": "Project",
+      "commandLineArgs": "-35.000 117.89 40"
+    }
+  }
+}

@@ -34,8 +34,14 @@ namespace plutotx
             //var mm = MemoryMappedFile.CreateOrOpen("satgen", 1024 * 1024 * 40);
             process = System.Diagnostics.Process.Start(new ProcessStartInfo("satgen2.exe", args2.Aggregate("", (a, b) => a + " " + b))
             { UseShellExecute = true });
-            process.PriorityClass = ProcessPriorityClass.High;
-            Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.High;
+            try
+            {
+                process.PriorityClass = ProcessPriorityClass.High;
+                Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.High;
+            }
+            catch
+            {
+            }
 
             //var pipeClient = new NamedPipeClientStream(".", "testpipe", PipeDirection.InOut, PipeOptions.None, TokenImpersonationLevel.Impersonation);
 
@@ -136,7 +142,7 @@ rxcfg.rfport = "A_BALANCED"; // port A (select for rf freq.)
                 var freq = phy.find_channel("altvoltage0", true).find_attribute("frequency");
                 var gain = phy.find_channel("voltage0", true).find_attribute("hardwaregain");
 
-                rfbw.write(5000000);
+                rfbw.write(3000000);
                 samplehz.write((long)3000000);
                 gain.write(0);
 
@@ -155,7 +161,7 @@ rxcfg.rfport = "A_BALANCED"; // port A (select for rf freq.)
 
                 freqtx.write(1575420000);
 
-                rfbwtx.write(5000000);
+                rfbwtx.write(3000000);
 
 
                 tx = ctx.get_device("cf-ad9361-dds-core-lpc");
