@@ -159,7 +159,7 @@ rxcfg.rfport = "A_BALANCED"; // port A (select for rf freq.)
                 var rfbwtx = phy.find_channel("voltage0", true).find_attribute("rf_bandwidth");
                 var freqtx = phy.find_channel("altvoltage1", true).find_attribute("frequency");
 
-                freqtx.write(1575420000);
+                freqtx.write((long)Racelogic.Gnss.FrequencyBand.GpsL1);// 1575420000);
 
                 rfbwtx.write(3000000);
 
