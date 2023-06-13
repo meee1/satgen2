@@ -88,7 +88,7 @@ namespace plutotx
                 }
                 if (buf == null)
                 {
-                    buf = new IOBuffer(tx, (uint)(length / 2 / 2));
+                    buf = new IOBuffer(tx, (uint)((length / 2 / 2) / 4));
                     //buf.set_blocking_mode(false);
                 }
 
@@ -165,9 +165,9 @@ rxcfg.rfport = "A_BALANCED"; // port A (select for rf freq.)
                 var freq = phy.find_channel("altvoltage0", true).find_attribute("frequency");
                 var gain = phy.find_channel("voltage0", true).find_attribute("hardwaregain");
 
-                rfbw.write(10500000);
-                samplehz.write((long)10500000);
-                gain.write(-10);
+                rfbw.write(21000000);
+                samplehz.write((long)21000000);
+                gain.write(0);
 
 
                 var dev = ctx.get_device("cf-ad9361-lpc");
@@ -184,7 +184,7 @@ rxcfg.rfport = "A_BALANCED"; // port A (select for rf freq.)
 
                 freqtx.write((long)Racelogic.Gnss.FrequencyBand.GpsL5);// 1575420000);
 
-                rfbwtx.write(10500000);
+                rfbwtx.write(21000000);
 
 
                 tx = ctx.get_device("cf-ad9361-dds-core-lpc");
