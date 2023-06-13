@@ -91,6 +91,12 @@
     <None Update="2022-046.alm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="2023-06-09.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="2023-164.alm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="BDS_20140912.alm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -110,6 +116,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="BDS_20210826.alm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="BDS_20230613.alm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="libgcc_s_seh-1.dll">
@@ -148,6 +157,9 @@
     <None Update="MCCJ_201114.agl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="MCCT_230613.agl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="NAV_2020-03-01.alm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -161,6 +173,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="NAV_2021-213.alm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="NAV_2023-121.alm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="nmeaInput.txt">

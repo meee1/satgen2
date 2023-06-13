@@ -1,0 +1,59 @@
+******** Week 212 almanac for PRN-02 ********
+ID:                         02
+Health:                     000
+Eccentricity:               0.2143859860E-002
+Time of Applicability(s):  86400.0000
+Orbital Inclination(rad):   0.5056103290
+Rate of Right Ascen(r/s):   0.1028614270E-009
+SQRT(A)  (m 1/2):           6493.372600
+Right Ascen at Week(rad):   0.7350243470E+000
+Argument of Perigee(rad):   3.1096862000
+Mean Anom(rad):            -0.2867433300E+001
+Af0(s):                    -0.1239776610E-004
+Af1(s/s):                  -0.2910383050E-010
+week:                        212
+
+******** Week 212 almanac for PRN-03 ********
+ID:                         03
+Health:                     000
+Eccentricity:               0.1872062680E-002
+Time of Applicability(s):  86400.0000
+Orbital Inclination(rad):   0.0637336061
+Rate of Right Ascen(r/s):   0.1142904750E-008
+SQRT(A)  (m 1/2):           6493.408200
+Right Ascen at Week(rad):  -0.1757995900E+001
+Argument of Perigee(rad):   0.0511977323
+Mean Anom(rad):            -0.3109306400E+001
+Af0(s):                    -0.6170272830E-003
+Af1(s/s):                   0.1091393640E-010
+week:                        212
+
+******** Week 212 almanac for PRN-06 ********
+ID:                         06
+Health:                     000
+Eccentricity:               0.2040386200E-002
+Time of Applicability(s):  86400.0000
+Orbital Inclination(rad):   0.0466856716
+Rate of Right Ascen(r/s):   0.1394343790E-008
+SQRT(A)  (m 1/2):           6493.294900
+Right Ascen at Week(rad):  -0.1414437800E+001
+Argument of Perigee(rad):  -2.8655446000
+Mean Anom(rad):            -0.1418791400E+001
+Af0(s):                     0.6160736080E-003
+Af1(s/s):                  -0.3637978810E-011
+week:                        212
+
+******** Week 212 almanac for PRN-09 ********
+ID:                         09
+Health:                     000
+Eccentricity:               0.1874923710E-002
+Time of Applicability(s):  86400.0000
+Orbital Inclination(rad):   0.5051006250
+Rate of Right Ascen(r/s):   0.6857428500E-010
+SQRT(A)  (m 1/2):           6493.346200
+Right Ascen at Week(rad):  -0.2189472200E+001
+Argument of Perigee(rad):  -3.0468105000
+Mean Anom(rad):            -0.6936094870E-001
+Af0(s):                     0.7877349850E-003
+Af1(s/s):                   0.1091393640E-010
+week:                        212

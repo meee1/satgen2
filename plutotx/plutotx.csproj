@@ -18,9 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="libiio-sharp">
-      <HintPath>..\satgen2\satgen2\libiio\libiio-sharp.dll</HintPath>
-    </Reference>
+    <Folder Include="csharp\examples\" />
   </ItemGroup>
 
 </Project>

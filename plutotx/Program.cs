@@ -9,6 +9,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace plutotx
 {
@@ -20,6 +21,8 @@ namespace plutotx
 
         static void Main(string[] args)
         {
+            Start();
+
             Console.WriteLine("Hello World!");
 
             Console.CancelKeyPress += Console_CancelKeyPress;
@@ -50,15 +53,35 @@ namespace plutotx
             Console.WriteLine("Connecting to server...\n");
             //pipeClient.Connect();
 
-            Start();
 
-            byte[] buffer = new byte[0];
+            Queue<byte[]> bufferlist = new Queue<byte[]>();
+
+            Task.Run(() =>
+            {
+                while (true)
+                {
+                    while (bufferlist.Count == 0)
+                        Thread.Sleep(1);
+
+                    byte[] buffer;
+                    lock (bufferlist)
+                        buffer = bufferlist.Dequeue();
+
+                    var numBytesToWrite = buffer.Length;
+
+                    var samp = numBytesToWrite / 2 / 2;
+
+                    Console.WriteLine(numBytesToWrite + " " + samp);
+                    buf.fill(buffer);
+                    buf.push((uint)samp);
+                }
+            });
 
             while (true)
             {
                 //int numBytesToWrite = pipeClient.Read(buffer, 0, buffer.Length);
                 var length = mmsrc.ReadInt32(0);
-                if(length == 0)
+                if (length == 0)
                 {
                     Thread.Sleep(1);
                     continue;
@@ -68,9 +91,8 @@ namespace plutotx
                     buf = new IOBuffer(tx, (uint)(length / 2 / 2));
                     //buf.set_blocking_mode(false);
                 }
-                
-                if (buffer.Length != length)
-                    Array.Resize(ref buffer, length);
+
+                byte[] buffer = new byte[length];
 
                 int numBytesToWrite = mmsrc.ReadArray(4, buffer, 0, length);
                 mmsrc.Write(0, 0);
@@ -79,12 +101,17 @@ namespace plutotx
                     continue;
                 }
 
-                var samp = numBytesToWrite / 2 / 2;
-
-                Console.WriteLine(numBytesToWrite + " " + samp);
-                buf.fill(buffer);
-                    buf.push((uint) samp);
+                lock (bufferlist)
+                {
+                    bufferlist.Enqueue(buffer.AsSpan().Slice((numBytesToWrite / 4) * 0, numBytesToWrite / 4).ToArray());
+                    bufferlist.Enqueue(buffer.AsSpan().Slice((numBytesToWrite / 4) * 1, numBytesToWrite / 4).ToArray());
+                    bufferlist.Enqueue(buffer.AsSpan().Slice((numBytesToWrite / 4) * 2, numBytesToWrite / 4).ToArray());
+                    bufferlist.Enqueue(buffer.AsSpan().Slice((numBytesToWrite / 4) * 3, numBytesToWrite / 4).ToArray());
+                }
             }
+
+
+
         }
 
         private static void Console_CancelKeyPress(object sender, ConsoleCancelEventArgs e)
@@ -106,7 +133,7 @@ namespace plutotx
                 return;
             }
 
-            { 
+            {
                 /*
 // RX stream config
 rxcfg.bw_hz = MHZ(2);   // 2 MHz rf bandwidth
@@ -138,9 +165,9 @@ rxcfg.rfport = "A_BALANCED"; // port A (select for rf freq.)
                 var freq = phy.find_channel("altvoltage0", true).find_attribute("frequency");
                 var gain = phy.find_channel("voltage0", true).find_attribute("hardwaregain");
 
-                rfbw.write(21000000);
+                rfbw.write(10500000);
                 samplehz.write((long)10500000);
-                gain.write(0);
+                gain.write(-10);
 
 
                 var dev = ctx.get_device("cf-ad9361-lpc");
@@ -157,7 +184,7 @@ rxcfg.rfport = "A_BALANCED"; // port A (select for rf freq.)
 
                 freqtx.write((long)Racelogic.Gnss.FrequencyBand.GpsL5);// 1575420000);
 
-                rfbwtx.write(21000000);
+                rfbwtx.write(10500000);
 
 
                 tx = ctx.get_device("cf-ad9361-dds-core-lpc");
@@ -168,7 +195,7 @@ rxcfg.rfport = "A_BALANCED"; // port A (select for rf freq.)
                 _tx0_i.enable();
                 _tx0_q.enable();
 
-                
+
                 //IOBuffer buf = new IOBuffer(dev, 2000000 / 20);
 
                 float scale = 1.0f / 32768.0f;
