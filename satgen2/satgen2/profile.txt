@@ -1,5 +1,6 @@
 [Simulation Parameters]
-Signal = GPS_L1CA,GAL_E1BC
+Signal = GPS_L5, GAL_E5
+#Signal = GPS_L1,GAL_E1
 [Receiver Dynamics]
 Static=0
 Latitude_in_deg=0.0000
@@ -25,7 +26,7 @@ Mask_in_deg=0
 [Receiver Signal and Hardware Profile]
 Attenuation = 0
 IFFreq_in_Hz = 4092000
-SampleRate_in_KHz = 12000
+SampleRate_in_KHz = 21000
 IQ_format=I
 bitPerSample = 1
 egm=EGM96

@@ -29,6 +29,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Racelogic.DataSource", "Rac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Racelogic.Gnss.LabSat", "Racelogic.Gnss.LabSat\Racelogic.Gnss.LabSat.csproj", "{94E6EC45-DF4E-45B7-ADB0-94B8EA8E4A7D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "plutoplayback", "..\plutoplayback\plutoplayback.csproj", "{485B7951-D25D-4A31-9448-7086C290994D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{94E6EC45-DF4E-45B7-ADB0-94B8EA8E4A7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94E6EC45-DF4E-45B7-ADB0-94B8EA8E4A7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94E6EC45-DF4E-45B7-ADB0-94B8EA8E4A7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{485B7951-D25D-4A31-9448-7086C290994D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{485B7951-D25D-4A31-9448-7086C290994D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{485B7951-D25D-4A31-9448-7086C290994D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{485B7951-D25D-4A31-9448-7086C290994D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

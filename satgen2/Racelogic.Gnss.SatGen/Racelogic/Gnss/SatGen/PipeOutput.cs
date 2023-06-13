@@ -5,6 +5,7 @@ using System.IO;
 using System.IO.MemoryMappedFiles;
 using System.IO.Pipes;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 namespace Racelogic.Gnss.SatGen
 {
@@ -62,7 +63,7 @@ namespace Racelogic.Gnss.SatGen
 		*/
         private static MemoryMappedFile mm = MemoryMappedFile.CreateFromFile(
             new FileStream("satgenmm", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite), null,
-            1024 * 1024 * 40, MemoryMappedFileAccess.ReadWrite, HandleInheritability.None, true);
+            1024 * 1024 * 100, MemoryMappedFileAccess.ReadWrite, HandleInheritability.None, true);
 		//static MemoryMappedFile mm = MemoryMappedFile.CreateOrOpen("satgen", 1024 * 1024 * 40);
 		private MemoryMappedViewAccessor mmdest;
 
@@ -83,18 +84,14 @@ namespace Racelogic.Gnss.SatGen
 				return false;
 			}*/
 			Memory<byte> buffer = slice.GetOutputSignal();
-			double seconds = slice.Interval.Width.Seconds;
+            double seconds = slice.Interval.Width.Seconds;
 			int byteCount = GetOutputByteCountForInterval(in seconds);
 			//bool result = WriteBuffer(in buffer, in byteCount);
             {
                 {
                     Console.WriteLine(".");
-					//if(pipeServer.IsConnected)
-					//pipeServer.Write(buffer.Span);
-                    var temp = buffer.Span.ToArray();
-					
-                    mmdest.WriteArray<byte>(4, temp, 0, byteCount);
-                    mmdest.Write(0, byteCount);
+                    mmdest.WriteArray<byte>(4, buffer.ToArray(), 0, byteCount);
+					mmdest.Write(0, byteCount);
 				}
             }
             slice.State = SimulationSliceState.WritingFinished;

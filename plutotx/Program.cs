@@ -30,7 +30,7 @@ namespace plutotx
 
             var mm = MemoryMappedFile.CreateFromFile(
                 new FileStream("satgenmm", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite), null,
-                1024 * 1024 * 40, MemoryMappedFileAccess.ReadWrite, HandleInheritability.None, true);
+                1024 * 1024 * 100, MemoryMappedFileAccess.ReadWrite, HandleInheritability.None, true);
             //var mm = MemoryMappedFile.CreateOrOpen("satgen", 1024 * 1024 * 40);
             process = System.Diagnostics.Process.Start(new ProcessStartInfo("satgen2.exe", args2.Aggregate("", (a, b) => a + " " + b))
             { UseShellExecute = true });
@@ -64,8 +64,11 @@ namespace plutotx
                     continue;
                 }
                 if (buf == null)
+                {
                     buf = new IOBuffer(tx, (uint)(length / 2 / 2));
-
+                    //buf.set_blocking_mode(false);
+                }
+                
                 if (buffer.Length != length)
                     Array.Resize(ref buffer, length);
 
@@ -73,21 +76,14 @@ namespace plutotx
                 mmsrc.Write(0, 0);
                 if (numBytesToWrite == 0)
                 {
-                    Thread.Sleep(1);
                     continue;
                 }
 
                 var samp = numBytesToWrite / 2 / 2;
 
                 Console.WriteLine(numBytesToWrite + " " + samp);
-               // try
-                {
-                    buf.fill(buffer);
+                buf.fill(buffer);
                     buf.push((uint) samp);
-                }
-                //catch
-                {
-                }
             }
         }
 
@@ -103,7 +99,7 @@ namespace plutotx
 
         public static void Start()
         {
-            Context ctx = new Context("ip:192.168.2.1");
+            Context ctx = new Context("ip:192.168.1.10");
             if (ctx == null)
             {
                 Console.WriteLine("Unable to create IIO context");
@@ -142,8 +138,8 @@ rxcfg.rfport = "A_BALANCED"; // port A (select for rf freq.)
                 var freq = phy.find_channel("altvoltage0", true).find_attribute("frequency");
                 var gain = phy.find_channel("voltage0", true).find_attribute("hardwaregain");
 
-                rfbw.write(3000000);
-                samplehz.write((long)3000000);
+                rfbw.write(21000000);
+                samplehz.write((long)10500000);
                 gain.write(0);
 
 
@@ -159,9 +155,9 @@ rxcfg.rfport = "A_BALANCED"; // port A (select for rf freq.)
                 var rfbwtx = phy.find_channel("voltage0", true).find_attribute("rf_bandwidth");
                 var freqtx = phy.find_channel("altvoltage1", true).find_attribute("frequency");
 
-                freqtx.write((long)Racelogic.Gnss.FrequencyBand.GpsL1);// 1575420000);
+                freqtx.write((long)Racelogic.Gnss.FrequencyBand.GpsL5);// 1575420000);
 
-                rfbwtx.write(3000000);
+                rfbwtx.write(21000000);
 
 
                 tx = ctx.get_device("cf-ad9361-dds-core-lpc");

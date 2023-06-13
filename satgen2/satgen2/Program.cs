@@ -270,9 +270,11 @@ namespace satgen2
             Quantization bitsPerSample = (Quantization) config.BitsPerSample;
             //var output = new LabSat3wOutput(config.OutputFile, config.SignalTypes, bitsPerSample);
 
-            //var output = new BladeRFFileOutput(config.OutputFile, config.SignalTypes, (int)MHZ(3));
+            var output = new BladeRFFileOutput(config.OutputFile, config.SignalTypes, (int)MHZ(10.5));
 
-            var output = new PipeOutput(config.OutputFile, config.SignalTypes, (int)MHZ(3));
+            //var output = new EightBitOutput(config.OutputFile, config.SignalTypes, (int)MHZ(12));
+
+            //var output = new PipeOutput(config.OutputFile, config.SignalTypes, (int)MHZ(3));
 
             Console.WriteLine(output.ChannelPlan.ToJSON());
 
@@ -283,7 +285,7 @@ namespace satgen2
             Trajectory trajectory = new NmeaFileTrajectory(in startTime, config.NmeaFile, config.GravitationalModel);
 
             //new LiveNmeaTrajectory(DateTime.Now, "df", 115200);
-            trajectory = new FakeLiveNmeaTrajectory(GnssTime.Now, 1);
+            //var trajectory = new FakeLiveNmeaTrajectory(GnssTime.Now, 1);
 
             var lat = 0.0;
             var lng = 0.0;
@@ -296,7 +298,7 @@ namespace satgen2
                 alt = double.Parse(args[3]);
             }
 
-            ((FakeLiveNmeaTrajectory)trajectory).ecef = Geodetic.FromDegrees(lat ,  lng, alt).ToEcef(Datum.WGS84, Geoid.Egm96);
+            //((FakeLiveNmeaTrajectory)trajectory).ecef = Geodetic.FromDegrees(lat ,  lng, alt).ToEcef(Datum.WGS84, Geoid.Egm96);
 
             Range<GnssTime, GnssTimeSpan> interval = trajectory.Interval;
             Console.WriteLine(interval.ToJSON());

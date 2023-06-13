@@ -86,7 +86,7 @@ internal sealed class NavigationDataL5I : NavigationDataCNav
 		int? num = ReadFEC(in firstPacketIndex);
 		while (!num.HasValue)
 		{
-			Thread.Sleep(2);
+			//Thread.Sleep(2);
 			num = ReadFEC(in firstPacketIndex);
 		}
 		firstPacketFecState = num.Value;

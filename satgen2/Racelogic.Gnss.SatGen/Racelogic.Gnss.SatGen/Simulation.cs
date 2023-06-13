@@ -411,18 +411,19 @@ public abstract class Simulation : BasePropertyChanged, IDisposable
 		if (!initialCheckPerformed)
 		{
 			initialCheckPerformed = true;
-			Task.Run(delegate
+			/*Task.Run(delegate
 			{
 				bool allowRetest = false;
 				CheckFeatures(in allowRetest);
-			});
+			});*/
 		}
-		CheckFeaturesPeriodically(in secondsFromStart);
+		//CheckFeaturesPeriodically(in secondsFromStart);
 		sliceIndex++;
 	}
 
 	private void CheckFeaturesPeriodically(in double secondsFromStart)
 	{
+		return;
 		if (!demoDurationExceeded)
 		{
 			if (secondsFromStart >= 120.0 && !demoDurationExceeded)
@@ -444,6 +445,7 @@ public abstract class Simulation : BasePropertyChanged, IDisposable
 
 	private void CheckFeatures(in bool allowRetest = true)
 	{
+		return;
 		if (SimulationParameters.LiveOutput != null && !CheckFeature(realTimeFeature))
 		{
 			bool flag = false;

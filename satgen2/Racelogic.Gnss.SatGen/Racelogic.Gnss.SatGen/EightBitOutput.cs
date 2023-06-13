@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 
 namespace Racelogic.Gnss.SatGen;
 
-internal sealed class EightBitOutput : StreamOutput
+public sealed class EightBitOutput : StreamOutput
 {
 	private readonly ChannelPlan channelPlan;
 
