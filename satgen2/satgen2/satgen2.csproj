@@ -47,25 +47,59 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Racelogic.DataTypes\Racelogic.DataTypes.csproj" />
-    <ProjectReference Include="..\Racelogic.Geodetics\Racelogic.Geodetics.csproj" />
-    <ProjectReference Include="..\Racelogic.Gnss.SatGen\Racelogic.Gnss.SatGen.csproj" />
-    <ProjectReference Include="..\Racelogic.Gnss\Racelogic.Gnss.csproj" />
-    <ProjectReference Include="..\Racelogic.Libraries.Nmea\Racelogic.Libraries.Nmea.csproj" />
-    <ProjectReference Include="..\Racelogic.Maths\Racelogic.Maths.csproj" />
-    <ProjectReference Include="..\Racelogic.Utilities.Win\Racelogic.Utilities.Win.csproj" />
-    <ProjectReference Include="..\Racelogic.Utilities\Racelogic.Utilities.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="hasp_net_windows">
-      <HintPath>bin\Debug\net5.0\hasp_net_windows.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\hasp_net_windows.dll</HintPath>
     </Reference>
     <Reference Include="libiio-sharp">
       <HintPath>libiio\libiio-sharp.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>bin\Debug\net5.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Almanacs">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Almanacs.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Comms.Serial">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Comms.Serial.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Core">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.DataSource">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.DataSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.DataTypes">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.DataTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Geodetics">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Geodetics.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Gnss">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Gnss.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Gnss.LabSat">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Gnss.LabSat.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Gnss.SatGen">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Gnss.SatGen.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Gnss.SatGen.BlackBox">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Gnss.SatGen.BlackBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Kinematics">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Kinematics.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Libraries.Nmea">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Libraries.Nmea.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Maths">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Maths.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Utilities">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Racelogic.Utilities.Win">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Racelogic\SatGen3\Racelogic.Utilities.Win.dll</HintPath>
     </Reference>
   </ItemGroup>
 

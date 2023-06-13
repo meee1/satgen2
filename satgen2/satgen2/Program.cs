@@ -26,12 +26,11 @@ using Racelogic.DataTypes;
 using Racelogic.Geodetics;
 using Racelogic.Gnss;
 using Racelogic.Gnss.SatGen;
-using Racelogic.Gnss.SatGen.Gps;
 using Racelogic.Libraries.Nmea;
 using Racelogic.Maths;
 using Racelogic.Utilities;
 using Channel = Racelogic.Gnss.SatGen.Channel;
-
+using Constellation = Racelogic.Gnss.SatGen.Constellation;
 
 namespace satgen2
 {
@@ -268,13 +267,13 @@ namespace satgen2
             string text = config.OutputFile.ToLower();
             string a = Path.GetExtension(text).ToLowerInvariant();
             Quantization bitsPerSample = (Quantization) config.BitsPerSample;
-            //var output = new LabSat3wOutput(config.OutputFile, config.SignalTypes, bitsPerSample);
+            var output = new LabSat3wOutput(config.OutputFile, config.SignalTypes, bitsPerSample);
 
             //var output = new BladeRFFileOutput(config.OutputFile, config.SignalTypes, (int)MHZ(10.5));
 
             //var output = new EightBitOutput(config.OutputFile, config.SignalTypes, (int)MHZ(12));
 
-            var output = new PipeOutput(config.OutputFile, config.SignalTypes, (int)MHZ(10.5));
+            //var output = new PipeOutput(config.OutputFile, config.SignalTypes, (int)MHZ(10.5));
 
             Console.WriteLine(output.ChannelPlan.ToJSON());
 
@@ -282,10 +281,10 @@ namespace satgen2
 
             Console.WriteLine(startTime.ToJSON());
 
-            //Trajectory trajectory = new NmeaFileTrajectory(in startTime, config.NmeaFile, config.GravitationalModel);
+            Trajectory trajectory = new NmeaFileTrajectory(in startTime, config.NmeaFile, config.GravitationalModel);
 
             //new LiveNmeaTrajectory(DateTime.Now, "df", 115200);
-            var trajectory = new FakeLiveNmeaTrajectory(GnssTime.Now, 1);
+            //var trajectory = new FakeLiveNmeaTrajectory(GnssTime.Now, 1);
 
             var lat = 0.0;
             var lng = 0.0;
@@ -305,8 +304,8 @@ namespace satgen2
 
            
 
-            IReadOnlyList<ConstellationBase> readOnlyList = ConstellationBase.Create(config.SignalTypes);
-            foreach (ConstellationBase item in readOnlyList)
+            IReadOnlyList<Constellation> readOnlyList = Constellation.Create(config.SignalTypes);
+            foreach (Constellation item in readOnlyList)
             {
                 string almanacPath = GetAlmanacPath(item.ConstellationType, config);
                 if (!item.LoadAlmanac(almanacPath, in startTime))
@@ -319,7 +318,7 @@ namespace satgen2
                     return;
                 }
 
-                AlmanacBase almanac = item.Almanac;
+                Almanac almanac = item.Almanac;
                 GnssTime simulationTime = interval.Start;
                 almanac.UpdateAlmanacForTime(in simulationTime);
                 /*
@@ -391,7 +390,7 @@ namespace satgen2
 
             //checkiio();
 
-            //DoPatch();
+            DoPatch2();
 
             simulation.Start();
             var progress = 0.0;
@@ -403,6 +402,38 @@ namespace satgen2
                 Thread.Sleep(1000);
                 Console.WriteLine("{0}  {1}  {2}  {3} {4} {5}", progress * 100.0, simulation.SimulationState, simulation.IsAlive, simulation.BufferUnderrunCount, elapesed, simtime);
             }
+        }
+
+        private static void DoPatch2()
+        {  
+
+            //Racelogic.Gnss.SatGen.Simulation.SG-RGnssSG_o
+            {
+                var original = typeof(Racelogic.Gnss.SatGen.Simulation).GetMethod("SG-RGnssSG_o", BindingFlags.NonPublic | BindingFlags.Static);
+
+                var newfunc = typeof(Program).GetMethod("returntrue", BindingFlags.NonPublic | BindingFlags.Static);
+
+                install(original, newfunc);
+            }
+
+            //Racelogic.Gnss.SatGen.Simulation.SG-RGnssSG_n
+            {
+                var original = typeof(Racelogic.Gnss.SatGen.Simulation).GetMethod("SG-RGnssSG_n", BindingFlags.NonPublic | BindingFlags.Instance);
+
+                var newfunc = typeof(Program).GetMethod("nothing", BindingFlags.NonPublic | BindingFlags.Instance);
+
+                install(original, newfunc);
+            }
+        }
+
+        private static bool returntrue(int somno) 
+        {
+            return true;
+        }
+
+        private void nothing(bool somno)
+        {
+            return;
         }
 
         private static string GetAlmanacPath(ConstellationType constellationType, ConfigFile config)
