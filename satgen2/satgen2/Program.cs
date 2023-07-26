@@ -274,7 +274,7 @@ namespace satgen2
 
             //var output = new EightBitOutput(config.OutputFile, config.SignalTypes, (int)MHZ(12));
 
-            var output = new PipeOutput(config.OutputFile, config.SignalTypes, (int)MHZ(21));
+            var output = new PipeOutput(config.OutputFile, config.SignalTypes, (int)MHZ(3));
 
             Console.WriteLine(output.ChannelPlan.ToJSON());
 

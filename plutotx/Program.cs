@@ -58,8 +58,8 @@ namespace plutotx
 
             Task.Run(() =>
             {
-                while (true)
-                {
+            while (true)
+            {
                     while (bufferlist.Count == 0)
                         Thread.Sleep(1);
 
@@ -81,7 +81,7 @@ namespace plutotx
             {
                 //int numBytesToWrite = pipeClient.Read(buffer, 0, buffer.Length);
                 var length = mmsrc.ReadInt32(0);
-                if (length == 0)
+                if(length == 0)
                 {
                     Thread.Sleep(1);
                     continue;
@@ -91,7 +91,7 @@ namespace plutotx
                     buf = new IOBuffer(tx, (uint)((length / 2 / 2) / 4));
                     //buf.set_blocking_mode(false);
                 }
-
+                
                 byte[] buffer = new byte[length];
 
                 int numBytesToWrite = mmsrc.ReadArray(4, buffer, 0, length);
@@ -107,8 +107,8 @@ namespace plutotx
                     bufferlist.Enqueue(buffer.AsSpan().Slice((numBytesToWrite / 4) * 1, numBytesToWrite / 4).ToArray());
                     bufferlist.Enqueue(buffer.AsSpan().Slice((numBytesToWrite / 4) * 2, numBytesToWrite / 4).ToArray());
                     bufferlist.Enqueue(buffer.AsSpan().Slice((numBytesToWrite / 4) * 3, numBytesToWrite / 4).ToArray());
-                }
             }
+        }
 
 
 
@@ -133,7 +133,7 @@ namespace plutotx
                 return;
             }
 
-            {
+            { 
                 /*
 // RX stream config
 rxcfg.bw_hz = MHZ(2);   // 2 MHz rf bandwidth
@@ -166,7 +166,7 @@ rxcfg.rfport = "A_BALANCED"; // port A (select for rf freq.)
                 var gain = phy.find_channel("voltage0", true).find_attribute("hardwaregain");
 
                 rfbw.write(21000000);
-                samplehz.write((long)21000000);
+                samplehz.write((long)3000000);
                 gain.write(0);
 
 
@@ -182,7 +182,7 @@ rxcfg.rfport = "A_BALANCED"; // port A (select for rf freq.)
                 var rfbwtx = phy.find_channel("voltage0", true).find_attribute("rf_bandwidth");
                 var freqtx = phy.find_channel("altvoltage1", true).find_attribute("frequency");
 
-                freqtx.write((long)Racelogic.Gnss.FrequencyBand.GpsL5);// 1575420000);
+                freqtx.write((long)Racelogic.Gnss.FrequencyBand.GpsL1);// 1575420000);
 
                 rfbwtx.write(21000000);
 
@@ -195,7 +195,7 @@ rxcfg.rfport = "A_BALANCED"; // port A (select for rf freq.)
                 _tx0_i.enable();
                 _tx0_q.enable();
 
-
+                
                 //IOBuffer buf = new IOBuffer(dev, 2000000 / 20);
 
                 float scale = 1.0f / 32768.0f;
