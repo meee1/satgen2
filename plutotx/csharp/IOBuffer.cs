@@ -22,44 +22,44 @@ namespace iio
     {
         private bool circular_buffer_pushed;
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr iio_device_create_buffer(IntPtr dev, uint samples_count,
                                   [MarshalAs(UnmanagedType.I1)] bool circular);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern void iio_buffer_destroy(IntPtr buf);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern int iio_buffer_refill(IntPtr buf);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern int iio_buffer_push_partial(IntPtr buf, uint samples_count);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr iio_buffer_start(IntPtr buf);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr iio_buffer_end(IntPtr buf);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern int iio_buffer_get_poll_fd(IntPtr buf);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern int iio_buffer_set_blocking_mode(IntPtr buf, bool blocking);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern void iio_buffer_cancel(IntPtr buf);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr iio_buffer_first(IntPtr buf, IntPtr chn);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern long iio_buffer_step(IntPtr buf);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr iio_device_get_context(IntPtr dev);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr iio_buffer_get_device(IntPtr buf);
 
         internal IntPtr buf;

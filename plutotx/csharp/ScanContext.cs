@@ -19,19 +19,19 @@ namespace iio
     {
         private IntPtr scan_block;
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr iio_create_scan_block([In] string backend, uint flags);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr iio_scan_block_get_info(IntPtr blk, uint index);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr iio_context_info_get_description(IntPtr info);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr iio_context_info_get_uri(IntPtr info);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern long iio_scan_block_scan(IntPtr blk);
 
         /// <summary>

@@ -21,4 +21,10 @@
     <Folder Include="csharp\examples\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="runme.sh">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

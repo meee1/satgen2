@@ -126,7 +126,7 @@ namespace plutotx
 
         public static void Start()
         {
-            Context ctx = new Context("ip:192.168.1.10");
+            Context ctx = new Context("ip:192.168.2.1");
             if (ctx == null)
             {
                 Console.WriteLine("Unable to create IIO context");

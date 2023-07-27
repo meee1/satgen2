@@ -16,17 +16,17 @@ namespace iio
     /// Contains the general methods from libiio.</summary>
     public static class IioLib
     {
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern void iio_strerror(int err, [In] string buf, ulong len);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         [return: MarshalAs(UnmanagedType.I1)]
         private static extern bool iio_has_backend([In] string backend);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern int iio_get_backends_count();
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr iio_get_backend(uint index);
 
         /// <summary>Calls the iio_strerror method from libiio.</summary>

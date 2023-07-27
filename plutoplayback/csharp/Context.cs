@@ -35,66 +35,66 @@ namespace iio
     {
         internal IntPtr ctx;
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr iio_create_network_context(
             [In()][MarshalAs(UnmanagedType.LPStr)] string hostname
         );
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr iio_create_context_from_uri(
             [In()][MarshalAs(UnmanagedType.LPStr)] string uri
         );
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr iio_create_default_context();
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr iio_create_local_context();
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern void iio_context_destroy(IntPtr ctx);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr iio_context_get_name(IntPtr ctx);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr iio_context_get_description(IntPtr ctx);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr iio_context_get_xml(IntPtr ctx);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern void iio_library_get_version(ref uint major, ref uint minor, [Out()] StringBuilder git_tag);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern int iio_context_get_version(IntPtr ctx, ref uint major, ref uint minor, [Out()] StringBuilder git_tag);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern uint iio_context_get_devices_count(IntPtr ctx);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr iio_context_get_device(IntPtr ctx, uint index);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         [return: MarshalAs(UnmanagedType.I1)]
         private static extern bool iio_device_is_trigger(IntPtr dev);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern int iio_context_set_timeout(IntPtr ctx, uint timeout_ms);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr iio_context_clone(IntPtr ctx);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern uint iio_context_get_attrs_count(IntPtr ctx);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern int iio_context_get_attr(IntPtr ctx, uint index, out IntPtr name_ptr, out IntPtr value_ptr);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr iio_context_find_device(IntPtr ctx, [In] string name);
 
-        [DllImport("libiio.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libiio.so.0", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr iio_context_info_get_description(IntPtr info);
 
         /// <summary>A XML representation of the current context.</summary>
