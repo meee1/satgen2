@@ -67,6 +67,7 @@ public class FakeLiveNmeaTrajectory : Trajectory, ILiveTrajectory
 	{
 		using (sampleLock.Lock())
 		{
+			Console.WriteLine("inside OnInputTimerTick");
 			inputBuffer.Push(new Pvt(in sampleTime, in ecef));
 			sampleTime += base.SampleSpan;
 			ProcessNewSample();
@@ -183,7 +184,8 @@ public class FakeLiveNmeaTrajectory : Trajectory, ILiveTrajectory
 	{
 		using (sampleLock.Lock())
 		{
-			if (!outputBuffer.Any())
+            Console.WriteLine("inside GetSamples");
+            if (!outputBuffer.Any())
 			{
 				return null;
 			}

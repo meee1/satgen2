@@ -298,7 +298,7 @@ namespace satgen2
                 alt = double.Parse(args[3]);
             }
 
-            ((FakeLiveNmeaTrajectory)trajectory).ecef = Geodetic.FromDegrees(lat ,  lng, alt).ToEcef(Datum.WGS84, Geoid.Egm96);
+            ((FakeLiveNmeaTrajectory)trajectory).ecef = Geodetic.FromDegrees(lat ,  lng, alt).ToEcef(Datum.WGS84, null/*Geoid.Egm96*/);
 
             Range<GnssTime, GnssTimeSpan> interval = trajectory.Interval;
             Console.WriteLine(interval.ToJSON());
