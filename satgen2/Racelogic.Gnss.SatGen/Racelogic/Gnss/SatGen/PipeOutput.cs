@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.IO.MemoryMappedFiles;
 using System.IO.Pipes;
@@ -88,11 +89,22 @@ namespace Racelogic.Gnss.SatGen
 			int byteCount = GetOutputByteCountForInterval(in seconds);
 			//bool result = WriteBuffer(in buffer, in byteCount);
             {
-                {
+               unsafe {
                     Console.WriteLine(".");
-                    mmdest.WriteArray<byte>(4, buffer.ToArray(), 0, byteCount);
+
+					if (byteCount > mmdest.Capacity)
+						return false;
+
+                    byte* poke = null;
+                    mmdest.SafeMemoryMappedViewHandle.AcquirePointer(ref poke);
+
+					Buffer.MemoryCopy(buffer.Pin().Pointer, poke + 4, byteCount, byteCount);
+
+                    //mmdest.WriteArray<byte>(4, buffer.ToArray(), 0, byteCount);
 					mmdest.Write(0, byteCount);
-				}
+
+					mmdest.SafeMemoryMappedViewHandle.ReleasePointer();
+                }
             }
             slice.State = SimulationSliceState.WritingFinished;
 			return true;
