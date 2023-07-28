@@ -59,7 +59,7 @@ public class FakeLiveNmeaTrajectory : Trajectory, ILiveTrajectory
 		DateTime utcTime = sampleTime.UtcTime;
 		DateTime utcDateTime = utcTime - utcTime.TimeOfDay;
 		Interval = new Range<GnssTime, GnssTimeSpan>(GnssTime.FromUtc(utcDateTime), GnssTime.MaxValue);
-		TimeSpan period = TimeSpan.FromMilliseconds((int)base.SampleSpan.TimeSpan.TotalMilliseconds + 1);
+		TimeSpan period = TimeSpan.FromMilliseconds((int)base.SampleSpan.TimeSpan.TotalMilliseconds);
 		inputTimer = new Timer(new TimerCallback(OnInputTimerTick), null, TimeSpan.Zero, period);
 	}
 
@@ -184,7 +184,6 @@ public class FakeLiveNmeaTrajectory : Trajectory, ILiveTrajectory
 	{
 		using (sampleLock.Lock())
 		{
-            Console.WriteLine("inside GetSamples");
             if (!outputBuffer.Any())
 			{
 				return null;

@@ -297,11 +297,13 @@ public abstract class Simulation : BasePropertyChanged, IDisposable
 	{
 		Range<GnssTime, GnssTimeSpan> interval = GetObservationInterval(in sliceInterval, SimulationParameters);
 		IReadOnlyList<Pvt> samples;
-		for (samples = SimulationParameters.Trajectory.GetSamples(in interval); samples == null; samples = SimulationParameters.Trajectory.GetSamples(in interval))
+        Console.WriteLine("inside GetTrajectorySlice " + interval.Start + " " + interval.Width);
+        for (samples = SimulationParameters.Trajectory.GetSamples(in interval); samples == null; samples = SimulationParameters.Trajectory.GetSamples(in interval))
 		{
-			Thread.Yield();
+			Thread.Sleep(1);
 		}
-		return samples;
+        Console.WriteLine("leave GetTrajectorySlice ");
+        return samples;
 	}
 
 	protected static void ApplySatCountLimit(IDictionary<ConstellationType, IEnumerable<SatelliteBase>> visibleSatsForAllConstellations, SimulationParams simulationParameters)
