@@ -1,6 +1,6 @@
 [Simulation Parameters]
 #Signal = GPS_L5, GAL_E5
-Signal = GPS_L1,GAL_E1
+Signal = GPS_L1CA, GAL_E1BC
 [Receiver Dynamics]
 Static=0
 Latitude_in_deg=0.0000
