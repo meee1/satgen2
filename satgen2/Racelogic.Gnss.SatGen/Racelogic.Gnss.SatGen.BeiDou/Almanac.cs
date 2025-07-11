@@ -190,7 +190,7 @@ public sealed class Almanac : AlmanacBase
 
 	internal static Almanac LoadYuma(Stream stream, in GnssTime simulationTime)
 	{
-		SatelliteBase[] array = new SatelliteBase[50];
+		SatelliteBase[] array = new SatelliteBase[100];
 		string rawAlmanac;
 		using (TextReader textReader = new StreamReader(stream, Encoding.UTF8, detectEncodingFromByteOrderMarks: true, 1024, leaveOpen: true))
 		{
