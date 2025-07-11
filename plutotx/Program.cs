@@ -71,7 +71,7 @@ namespace plutotx
 
                     var samp = numBytesToWrite / 2 / 2;
 
-                    Console.WriteLine(numBytesToWrite + " " + samp);
+                    Console.WriteLine(DateTime.UtcNow.ToString("hh:mm:ss.ffff ") + numBytesToWrite + " " + samp);
                     buf.fill(buffer);
                     buf.push((uint)samp);
                 }
@@ -89,7 +89,7 @@ namespace plutotx
                 if (buf == null)
                 {
                     buf = new IOBuffer(tx, (uint)((length / 2 / 2) / 4));
-                    //buf.set_blocking_mode(false);
+                    buf.set_blocking_mode(true);
                 }
                 
                 byte[] buffer = new byte[length];
@@ -100,6 +100,8 @@ namespace plutotx
                 {
                     continue;
                 }
+
+                Console.WriteLine(DateTime.UtcNow.ToString("hh:mm:ss.ffff ") + "put data into bufferlist");
 
                 lock (bufferlist)
                 {
