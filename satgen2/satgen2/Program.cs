@@ -298,6 +298,8 @@ namespace satgen2
                 alt = double.Parse(args[3]);
             }
 
+            Console.WriteLine("Latitude: {0}, Longitude: {1}, Altitude: {2}\n\n", lat, lng, alt);
+
             ((FakeLiveNmeaTrajectory)trajectory).ecef = Geodetic.FromDegrees(lat ,  lng, alt).ToEcef(Datum.WGS84, null/*Geoid.Egm96*/);
 
             Range<GnssTime, GnssTimeSpan> interval = trajectory.Interval;

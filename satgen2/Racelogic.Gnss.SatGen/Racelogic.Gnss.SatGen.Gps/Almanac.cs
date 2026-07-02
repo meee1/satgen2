@@ -91,9 +91,11 @@ public sealed class Almanac : AlmanacBase
 		int gpsWeek = transmissionTime.GpsWeek;
 		GnssTime gnssTime = transmissionTime + almanacAdvance;
 		GnssTime gnssTime2 = gnssTime;
-		for (int num = gpsWeek + 1; num >= gpsWeek - 1; num--)
+		standardTimesOfApplicability.Reverse();
+
+        for (int num = gpsWeek + 1; num >= gpsWeek - 1; num--)
 		{
-			foreach (int item in standardTimesOfApplicability.Reverse())
+			foreach (int item in standardTimesOfApplicability)
 			{
 				gnssTime2 = GnssTime.FromGps(num, item);
 				if (gnssTime2 <= gnssTime)
